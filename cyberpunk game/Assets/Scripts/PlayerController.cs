@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if (swingAction.WasPressedThisFrame())
+        if (swingAction.WasPressedThisFrame() && transform.childCount==0)
         {
             Vector3 locationToSpawnSwing = transform.position;
             int rotationAngle = 0;
@@ -80,29 +80,29 @@ public class PlayerController : MonoBehaviour
             //upright
             if (lastDirection.x > 0 && lastDirection.y > 0)
             {
-                locationToSpawnSwing.x += 0.1f;
-                locationToSpawnSwing.y += 0.1f;
+                locationToSpawnSwing.x += 0.071f;
+                locationToSpawnSwing.y += 0.071f;
                 rotationAngle = -45;
             }
             //downright
             if (lastDirection.x > 0 && lastDirection.y < 0)
             {
-                locationToSpawnSwing.x += 0.1f;
-                locationToSpawnSwing.y -= 0.1f;
+                locationToSpawnSwing.x += 0.071f;
+                locationToSpawnSwing.y -= 0.071f;
                 rotationAngle = -135;
             }
             //upleft
             if (lastDirection.x < 0 && lastDirection.y > 0)
             {
-                locationToSpawnSwing.x -= 0.1f;
-                locationToSpawnSwing.y += 0.1f;
+                locationToSpawnSwing.x -= 0.071f;
+                locationToSpawnSwing.y += 0.071f;
                 rotationAngle = 45;
             }
             //downleft
             if (lastDirection.x < 0 && lastDirection.y < 0)
             {
-                locationToSpawnSwing.x -= 0.1f;
-                locationToSpawnSwing.y -= 0.1f;
+                locationToSpawnSwing.x -= 0.071f;
+                locationToSpawnSwing.y -= 0.071f;
                 rotationAngle = 135;
             }
 
