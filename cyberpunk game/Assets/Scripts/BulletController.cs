@@ -16,11 +16,12 @@ public class BulletController : MonoBehaviour
     private GameObject instantiatedBullet;
 
 
-    void Start()
+    void Awake()
     {
         nextBulletIsGlitched = false;
-        bulletGroupList = new string[2]
+        bulletGroupList = new string[3]
         {
+            "EmptyBulletData",
             "TestBullet1",
             "TestBullet2",
         };
@@ -31,11 +32,11 @@ public class BulletController : MonoBehaviour
     {
         BulletDataStorage bulletData = new();
         BulletClass newBulletGroup = bulletData.EmptyBulletData();
-        if (groupname == bulletGroupList[0])
+        if (groupname == bulletGroupList[1])
         {
             newBulletGroup = bulletData.TestBulletOneData();
         }
-        else if (groupname == bulletGroupList[1])
+        else if (groupname == bulletGroupList[2])
         {
             newBulletGroup = bulletData.TestBulletTwoData();
         }

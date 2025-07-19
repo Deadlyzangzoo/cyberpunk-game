@@ -22,4 +22,10 @@ public class GameManager : MonoBehaviour
     private static GameManager _instance;
 
     public float bulletSpeedMultiplier;
+
+    private void Start()
+    {
+        GameObject BulletController = GameObject.Find("BulletController");
+        BulletController.SendMessage("StartSpawningBulletGroup","TestBulletOneData");
+    }
 }
