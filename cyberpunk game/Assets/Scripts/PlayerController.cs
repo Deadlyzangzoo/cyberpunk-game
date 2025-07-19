@@ -28,9 +28,11 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rigidBody;
     private Vector2 moveDelta;
     private Vector2 lastDirection;
+    public int health;
 
     private void Start()
     {
+        health = 100;
         rigidBody = GetComponent<Rigidbody2D>();
         boxCollider = GetComponent<BoxCollider2D>();
         moveAction = InputSystem.actions.FindAction("Move");
