@@ -15,7 +15,7 @@ public class BulletDataStorage {
         bullet.curveControlPoint = Vector3.zero;
         bullet.curveEndPoint = Vector3.zero;
         bullet.bulletDirection = new Vector2(0f,0f);
-        bullet.bulletDirectionChange = new Vector2(0f, 0f);
+        bullet.bulletDirectionChangeX = 0f;
         bullet.locationChangeBetweenBullets = Vector3.zero;
         bullet.glitchedBulletGuaranteed = false;
         bullet.glitchedBulletChance = 0f;
@@ -31,12 +31,13 @@ public class BulletDataStorage {
 
         bullet.startLocation = new Vector3(1f, 0f);
         bullet.bulletNum = 3;
-        bullet.timeBetweenBullets = 0.2f;
+        bullet.timeBetweenBullets = 0f;
         bullet.pathCurved = false;
         bullet.curveControlPoint = Vector3.zero;
         bullet.curveEndPoint = Vector3.zero;
-        bullet.bulletDirection = new Vector2(-1f, (float)-(System.Math.Tan(30)));
-        bullet.bulletDirectionChange = new Vector2(0f, (float)System.Math.Tan(30));
+        bullet.bulletDirection = new Vector2(-1f, (float)(System.Math.Tan(-10)));
+        bullet.bulletDirectionChangeX = 0f;
+        bullet.bulletDirectionChangeY = (float)System.Math.Tan(10);
         bullet.locationChangeBetweenBullets = Vector3.zero;
         bullet.glitchedBulletGuaranteed = false;
         bullet.glitchedBulletChance = 0.5f;
@@ -57,7 +58,8 @@ public class BulletDataStorage {
         bullet.curveControlPoint = Vector3.zero;
         bullet.curveEndPoint = Vector3.zero;
         bullet.bulletDirection = new Vector2(1f, (float)-(System.Math.Tan(30)));
-        bullet.bulletDirectionChange = new Vector2(0f, (float)System.Math.Tan(30));
+        bullet.bulletDirectionChangeX = 0f;
+        bullet.bulletDirectionChangeY = (float)System.Math.Tan(30);
         bullet.locationChangeBetweenBullets = Vector3.zero;
         bullet.glitchedBulletGuaranteed = false;
         bullet.glitchedBulletChance = 0.5f;

@@ -12,7 +12,8 @@ public class BulletClass
     public float timeBetweenBullets;
     public bool pathCurved;
     public Vector2 bulletDirection;
-    public Vector2 bulletDirectionChange;
+    public float bulletDirectionChangeX;
+    public float bulletDirectionChangeY;
 
     //added from bullet starting point
     public Vector3 curveControlPoint;

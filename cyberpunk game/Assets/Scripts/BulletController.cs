@@ -99,7 +99,8 @@ public class BulletController : MonoBehaviour
 
             if (index != 0)
             {
-                bulletDirection = bulletDirection + bulletGroup.bulletDirectionChange;
+                bulletDirection.x = bulletDirection.x + bulletGroup.bulletDirectionChangeX;
+                bulletDirection.y = bulletDirection.y + bulletGroup.bulletDirectionChangeY;
                 transform.position = transform.position + bulletGroup.locationChangeBetweenBullets;
             }
 
