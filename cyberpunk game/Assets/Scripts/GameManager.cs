@@ -26,6 +26,6 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         GameObject BulletController = GameObject.Find("BulletController");
-        BulletController.SendMessage("StartSpawningBulletGroup","TestBulletOneData");
+        BulletController.SendMessage("StartSpawningBulletGroup", "TestBullet1");
     }
 }

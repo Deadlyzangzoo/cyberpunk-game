@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 9099225943173677082}
   - component: {fileID: 6285545510499005752}
   - component: {fileID: 2727309812830613346}
-  m_Layer: 0
+  - component: {fileID: -8951639849171026924}
+  m_Layer: 7
   m_Name: BulletPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,7 +102,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 392
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -158,3 +159,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-8951639849171026924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5294771965086195062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15f811b8fa1bf05499172785b35c3f37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pathCurved: 0
+  curveControlPoint: {x: 0, y: 0, z: 0}
+  curveEndPoint: {x: 0, y: 0, z: 0}
+  moveDelta: {x: 0, y: 0}

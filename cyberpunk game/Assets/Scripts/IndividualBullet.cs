@@ -10,11 +10,20 @@ public class IndividualBullet : MonoBehaviour
     public Vector2 moveDelta;
     private Rigidbody2D rigidBody;
 
-    public void SetVariables(bool recievedPathCurved, Vector3 recievedCurveControlPoint, Vector3 recievedCurveEndPoint, Vector2 recievedMoveDelta)
+    public void SetPathCurved(bool recievedPathCurved)
     {
         pathCurved = recievedPathCurved;
+    }
+    public void SetCurveControlPoint(Vector3 recievedCurveControlPoint)
+    {
         curveControlPoint = recievedCurveControlPoint;
+    }
+    public void SetCurveEndPoint(Vector3 recievedCurveEndPoint)
+    {
         curveEndPoint = recievedCurveEndPoint;
+    }
+    public void SetMoveDelta(Vector2 recievedMoveDelta)
+    {
         moveDelta = recievedMoveDelta;
     }
 
@@ -24,7 +33,6 @@ public class IndividualBullet : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        rigidBody.MovePosition(rigidBody.position + moveDelta * Time.deltaTime * GameManager.Instance.bulletSpeedMultiplier);
-
+        rigidBody.MovePosition(rigidBody.position + GameManager.Instance.bulletSpeedMultiplier * Time.deltaTime * moveDelta);
     }
 }

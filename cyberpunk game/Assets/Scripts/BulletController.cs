@@ -40,7 +40,11 @@ public class BulletController : MonoBehaviour
         {
             newBulletGroup = bulletData.TestBulletTwoData();
         }
-        StartCoroutine(CreateBullets(newBulletGroup, instantiatedBullet));
+        else
+        {
+            newBulletGroup = bulletData.EmptyBulletData();
+        }
+            StartCoroutine(CreateBullets(newBulletGroup, instantiatedBullet));
     }
     private IEnumerator CreateBullets(BulletClass bulletGroup, GameObject instantiatedBullet)
     {
@@ -108,8 +112,10 @@ public class BulletController : MonoBehaviour
                 instantiatedBullet = Instantiate(bulletPrefab, transform);
             }
 
-            IndividualBullet individualBulletObject = new();
-            individualBulletObject.SetVariables(bulletGroup.pathCurved, bulletGroup.curveControlPoint, bulletGroup.curveEndPoint, bulletDirection);
+            instantiatedBullet.SendMessage("SetPathCurved", bulletGroup.pathCurved);
+            instantiatedBullet.SendMessage("SetCurveControlPoint", bulletGroup.curveControlPoint);
+            instantiatedBullet.SendMessage("SetCurveEndPoint", bulletGroup.curveEndPoint);
+            instantiatedBullet.SendMessage("SetMoveDelta", bulletDirection);
 
             bulletsRemaining -= 1;
             yield return new WaitForSeconds(bulletGroup.timeBetweenBullets);
