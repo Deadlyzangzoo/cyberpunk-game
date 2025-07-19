@@ -19,11 +19,12 @@ public class BulletController : MonoBehaviour
     void Awake()
     {
         nextBulletIsGlitched = false;
-        bulletGroupList = new string[3]
+        bulletGroupList = new string[4]
         {
             "EmptyBulletData",
             "TestBullet1",
             "TestBullet2",
+            "TestBulletCurve"
         };
     }
 
@@ -40,6 +41,10 @@ public class BulletController : MonoBehaviour
         {
             newBulletGroup = bulletData.TestBulletTwoData();
         }
+        else if (groupname == bulletGroupList[3])
+        {
+            newBulletGroup = bulletData.TestBulletCurveData();
+        }
         else
         {
             newBulletGroup = bulletData.EmptyBulletData();
@@ -48,7 +53,7 @@ public class BulletController : MonoBehaviour
     }
     private IEnumerator CreateBullets(BulletClass bulletGroup, GameObject instantiatedBullet)
     {
-        transform.position = bulletGroup.startLocation;
+        Vector3 spawnLocation = bulletGroup.startLocation;
         bulletDirection = bulletGroup.bulletDirection;
         bulletsRemaining = bulletGroup.bulletNum;
         glitchedBulletsRemaining = bulletGroup.glitchedBulletNum;
@@ -101,20 +106,21 @@ public class BulletController : MonoBehaviour
             {
                 bulletDirection.x = bulletDirection.x + bulletGroup.bulletDirectionChangeX;
                 bulletDirection.y = bulletDirection.y + bulletGroup.bulletDirectionChangeY;
-                transform.position = transform.position + bulletGroup.locationChangeBetweenBullets;
+                spawnLocation = spawnLocation + bulletGroup.locationChangeBetweenBullets;
             }
 
             if (thisBulletIsGlitched)
             {
-                instantiatedBullet = Instantiate(glitchedBulletPrefab, transform.position, Quaternion.identity);
+                instantiatedBullet = Instantiate(glitchedBulletPrefab, spawnLocation, Quaternion.identity);
             }
             else
             {
-                instantiatedBullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+                instantiatedBullet = Instantiate(bulletPrefab, spawnLocation, Quaternion.identity);
             }
 
             instantiatedBullet.SendMessage("SetPathCurved", bulletGroup.pathCurved);
-            instantiatedBullet.SendMessage("SetCurveControlPoint", bulletGroup.curveControlPoint);
+            instantiatedBullet.SendMessage("SetCurveControlPointOne", bulletGroup.curveControlPointOne);
+            instantiatedBullet.SendMessage("SetCurveControlPointTwo", bulletGroup.curveControlPointTwo);
             instantiatedBullet.SendMessage("SetCurveEndPoint", bulletGroup.curveEndPoint);
             instantiatedBullet.SendMessage("SetMoveDelta", bulletDirection);
 

@@ -16,7 +16,8 @@ public class BulletClass
     public float bulletDirectionChangeY;
 
     //added from bullet starting point
-    public Vector3 curveControlPoint;
+    public Vector3 curveControlPointOne;
+    public Vector3 curveControlPointTwo;
     public Vector3 curveEndPoint;
     public Vector3 locationChangeBetweenBullets;
 

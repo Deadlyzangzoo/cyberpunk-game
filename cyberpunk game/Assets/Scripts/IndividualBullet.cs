@@ -1,19 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class IndividualBullet : MonoBehaviour
 {
     public bool pathCurved;
-    public Vector3 curveControlPoint;
+    public Vector3 curveControlPointOne;
+    public Vector3 curveControlPointTwo;
     public Vector3 curveEndPoint;
     public Vector2 moveDelta;
     private Rigidbody2D rigidBody;
     public bool blockPathCurved;
-    public bool blockCurveControlPoint;
+    public bool blockCurveControlPointOne;
+    public bool blockCurveControlPointTwo;
     public bool blockCurveEndPoint;
     public bool blockMoveDelta;
     public bool isThisBulletGlitched;
+    public float lerp;
+
+    public Vector2 result;
+    public GameObject swingPrefab;
+    public Vector3 startLocation;
 
     public void SetPathCurved(bool recievedPathCurved)
     {
@@ -24,14 +32,23 @@ public class IndividualBullet : MonoBehaviour
         }
         
     }
-    public void SetCurveControlPoint(Vector3 recievedCurveControlPoint)
+    public void SetCurveControlPointOne(Vector3 recievedCurveControlPointOne)
     {
-        if (!blockCurveControlPoint)
+        if (!blockCurveControlPointOne)
         {
-            curveControlPoint = recievedCurveControlPoint;
-            blockCurveControlPoint = true;
+            curveControlPointOne = recievedCurveControlPointOne;
+            blockCurveControlPointOne = true;
         }
         
+    }
+    public void SetCurveControlPointTwo(Vector3 recievedCurveControlPointTwo)
+    {
+        if (!blockCurveControlPointTwo)
+        {
+            curveControlPointTwo = recievedCurveControlPointTwo;
+            blockCurveControlPointTwo = true;
+        }
+
     }
     public void SetCurveEndPoint(Vector3 recievedCurveEndPoint)
     {
@@ -54,12 +71,29 @@ public class IndividualBullet : MonoBehaviour
 
     private void Start()
     {
+        lerp = 0;
         rigidBody = GetComponent<Rigidbody2D>();
         StartCoroutine(CountDownToGettingDeleted());
+        startLocation=rigidBody.position;
     }
     private void FixedUpdate()
     {
-        rigidBody.MovePosition(rigidBody.position + GameManager.Instance.bulletSpeedMultiplier * Time.deltaTime * moveDelta);
+        if (pathCurved)
+        {
+            if (lerp < 1)
+            {
+                rigidBody.MovePosition(CalculateBezierPoint(lerp, startLocation, curveControlPointOne, curveControlPointTwo, curveEndPoint));
+                lerp += Time.deltaTime * 0.5f;
+            }
+            else
+            {
+                GameObject.Destroy(gameObject);
+            }
+        }
+        else
+        {
+            rigidBody.MovePosition(rigidBody.position + GameManager.Instance.bulletSpeedMultiplier * Time.deltaTime * moveDelta);
+        }
     }
     private IEnumerator CountDownToGettingDeleted()
     {
@@ -69,5 +103,11 @@ public class IndividualBullet : MonoBehaviour
     public void Deflect()
     {
         Debug.Log("deflect");
+    }
+
+    private Vector3 CalculateBezierPoint(float t, Vector3 p0, Vector3 p1, Vector3 p2, Vector3 p3)
+    {
+        Vector3 result = Mathf.Pow(1 - t, 3) * p0 + 3 * Mathf.Pow(1 - t, 2) * t * p1 + 3 * (1 - t) * Mathf.Pow(t, 2) * p2 + Mathf.Pow(t, 3) * p3;
+        return result;
     }
 }

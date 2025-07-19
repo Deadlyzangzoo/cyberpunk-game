@@ -12,7 +12,8 @@ public class BulletDataStorage {
         bullet.bulletNum = 0;
         bullet.timeBetweenBullets = 0f;
         bullet.pathCurved = false;
-        bullet.curveControlPoint = Vector3.zero;
+        bullet.curveControlPointOne = Vector3.zero;
+        bullet.curveControlPointTwo = Vector3.zero;
         bullet.curveEndPoint = Vector3.zero;
         bullet.bulletDirection = new Vector2(0f,0f);
         bullet.bulletDirectionChangeX = 0f;
@@ -33,7 +34,8 @@ public class BulletDataStorage {
         bullet.bulletNum = 3;
         bullet.timeBetweenBullets = 0f;
         bullet.pathCurved = false;
-        bullet.curveControlPoint = Vector3.zero;
+        bullet.curveControlPointOne = Vector3.zero;
+        bullet.curveControlPointTwo = Vector3.zero;
         bullet.curveEndPoint = Vector3.zero;
         bullet.bulletDirection = new Vector2(-0.5f, (float)(System.Math.Tan(-10)));
         bullet.bulletDirectionChangeX = 0f;
@@ -55,7 +57,8 @@ public class BulletDataStorage {
         bullet.bulletNum = 3;
         bullet.timeBetweenBullets = 0f;
         bullet.pathCurved = false;
-        bullet.curveControlPoint = Vector3.zero;
+        bullet.curveControlPointOne = Vector3.zero;
+        bullet.curveControlPointTwo = Vector3.zero;
         bullet.curveEndPoint = Vector3.zero;
         bullet.bulletDirection = new Vector2(0.5f, (float)(System.Math.Tan(-10)));
         bullet.bulletDirectionChangeX = 0f;
@@ -63,6 +66,28 @@ public class BulletDataStorage {
         bullet.locationChangeBetweenBullets = Vector3.zero;
         bullet.glitchedBulletGuaranteed = false;
         bullet.glitchedBulletChance = 1f;
+        bullet.glitchedBulletNum = 0;
+        bullet.glitchedBulletAdjacentNum = 0;
+
+        return bullet;
+    }
+    public BulletClass TestBulletCurveData()
+    {
+        BulletClass bullet = new();
+
+        bullet.startLocation = new Vector3(-2f, -0.65f);
+        bullet.bulletNum = 5;
+        bullet.timeBetweenBullets = 0.2f;
+        bullet.pathCurved = true;
+        bullet.curveControlPointOne = new Vector3(-1f, 0.9f);
+        bullet.curveControlPointTwo = new Vector3(1f, 0.9f);
+        bullet.curveEndPoint = new Vector3(2f, -0.65f);
+        bullet.bulletDirection = new Vector2(0f, 0f);
+        bullet.bulletDirectionChangeX = 0f;
+        bullet.bulletDirectionChangeY = 0f;
+        bullet.locationChangeBetweenBullets = Vector3.zero;
+        bullet.glitchedBulletGuaranteed = false;
+        bullet.glitchedBulletChance = 0.2f;
         bullet.glitchedBulletNum = 0;
         bullet.glitchedBulletAdjacentNum = 0;
 
