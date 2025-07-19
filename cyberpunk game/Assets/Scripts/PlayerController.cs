@@ -52,7 +52,6 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(health);
 
         if (swingAction.WasPressedThisFrame() && transform.childCount==0)
         {
@@ -120,5 +119,15 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(seconds);
         Destroy(swing);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.layer == 7 || collision.gameObject.layer == 8)
+        {
+            health -= 20;
+            GameObject.Destroy(collision.gameObject);
+        }
+        
     }
 }

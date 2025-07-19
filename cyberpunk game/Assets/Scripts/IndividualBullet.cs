@@ -9,11 +9,11 @@ public class IndividualBullet : MonoBehaviour
     public Vector3 curveEndPoint;
     public Vector2 moveDelta;
     private Rigidbody2D rigidBody;
-    public SpriteRenderer spriteRenderer;
     public bool blockPathCurved;
     public bool blockCurveControlPoint;
     public bool blockCurveEndPoint;
     public bool blockMoveDelta;
+    public bool isThisBulletGlitched;
 
     public void SetPathCurved(bool recievedPathCurved)
     {
@@ -54,7 +54,6 @@ public class IndividualBullet : MonoBehaviour
 
     private void Start()
     {
-        spriteRenderer.color = new Color(Random.Range(0F, 1F), Random.Range(0, 1F), Random.Range(0, 1F));
         rigidBody = GetComponent<Rigidbody2D>();
         StartCoroutine(CountDownToGettingDeleted());
     }
@@ -67,10 +66,8 @@ public class IndividualBullet : MonoBehaviour
         yield return new WaitForSeconds(20f);
         GameObject.Destroy(gameObject);
     }
-
-    private void OnCollisionEnter2D(Collision2D collision)
+    public void Deflect()
     {
-        PlayerController.Instance.health -= 20;
-        GameObject.Destroy (gameObject);
+        Debug.Log("deflect");
     }
 }

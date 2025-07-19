@@ -34,5 +34,7 @@ public class GameManager : MonoBehaviour
         BulletController.SendMessage("StartSpawningBulletGroup", "TestBullet1");
         yield return new WaitForSeconds(1);
         BulletController.SendMessage("StartSpawningBulletGroup", "TestBullet2");
+        yield return new WaitForSeconds(2);
+        StartCoroutine(FireTheTwoTestBullets());
     }
 }

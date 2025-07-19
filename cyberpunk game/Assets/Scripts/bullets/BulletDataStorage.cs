@@ -40,7 +40,7 @@ public class BulletDataStorage {
         bullet.bulletDirectionChangeY = (float)System.Math.Tan(10);
         bullet.locationChangeBetweenBullets = Vector3.zero;
         bullet.glitchedBulletGuaranteed = false;
-        bullet.glitchedBulletChance = 0.5f;
+        bullet.glitchedBulletChance = 1f;
         bullet.glitchedBulletNum = 0;
         bullet.glitchedBulletAdjacentNum = 0;
 
@@ -62,7 +62,7 @@ public class BulletDataStorage {
         bullet.bulletDirectionChangeY = (float)System.Math.Tan(10);
         bullet.locationChangeBetweenBullets = Vector3.zero;
         bullet.glitchedBulletGuaranteed = false;
-        bullet.glitchedBulletChance = 0.5f;
+        bullet.glitchedBulletChance = 1f;
         bullet.glitchedBulletNum = 0;
         bullet.glitchedBulletAdjacentNum = 0;
 

@@ -771,7 +771,7 @@ MonoBehaviour:
   glitchedBulletsRemaining: 0
   adjacentGlitchedBulletsRemaining: 0
   bulletPrefab: {fileID: 5294771965086195062, guid: 5920d90981601ff4f880ee5d1d600081, type: 3}
-  glitchedBulletPrefab: {fileID: 5294771965086195062, guid: 5920d90981601ff4f880ee5d1d600081, type: 3}
+  glitchedBulletPrefab: {fileID: 7699531422332798606, guid: bf06aaad24ed42143baf2f893e37f540, type: 3}
 --- !u!4 &1012908265
 Transform:
   m_ObjectHideFlags: 0
@@ -916,7 +916,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 512
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
