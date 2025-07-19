@@ -52,6 +52,8 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        Debug.Log(health);
+
         if (swingAction.WasPressedThisFrame() && transform.childCount==0)
         {
             Vector3 locationToSpawnSwing = transform.position;

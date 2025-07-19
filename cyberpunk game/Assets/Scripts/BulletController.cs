@@ -106,11 +106,11 @@ public class BulletController : MonoBehaviour
 
             if (thisBulletIsGlitched)
             {
-                instantiatedBullet = Instantiate(glitchedBulletPrefab, transform);
+                instantiatedBullet = Instantiate(glitchedBulletPrefab, transform.position, Quaternion.identity);
             }
             else
             {
-                instantiatedBullet = Instantiate(bulletPrefab, transform);
+                instantiatedBullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
             }
 
             instantiatedBullet.SendMessage("SetPathCurved", bulletGroup.pathCurved);

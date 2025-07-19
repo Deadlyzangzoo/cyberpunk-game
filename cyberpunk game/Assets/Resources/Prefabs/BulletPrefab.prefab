@@ -99,7 +99,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 392
@@ -175,3 +175,4 @@ MonoBehaviour:
   curveControlPoint: {x: 0, y: 0, z: 0}
   curveEndPoint: {x: 0, y: 0, z: 0}
   moveDelta: {x: 0, y: 0}
+  spriteRenderer: {fileID: 9099225943173677082}

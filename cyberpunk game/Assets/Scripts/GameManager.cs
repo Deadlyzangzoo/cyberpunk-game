@@ -25,8 +25,14 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        bulletSpeedMultiplier = 0.1f;
+        bulletSpeedMultiplier = 1f;
+        StartCoroutine(FireTheTwoTestBullets());
+    }
+    private IEnumerator FireTheTwoTestBullets()
+    {
         GameObject BulletController = GameObject.Find("BulletController");
         BulletController.SendMessage("StartSpawningBulletGroup", "TestBullet1");
+        yield return new WaitForSeconds(1);
+        BulletController.SendMessage("StartSpawningBulletGroup", "TestBullet2");
     }
 }
