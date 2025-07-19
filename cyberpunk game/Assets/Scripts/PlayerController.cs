@@ -35,6 +35,7 @@ public class PlayerController : MonoBehaviour
         boxCollider = GetComponent<BoxCollider2D>();
         moveAction = InputSystem.actions.FindAction("Move");
         swingAction = InputSystem.actions.FindAction("Attack");
+        lastDirection = new Vector3(0, 1, 0);
     }
 
     private void FixedUpdate()
@@ -51,7 +52,69 @@ public class PlayerController : MonoBehaviour
     {
         if (swingAction.WasPressedThisFrame())
         {
+            Vector3 locationToSpawnSwing = transform.position;
+            int rotationAngle = 0;
+            //right
+            if (lastDirection.x>0 && lastDirection.y == 0)
+            {
+                locationToSpawnSwing.x += 0.1f;
+                rotationAngle = -90;
+            }
+            //left
+            else if (lastDirection.x < 0 && lastDirection.y == 0)
+            {
+                locationToSpawnSwing.x -= 0.1f;
+                rotationAngle = 90;
+            }
+            //up
+            else if (lastDirection.x == 0 && lastDirection.y > 0)
+            {
+                locationToSpawnSwing.y += 0.1f;
+            }
+            //down
+            else if (lastDirection.x == 0 && lastDirection.y < 0)
+            {
+                locationToSpawnSwing.y -= 0.1f;
+                rotationAngle = 180;
+            }
+            //upright
+            if (lastDirection.x > 0 && lastDirection.y > 0)
+            {
+                locationToSpawnSwing.x += 0.1f;
+                locationToSpawnSwing.y += 0.1f;
+                rotationAngle = -45;
+            }
+            //downright
+            if (lastDirection.x > 0 && lastDirection.y < 0)
+            {
+                locationToSpawnSwing.x += 0.1f;
+                locationToSpawnSwing.y -= 0.1f;
+                rotationAngle = -135;
+            }
+            //upleft
+            if (lastDirection.x < 0 && lastDirection.y > 0)
+            {
+                locationToSpawnSwing.x -= 0.1f;
+                locationToSpawnSwing.y += 0.1f;
+                rotationAngle = 45;
+            }
+            //downleft
+            if (lastDirection.x < 0 && lastDirection.y < 0)
+            {
+                locationToSpawnSwing.x -= 0.1f;
+                locationToSpawnSwing.y -= 0.1f;
+                rotationAngle = 135;
+            }
 
+            GameObject swing = Instantiate(swingPrefab, locationToSpawnSwing, transform.localRotation, transform);
+            swing.transform.Rotate(0, 0, rotationAngle);
+            StartCoroutine(DeleteSwingAfterSeconds(0.5f, swing));
         }
+    }
+
+    IEnumerator DeleteSwingAfterSeconds(float seconds, GameObject swing)
+    {
+        yield return new WaitForSeconds(seconds);
+        Destroy(swing);
     }
 }

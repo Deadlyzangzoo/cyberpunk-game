@@ -8,13 +8,13 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - CollisionBoundary
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - Bullet
+  - GlitchedBullet
+  - Swing
   - 
   - 
   - 
