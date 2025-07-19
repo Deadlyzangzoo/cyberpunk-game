@@ -21,17 +21,16 @@ public class PlayerController : MonoBehaviour
     }
 
     private static PlayerController _instance;
+    public GameObject swingPrefab;
     private InputAction moveAction;
     private InputAction swingAction;
     private BoxCollider2D boxCollider;
     private Rigidbody2D rigidBody;
-    public SpriteRenderer spriteRenderer;
     private Vector2 moveDelta;
     private Vector2 lastDirection;
 
     private void Start()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
         rigidBody = GetComponent<Rigidbody2D>();
         boxCollider = GetComponent<BoxCollider2D>();
         moveAction = InputSystem.actions.FindAction("Move");
@@ -46,5 +45,13 @@ public class PlayerController : MonoBehaviour
             lastDirection = moveDelta;
         }
         rigidBody.MovePosition(rigidBody.position + moveDelta * Time.deltaTime);
+    }
+
+    private void Update()
+    {
+        if (swingAction.WasPressedThisFrame())
+        {
+
+        }
     }
 }
