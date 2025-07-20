@@ -10,6 +10,7 @@ public class BulletClass
     public Vector3 startLocation;
     public int bulletNum;
     public float timeBetweenBullets;
+    public float bulletTimeAlive;
     public bool pathCurved;
     public Vector2 bulletDirection;
     public float bulletDirectionChangeX;

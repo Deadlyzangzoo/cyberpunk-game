@@ -112,6 +112,15 @@ public class PlayerController : MonoBehaviour
             GameObject swing = Instantiate(swingPrefab, locationToSpawnSwing, transform.localRotation, transform);
             swing.transform.Rotate(0, 0, rotationAngle);
             StartCoroutine(DeleteSwingAfterSeconds(0.5f, swing));
+            if (GameManager.Instance.bulletSpeedMultiplier < 1)
+            {
+                GameManager.Instance.bulletSpeedMultiplier *= 1.2f;
+            }
+            else
+            {
+                GameManager.Instance.bulletSpeedMultiplier = 1;
+            }
+            
         }
     }
 
@@ -123,7 +132,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.layer == 7 || collision.gameObject.layer == 8)
+        if (collision.gameObject.layer == 7 || collision.gameObject.layer == 8 && !collision.gameObject.GetComponent<IndividualBullet>().deflected)
         {
             health -= 20;
             GameObject.Destroy(collision.gameObject);

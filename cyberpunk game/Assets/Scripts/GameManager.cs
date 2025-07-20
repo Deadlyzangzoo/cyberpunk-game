@@ -20,20 +20,56 @@ public class GameManager : MonoBehaviour
     }
 
     private static GameManager _instance;
-
     public float bulletSpeedMultiplier;
+    public bool coroutineAllowed;
 
     private void Start()
     {
-        bulletSpeedMultiplier = 1f;
-        StartCoroutine(FireTheTestBullets());
+        coroutineAllowed = true;
+        bulletSpeedMultiplier = 0.5f;
     }
-    private IEnumerator FireTheTestBullets()
+
+    private void Update()
     {
-        GameObject BulletController = GameObject.Find("BulletController");
-        yield return new WaitForSeconds(2);
-        BulletController.SendMessage("StartSpawningBulletGroup", "TestBulletCurve");
-        yield return new WaitForSeconds(2);
-        StartCoroutine(FireTheTestBullets());
+        if (coroutineAllowed && bulletSpeedMultiplier > 0.5f)
+        {
+            StartCoroutine(WaitForBulletSlowDown());
+            coroutineAllowed=false;
+        }
+        else if (bulletSpeedMultiplier < 0.5f)
+        {
+            bulletSpeedMultiplier = 0.5f;
+        }
+    }
+
+    private IEnumerator WaitForBulletSlowDown()
+    {
+        yield return new WaitForSeconds(1);
+        StartCoroutine(StartBulletSlowdown());
+    }
+    private IEnumerator StartBulletSlowdown()
+    {
+        if (bulletSpeedMultiplier > 0.5f)
+        {
+            bulletSpeedMultiplier -= 0.1f;
+            yield return new WaitForSeconds(0.01f);
+            if (bulletSpeedMultiplier < 0.5f)
+            {
+                Debug.Log("less than 0.5");
+                bulletSpeedMultiplier = 0.5f;
+                coroutineAllowed = true;
+            }
+            else
+            {
+                StartCoroutine(StartBulletSlowdown());
+            } 
+        }
+        else
+        {
+            Debug.Log("less than 0.5 intended");
+            bulletSpeedMultiplier = 0.5f;
+            coroutineAllowed = true;
+        }
+        
     }
 }

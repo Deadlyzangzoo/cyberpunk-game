@@ -9,6 +9,7 @@ public class SwingController : MonoBehaviour
         if (collision.gameObject.layer == 8)
         {
             collision.gameObject.SendMessage("Deflect");
+            GameObject.Destroy(gameObject);
         }
     }
 }

@@ -182,5 +182,11 @@ MonoBehaviour:
   blockCurveEndPoint: 0
   blockMoveDelta: 0
   isThisBulletGlitched: 1
+  lerp: 0
+  startLocation: {x: 0, y: 0, z: 0}
   result: {x: 0, y: 0}
-  swingPrefab: {fileID: 0}
+  deflected: 0
+  deflectCurveControlPointOne: {x: 0, y: 0, z: 0}
+  deflectCurveControlPointTwo: {x: 0, y: 0, z: 0}
+  deflectCurveEndPoint: {x: 0, y: 0, z: 0}
+  squarePrefab: {fileID: 6291796086882757856, guid: 64fee66637c442e488686eb296310a2a, type: 3}

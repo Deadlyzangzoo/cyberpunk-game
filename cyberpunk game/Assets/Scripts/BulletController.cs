@@ -19,12 +19,13 @@ public class BulletController : MonoBehaviour
     void Awake()
     {
         nextBulletIsGlitched = false;
-        bulletGroupList = new string[4]
+        bulletGroupList = new string[5]
         {
             "EmptyBulletData",
             "TestBullet1",
             "TestBullet2",
-            "TestBulletCurve"
+            "TestBulletCurve",
+            "BulletShortLineLeft"
         };
     }
 
