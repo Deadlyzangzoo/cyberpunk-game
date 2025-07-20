@@ -27,7 +27,7 @@ public class BulletController : MonoBehaviour
 
     void Awake()
     {
-        bulletGroupList = new string[30]
+        bulletGroupList = new string[38]
         {
             "EmptyBulletData",
             "TestBullet1",
@@ -59,6 +59,14 @@ public class BulletController : MonoBehaviour
             "BulletCircleSpamThreeRight",
             "BulletCircleSpamThreeLeft",
             "BulletWallOfDoomRight",
+            "BulletWallOfDoomTop",
+            "BulletWallOfDoomDiagonal",
+            "BulletScaryWallDiagonal",
+            "BulletUnmovingWallDiagonal",
+            "BulletTightSpaceCurveSpamOne",
+            "BulletTightSpaceCurveSpamTwo",
+            "BulletTightSpaceCurveSpamThree",
+            "BulletTightSpaceCurveSpamFour",
         };
     }
 
@@ -182,6 +190,38 @@ public class BulletController : MonoBehaviour
         else if (groupname == bulletGroupList[29])
         {
             newBulletGroup = bulletData.FirewallWallOfDoomRightData();
+        }
+        else if (groupname == bulletGroupList[30])
+        {
+            newBulletGroup = bulletData.FirewallWallOfDoomTopData();
+        }
+        else if (groupname == bulletGroupList[31])
+        {
+            newBulletGroup = bulletData.FirewallWallOfDoomDiagonalTopRightData();
+        }
+        else if (groupname == bulletGroupList[32])
+        {
+            newBulletGroup = bulletData.FirewallScaryWallDiagonalTopRightData();
+        }
+        else if (groupname == bulletGroupList[33])
+        {
+            newBulletGroup = bulletData.FirewallUnmovingWallDiagonalTopRightData();
+        }
+        else if (groupname == bulletGroupList[34])
+        {
+            newBulletGroup = bulletData.FirewallTightSpaceCurveSpamOneData();
+        }
+        else if (groupname == bulletGroupList[35])
+        {
+            newBulletGroup = bulletData.FirewallTightSpaceCurveSpamTwoData();
+        }
+        else if (groupname == bulletGroupList[36])
+        {
+            newBulletGroup = bulletData.FirewallTightSpaceCurveSpamThreeData();
+        }
+        else if (groupname == bulletGroupList[37])
+        {
+            newBulletGroup = bulletData.FirewallTightSpaceCurveSpamFourData();
         }
         else
         {

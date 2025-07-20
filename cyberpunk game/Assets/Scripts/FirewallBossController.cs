@@ -25,7 +25,7 @@ public class FirewallBossController : MonoBehaviour
 
     private void Start()
     {
-        bulletList = new string[26]
+        bulletList = new string[34]
         {
             "BulletShortLineLeft",
             "BulletShortLineRight",
@@ -53,6 +53,14 @@ public class FirewallBossController : MonoBehaviour
             "BulletCircleSpamThreeRight",
             "BulletCircleSpamThreeLeft",
             "BulletWallOfDoomRight",
+            "BulletWallOfDoomTop",
+            "BulletWallOfDoomDiagonal",
+            "BulletScaryWallDiagonal",
+            "BulletUnmovingWallDiagonal",
+            "BulletTightSpaceCurveSpamOne",
+            "BulletTightSpaceCurveSpamTwo",
+            "BulletTightSpaceCurveSpamThree",
+            "BulletTightSpaceCurveSpamFour",
         };
     }
     public void StartFight()
@@ -123,24 +131,63 @@ public class FirewallBossController : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
         StartCoroutine(SpawnCurveHell(bulletController));
-        cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(10));
+        cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(12));
         yield return cd.coroutine;
         while ((bool)cd.result != true)
         {
             yield return new WaitForEndOfFrame();
         }
-        for (int index = 0; index <= 5 - 1; index++)
+        for (int i = 0; i < 10; i++)
         {
-            StartCoroutine(SpawnWallOfDoomRight(bulletController));
-            cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(1.5f));
+            bulletController.StartSpawningBulletGroup(bulletList[25]);
+            cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(1.8f));
             yield return cd.coroutine;
             while ((bool)cd.result != true)
             {
                 yield return new WaitForEndOfFrame();
             }
         }
-        
-
+        cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(2f));
+        yield return cd.coroutine;
+        while ((bool)cd.result != true)
+        {
+            yield return new WaitForEndOfFrame();
+        }
+        for (int i = 0; i < 5; i++)
+        {
+            bulletController.StartSpawningBulletGroup(bulletList[26]);
+            cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(5f));
+            yield return cd.coroutine;
+            while ((bool)cd.result != true)
+            {
+                yield return new WaitForEndOfFrame();
+            }
+        }
+        for (int i = 0; i < 5; i++)
+        {
+            bulletController.StartSpawningBulletGroup(bulletList[27]);
+            cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(5.5f));
+            yield return cd.coroutine;
+            while ((bool)cd.result != true)
+            {
+                yield return new WaitForEndOfFrame();
+            }
+        }
+        bulletController.StartSpawningBulletGroup(bulletList[28]);
+        cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(5f));
+        yield return cd.coroutine;
+        while ((bool)cd.result != true)
+        {
+            yield return new WaitForEndOfFrame();
+        }
+        bulletController.StartSpawningBulletGroup(bulletList[29]);
+        cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(1f));
+        yield return cd.coroutine;
+        while ((bool)cd.result != true)
+        {
+            yield return new WaitForEndOfFrame();
+        }
+        StartCoroutine(SpawnTightSpaceCurveSpam(bulletController));
     }
     private IEnumerator SpawnLeftRightBulletEnclosure(BulletController bulletController)
     {
@@ -256,15 +303,29 @@ public class FirewallBossController : MonoBehaviour
         bulletController.StartSpawningBulletGroup(bulletList[23]);
         bulletController.StartSpawningBulletGroup(bulletList[24]);
     }
-
-    private IEnumerator SpawnWallOfDoomRight (BulletController bulletController)
+    private IEnumerator SpawnTightSpaceCurveSpam (BulletController bulletController)
     {
-        bulletController.StartSpawningBulletGroup(bulletList[25]);
+        bulletController.StartSpawningBulletGroup(bulletList[30]);
         CoroutineWithData cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(3f));
         yield return cd.coroutine;
         while ((bool)cd.result != true)
         {
             yield return new WaitForEndOfFrame();
         }
+        bulletController.StartSpawningBulletGroup(bulletList[31]);
+        cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(4f));
+        yield return cd.coroutine;
+        while ((bool)cd.result != true)
+        {
+            yield return new WaitForEndOfFrame();
+        }
+        bulletController.StartSpawningBulletGroup(bulletList[32]);
+        cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(4.5f));
+        yield return cd.coroutine;
+        while ((bool)cd.result != true)
+        {
+            yield return new WaitForEndOfFrame();
+        }
+        bulletController.StartSpawningBulletGroup(bulletList[33]);
     }
 }

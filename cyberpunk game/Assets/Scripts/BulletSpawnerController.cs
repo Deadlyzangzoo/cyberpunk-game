@@ -14,11 +14,6 @@ public class BulletSpawnerController : MonoBehaviour
     public GameObject glitchedBulletPrefab;
     private GameObject instantiatedBullet;
 
-    private void Start()
-    {
-        nextBulletIsGlitched = false;
-    }
-
     void StartBulletSpawning(BulletClass newBulletGroup)
     {
         StartCoroutine(CreateBullets(newBulletGroup));
@@ -27,6 +22,7 @@ public class BulletSpawnerController : MonoBehaviour
     private IEnumerator CreateBullets(BulletClass bulletGroup)
     {
         Vector3 spawnLocation = bulletGroup.startLocation;
+        nextBulletIsGlitched = false;
         bulletDirection = bulletGroup.bulletDirection;
         bulletsRemaining = bulletGroup.bulletNum;
         glitchedBulletsRemaining = bulletGroup.glitchedBulletNum;
@@ -40,9 +36,9 @@ public class BulletSpawnerController : MonoBehaviour
                 if (nextBulletIsGlitched)
                 {
                     thisBulletIsGlitched = true;
-                    adjacentGlitchedBulletsRemaining -= 1;
+                    
 
-                    if (adjacentGlitchedBulletsRemaining == 0)
+                    if (adjacentGlitchedBulletsRemaining <= 0)
                     {
                         nextBulletIsGlitched = false;
                     }
@@ -65,15 +61,15 @@ public class BulletSpawnerController : MonoBehaviour
             if (thisBulletIsGlitched)
             {
                 glitchedBulletsRemaining -= 1;
-                if (adjacentGlitchedBulletsRemaining != 0)
+                if (adjacentGlitchedBulletsRemaining > 0)
                 {
                     nextBulletIsGlitched = true;
                     adjacentGlitchedBulletsRemaining -= 1;
                 }
-            }
-            if (bulletGroup.glitchedBulletAdjacentNum != 0 && glitchedBulletsRemaining > 0 && adjacentGlitchedBulletsRemaining == 0)
-            {
-                adjacentGlitchedBulletsRemaining = bulletGroup.glitchedBulletAdjacentNum;
+                if (adjacentGlitchedBulletsRemaining == 0)
+                {
+                    nextBulletIsGlitched = false;
+                }
             }
 
             if (index != 0)
