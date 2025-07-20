@@ -27,7 +27,7 @@ public class BulletController : MonoBehaviour
 
     void Awake()
     {
-        bulletGroupList = new string[13]
+        bulletGroupList = new string[29]
         {
             "EmptyBulletData",
             "TestBullet1",
@@ -42,6 +42,22 @@ public class BulletController : MonoBehaviour
             "BulletUnmovingLineLeft",
             "BulletUnmovingLineRight",
             "BulletFlamethrowerApproach",
+            "BulletSurpriseCurveUp",
+            "BulletSurpriseCurveContinue",
+            "BulletCurveHellOne",
+            "BulletCurveHellTwo",
+            "BulletCurveHellThree",
+            "BulletCurveHellFour",
+            "BulletCurveHellFive",
+            "BulletCurveHellSix",
+            "BulletCurveHellSeven",
+            "BulletCurveHellEight",
+            "BulletCircleSpamOneRight",
+            "BulletCircleSpamOneLeft",
+            "BulletCircleSpamTwoRight",
+            "BulletCircleSpamTwoLeft",
+            "BulletCircleSpamThreeRight",
+            "BulletCircleSpamThreeLeft",
         };
     }
 
@@ -64,39 +80,103 @@ public class BulletController : MonoBehaviour
         }
         else if (groupname == bulletGroupList[4])
         {
-            newBulletGroup = bulletData.BulletShortLineLeftData();
+            newBulletGroup = bulletData.FirewallShortLineLeftData();
         }
         else if (groupname == bulletGroupList[5])
         {
-            newBulletGroup = bulletData.BulletShortLineRightData();
+            newBulletGroup = bulletData.FirewallShortLineRightData();
         }
         else if (groupname == bulletGroupList[6])
         {
-            newBulletGroup = bulletData.BulletShortLineTopData();
+            newBulletGroup = bulletData.FirewallShortLineTopData();
         }
         else if (groupname == bulletGroupList[7])
         {
-            newBulletGroup = bulletData.BulletShortLineBottomData();
+            newBulletGroup = bulletData.FirewallShortLineBottomData();
         }
         else if (groupname == bulletGroupList[8])
         {
-            newBulletGroup = bulletData.BulletDiagonalLineLeftData();
+            newBulletGroup = bulletData.FirewallDiagonalLineLeftData();
         }
         else if (groupname == bulletGroupList[9])
         {
-            newBulletGroup = bulletData.BulletDiagonalLineRightData();
+            newBulletGroup = bulletData.FirewallDiagonalLineRightData();
         }
         else if (groupname == bulletGroupList[10])
         {
-            newBulletGroup = bulletData.BulletUnmovingLineLeftData();
+            newBulletGroup = bulletData.FirewallUnmovingLineLeftData();
         }
         else if (groupname == bulletGroupList[11])
         {
-            newBulletGroup = bulletData.BulletUnmovingLineRightData();
+            newBulletGroup = bulletData.FirewallUnmovingLineRightData();
         }
         else if (groupname == bulletGroupList[12])
         {
-            newBulletGroup = bulletData.BulletFlamethrowerApproachData();
+            newBulletGroup = bulletData.FirewallFlamethrowerApproachData();
+        }
+        else if (groupname == bulletGroupList[13])
+        {
+            newBulletGroup = bulletData.FirewallSurpriseCurveUpData();
+        }
+        else if (groupname == bulletGroupList[14])
+        {
+            newBulletGroup = bulletData.FirewallContinuedCurveUpData();
+        }
+        else if (groupname == bulletGroupList[15])
+        {
+            newBulletGroup = bulletData.FirewallCurveHellOneData();
+        }
+        else if (groupname == bulletGroupList[16])
+        {
+            newBulletGroup = bulletData.FirewallCurveHellTwoData();
+        }
+        else if (groupname == bulletGroupList[17])
+        {
+            newBulletGroup = bulletData.FirewallCurveHellThreeData();
+        }
+        else if (groupname == bulletGroupList[18])
+        {
+            newBulletGroup = bulletData.FirewallCurveHellFourData();
+        }
+        else if (groupname == bulletGroupList[19])
+        {
+            newBulletGroup = bulletData.FirewallCurveHellFiveData();
+        }
+        else if (groupname == bulletGroupList[20])
+        {
+            newBulletGroup = bulletData.FirewallCurveHellSixData();
+        }
+        else if (groupname == bulletGroupList[21])
+        {
+            newBulletGroup = bulletData.FirewallCurveHellSevenData();
+        }
+        else if (groupname == bulletGroupList[22])
+        {
+            newBulletGroup = bulletData.FirewallCurveHellEightData();
+        }
+        else if (groupname == bulletGroupList[23])
+        {
+            newBulletGroup = bulletData.FirewallCircleSpamOneRightData();
+        }
+        else if (groupname == bulletGroupList[24])
+        {
+            newBulletGroup = bulletData.FirewallCircleSpamOneLeftData();
+        }
+        else if (groupname == bulletGroupList[25])
+        {
+            newBulletGroup = bulletData.FirewallCircleSpamTwoRightData();
+        }
+        else if (groupname == bulletGroupList[26])
+        {
+            newBulletGroup = bulletData.FirewallCircleSpamTwoLeftData();
+        }
+        else if (groupname == bulletGroupList[27])
+        {
+            newBulletGroup = bulletData.FirewallCircleSpamThreeRightData();
+        }
+        else if (groupname == bulletGroupList[28])
+        {
+            newBulletGroup = bulletData.FirewallCircleSpamThreeLeftData();
         }
         else
         {
