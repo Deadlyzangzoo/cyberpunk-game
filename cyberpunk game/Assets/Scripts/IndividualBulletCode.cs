@@ -11,6 +11,7 @@ public class IndividualBullet : MonoBehaviour
     public Vector3 curveEndPoint;
     public Vector2 moveDelta;
     public float timeAlive;
+    public bool bulletSolid;
     private Rigidbody2D rigidBody;
     public bool blockPathCurved;
     public bool blockCurveControlPointOne;
@@ -18,6 +19,7 @@ public class IndividualBullet : MonoBehaviour
     public bool blockCurveEndPoint;
     public bool blockMoveDelta;
     public bool blockTimeAlive;
+    public bool blockBulletSolid;
     public bool isThisBulletGlitched;
     public float lerp;
     public Vector3 startLocation;
@@ -83,6 +85,15 @@ public class IndividualBullet : MonoBehaviour
         }
 
     }
+    public void SetBulletSolid(bool recievedBulletSolid)
+    {
+        if (!blockBulletSolid)
+        {
+            bulletSolid = recievedBulletSolid;
+            blockBulletSolid = true;
+        }
+
+    }
 
     private void Start()
     {
@@ -90,6 +101,11 @@ public class IndividualBullet : MonoBehaviour
         deflected = false;
         lerp = 0;
         rigidBody = GetComponent<Rigidbody2D>();
+        if (bulletSolid)
+        {
+            gameObject.layer = 3;
+            GameObject.Destroy(rigidBody);
+        }
         StartCoroutine(CountDownToGettingDeleted(timeAlive));
         startLocation=rigidBody.position;
     }

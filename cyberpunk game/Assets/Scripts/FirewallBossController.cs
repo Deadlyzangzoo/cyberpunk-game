@@ -188,6 +188,13 @@ public class FirewallBossController : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
         StartCoroutine(SpawnTightSpaceCurveSpam(bulletController));
+        cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(18f));
+        yield return cd.coroutine;
+        while ((bool)cd.result != true)
+        {
+            yield return new WaitForEndOfFrame();
+        }
+        StartCoroutine(SpawnBullets());
     }
     private IEnumerator SpawnLeftRightBulletEnclosure(BulletController bulletController)
     {

@@ -19,6 +19,7 @@ public class BulletSpawnerController : MonoBehaviour
         StartCoroutine(CreateBullets(newBulletGroup));
     }
 
+
     private IEnumerator CreateBullets(BulletClass bulletGroup)
     {
         Vector3 spawnLocation = bulletGroup.startLocation;
@@ -94,6 +95,7 @@ public class BulletSpawnerController : MonoBehaviour
             instantiatedBullet.SendMessage("SetCurveEndPoint", bulletGroup.curveEndPoint);
             instantiatedBullet.SendMessage("SetMoveDelta", bulletDirection);
             instantiatedBullet.SendMessage("SetTimeAlive", bulletGroup.bulletTimeAlive);
+            instantiatedBullet.SendMessage("SetBulletSolid", bulletGroup.bulletSolid);
 
             bulletsRemaining -= 1;
             if (bulletGroup.timeBetweenBullets > 0)
