@@ -153,7 +153,11 @@ public class IndividualBullet : MonoBehaviour
     private IEnumerator CountDownToGettingDeleted(float timeAlive)
     {
         yield return new WaitForSeconds((float)timeAlive);
-        GameObject.Destroy(gameObject);
+        if (!deflected)
+        {
+            GameObject.Destroy(gameObject);
+        }
+        
     }
     public void Deflect()
     {

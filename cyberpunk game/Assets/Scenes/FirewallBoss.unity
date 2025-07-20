@@ -266,6 +266,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8743222062812241846, guid: 4ed277dceb551864b90c1a679994816f, type: 3}
+      propertyPath: bulletSpawnerPrefab
+      value: 
+      objectReference: {fileID: 5182425652197963597, guid: 8ab9fd0b1447abc40829e5b4b1c760dd, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
