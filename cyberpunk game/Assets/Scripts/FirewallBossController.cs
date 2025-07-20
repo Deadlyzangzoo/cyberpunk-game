@@ -1,13 +1,36 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class FirewallBossController : MonoBehaviour
 {
+    public static FirewallBossController Instance
+    {
+        get
+        {
+            if (_instance == null)
+                _instance = FindObjectOfType(typeof(FirewallBossController)) as FirewallBossController;
+
+            return _instance;
+        }
+        set
+        {
+            _instance = value;
+        }
+    }
+    private static FirewallBossController _instance;
+
     public string[] bulletList;
     private void Start()
     {
-        
+        bulletList = new string[4]
+        {
+            "BulletShortLineLeft",
+            "BulletShortLineRight",
+            "BulletShortLineTop",
+            "BulletShortLineBottom"
+        };
     }
     public void StartFight()
     {
@@ -16,6 +39,23 @@ public class FirewallBossController : MonoBehaviour
 
     private IEnumerator SpawnBullets()
     {
+        BulletController bulletController = BulletController.Instance;
+        yield return new WaitForSeconds(1);
+        StartCoroutine(SpawnLeftRightBulletEnclosure(bulletController));
+        yield return new WaitForSeconds(2);
+        StartCoroutine(SpawnTopBottomBulletEnclosure(bulletController));
+    }
 
+    private IEnumerator SpawnLeftRightBulletEnclosure(BulletController bulletController)
+    {
+        bulletController.StartSpawningBulletGroup(bulletList[0]);
+        yield return new WaitForSeconds(4);
+        bulletController.StartSpawningBulletGroup(bulletList[1]);
+    }
+    private IEnumerator SpawnTopBottomBulletEnclosure(BulletController bulletController)
+    {
+        bulletController.StartSpawningBulletGroup(bulletList[2]);
+        yield return new WaitForSeconds(4);
+        bulletController.StartSpawningBulletGroup(bulletList[3]);
     }
 }

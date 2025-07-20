@@ -4,6 +4,23 @@ using UnityEngine;
 
 public class BulletController : MonoBehaviour
 {
+    public static BulletController Instance
+    {
+        get
+        {
+            if (_instance == null)
+                _instance = FindObjectOfType(typeof(BulletController)) as BulletController;
+
+            return _instance;
+        }
+        set
+        {
+            _instance = value;
+        }
+    }
+
+    private static BulletController _instance;
+
     public string[] bulletGroupList;
     public Vector2 bulletDirection;
     public bool thisBulletIsGlitched;
@@ -18,14 +35,18 @@ public class BulletController : MonoBehaviour
 
     void Awake()
     {
+
         nextBulletIsGlitched = false;
-        bulletGroupList = new string[5]
+        bulletGroupList = new string[8]
         {
             "EmptyBulletData",
             "TestBullet1",
             "TestBullet2",
             "TestBulletCurve",
-            "BulletShortLineLeft"
+            "BulletShortLineLeft",
+            "BulletShortLineRight",
+            "BulletShortLineTop",
+            "BulletShortLineBottom"
         };
     }
 
@@ -45,6 +66,22 @@ public class BulletController : MonoBehaviour
         else if (groupname == bulletGroupList[3])
         {
             newBulletGroup = bulletData.TestBulletCurveData();
+        }
+        else if (groupname == bulletGroupList[4])
+        {
+            newBulletGroup = bulletData.BulletShortLineLeftData();
+        }
+        else if (groupname == bulletGroupList[5])
+        {
+            newBulletGroup = bulletData.BulletShortLineRightData();
+        }
+        else if (groupname == bulletGroupList[6])
+        {
+            newBulletGroup = bulletData.BulletShortLineTopData();
+        }
+        else if (groupname == bulletGroupList[7])
+        {
+            newBulletGroup = bulletData.BulletShortLineBottomData();
         }
         else
         {
@@ -124,6 +161,7 @@ public class BulletController : MonoBehaviour
             instantiatedBullet.SendMessage("SetCurveControlPointTwo", bulletGroup.curveControlPointTwo);
             instantiatedBullet.SendMessage("SetCurveEndPoint", bulletGroup.curveEndPoint);
             instantiatedBullet.SendMessage("SetMoveDelta", bulletDirection);
+            instantiatedBullet.SendMessage("SetTimeAlive", bulletGroup.bulletTimeAlive);
 
             bulletsRemaining -= 1;
             yield return new WaitForSeconds(bulletGroup.timeBetweenBullets);

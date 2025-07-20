@@ -10,12 +10,14 @@ public class IndividualBullet : MonoBehaviour
     public Vector3 curveControlPointTwo;
     public Vector3 curveEndPoint;
     public Vector2 moveDelta;
+    public float timeAlive;
     private Rigidbody2D rigidBody;
     public bool blockPathCurved;
     public bool blockCurveControlPointOne;
     public bool blockCurveControlPointTwo;
     public bool blockCurveEndPoint;
     public bool blockMoveDelta;
+    public bool blockTimeAlive;
     public bool isThisBulletGlitched;
     public float lerp;
     public Vector3 startLocation;
@@ -72,6 +74,15 @@ public class IndividualBullet : MonoBehaviour
         }
         
     }
+    public void SetTimeAlive(float recievedTimeAlive)
+    {
+        if (!blockTimeAlive)
+        {
+            timeAlive = recievedTimeAlive;
+            blockTimeAlive = true;
+        }
+
+    }
 
     private void Start()
     {
@@ -79,7 +90,7 @@ public class IndividualBullet : MonoBehaviour
         deflected = false;
         lerp = 0;
         rigidBody = GetComponent<Rigidbody2D>();
-        StartCoroutine(CountDownToGettingDeleted());
+        StartCoroutine(CountDownToGettingDeleted(timeAlive));
         startLocation=rigidBody.position;
     }
     private void FixedUpdate()
@@ -139,9 +150,9 @@ public class IndividualBullet : MonoBehaviour
             }
         }
     }
-    private IEnumerator CountDownToGettingDeleted()
+    private IEnumerator CountDownToGettingDeleted(float timeAlive)
     {
-        yield return new WaitForSeconds(20f);
+        yield return new WaitForSeconds((float)timeAlive);
         GameObject.Destroy(gameObject);
     }
     public void Deflect()

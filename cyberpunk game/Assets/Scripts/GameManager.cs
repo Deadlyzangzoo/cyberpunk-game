@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        FirewallBossController.Instance.StartFight();
         coroutineAllowed = true;
         bulletSpeedMultiplier = 0.5f;
     }
@@ -55,7 +56,6 @@ public class GameManager : MonoBehaviour
             yield return new WaitForSeconds(0.01f);
             if (bulletSpeedMultiplier < 0.5f)
             {
-                Debug.Log("less than 0.5");
                 bulletSpeedMultiplier = 0.5f;
                 coroutineAllowed = true;
             }
@@ -66,7 +66,6 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("less than 0.5 intended");
             bulletSpeedMultiplier = 0.5f;
             coroutineAllowed = true;
         }
