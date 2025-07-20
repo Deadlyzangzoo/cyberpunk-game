@@ -290,7 +290,7 @@ public class BulletDataStorage {
         bullet.startLocation = new Vector3(0.9f, 0.52f);
         bullet.bulletNum = 50;
         bullet.timeBetweenBullets = 0.08f;
-        bullet.bulletTimeAlive = 5f;
+        bullet.bulletTimeAlive = 3.5f;
         bullet.pathCurved = false;
         bullet.curveControlPointOne = new Vector3(0f, 0f);
         bullet.curveControlPointTwo = new Vector3(0f, 0f);

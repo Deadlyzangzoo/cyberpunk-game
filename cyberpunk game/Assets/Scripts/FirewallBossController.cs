@@ -22,6 +22,7 @@ public class FirewallBossController : MonoBehaviour
     private static FirewallBossController _instance;
 
     public string[] bulletList;
+
     private void Start()
     {
         bulletList = new string[9]
@@ -41,38 +42,83 @@ public class FirewallBossController : MonoBehaviour
     {
         StartCoroutine(SpawnBullets());
     }
+    private IEnumerator WaitForSecondsWithBulletSpeedUp(float timeWait)
+    {
+        float timePassed = 0f;
+        while (timePassed < timeWait)
+        {
+            yield return new WaitForEndOfFrame();
+            timePassed = timePassed + (Time.deltaTime * (GameManager.Instance.bulletSpeedMultiplier / 0.5f));
+        }
+        yield return true;
+    }
 
     private IEnumerator SpawnBullets()
     {
         BulletController bulletController = BulletController.Instance;
-        yield return new WaitForSeconds(1);
+        CoroutineWithData cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(1));
+        yield return cd.coroutine;
+        while ((bool)cd.result != true)
+        {
+            yield return new WaitForEndOfFrame();
+        }
         StartCoroutine(SpawnAllDirectionBulletEnclosure(bulletController));
-        yield return new WaitForSeconds(7);
-        bulletController.StartSpawningBulletGroup(bulletList[4]);
-        bulletController.StartSpawningBulletGroup(bulletList[5]);
-        yield return new WaitForSeconds(3);
-        bulletController.StartSpawningBulletGroup(bulletList[6]);
-        bulletController.StartSpawningBulletGroup(bulletList[7]);
-        bulletController.StartSpawningBulletGroup(bulletList[8]);
+        cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(7));
+        yield return cd.coroutine;
+        while ((bool)cd.result != true)
+        {
+            yield return new WaitForEndOfFrame();
+        }
+        StartCoroutine(SpawnFlamethrowerTrap(bulletController));
     }
-
     private IEnumerator SpawnLeftRightBulletEnclosure(BulletController bulletController)
     {
         bulletController.StartSpawningBulletGroup(bulletList[0]);
-        yield return new WaitForSeconds(4);
+        CoroutineWithData cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(4));
+        yield return cd.coroutine;
+        while ((bool)cd.result != true)
+        {
+            yield return new WaitForEndOfFrame();
+        }
         bulletController.StartSpawningBulletGroup(bulletList[1]);
     }
     private IEnumerator SpawnTopBottomBulletEnclosure(BulletController bulletController)
     {
         bulletController.StartSpawningBulletGroup(bulletList[2]);
-        yield return new WaitForSeconds(4);
+        CoroutineWithData cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(4));
+        yield return cd.coroutine;
+        while ((bool)cd.result != true)
+        {
+            yield return new WaitForEndOfFrame();
+        }
         bulletController.StartSpawningBulletGroup(bulletList[3]);
     }
 
+    //lasts 7.5s
     private IEnumerator SpawnAllDirectionBulletEnclosure(BulletController bulletController)
     {
         StartCoroutine(SpawnLeftRightBulletEnclosure(bulletController));
-        yield return new WaitForSeconds(2);
+        CoroutineWithData cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(2));
+        yield return cd.coroutine;
+        while ((bool)cd.result != true)
+        {
+            yield return new WaitForEndOfFrame();
+        }
         StartCoroutine(SpawnTopBottomBulletEnclosure(bulletController));
+    }
+
+    private IEnumerator SpawnFlamethrowerTrap(BulletController bulletController)
+    {
+        bulletController.StartSpawningBulletGroup(bulletList[4]);
+        bulletController.StartSpawningBulletGroup(bulletList[5]);
+        CoroutineWithData cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(3));
+        yield return cd.coroutine;
+        while ((bool)cd.result != true)
+        {
+            yield return new WaitForEndOfFrame();
+        }
+        bulletController.StartSpawningBulletGroup(bulletList[6]);
+        bulletController.StartSpawningBulletGroup(bulletList[7]);
+        bulletController.StartSpawningBulletGroup(bulletList[8]);
     }
 }

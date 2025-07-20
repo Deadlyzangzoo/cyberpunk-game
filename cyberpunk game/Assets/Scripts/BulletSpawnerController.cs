@@ -101,7 +101,12 @@ public class BulletSpawnerController : MonoBehaviour
             bulletsRemaining -= 1;
             if (bulletGroup.timeBetweenBullets > 0)
             {
-                yield return new WaitForSeconds(bulletGroup.timeBetweenBullets);
+                CoroutineWithData cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(bulletGroup.timeBetweenBullets));
+                yield return cd.coroutine;
+                while ((bool)cd.result != true)
+                {
+                    yield return new WaitForEndOfFrame();
+                }
             }
             thisBulletIsGlitched = false;
         }
@@ -118,5 +123,16 @@ public class BulletSpawnerController : MonoBehaviour
         {
             return false;
         }
+    }
+
+    private IEnumerator WaitForSecondsWithBulletSpeedUp(float timeWait)
+    {
+        float timePassed = 0f;
+        while (timePassed < timeWait)
+        {
+            yield return new WaitForEndOfFrame();
+            timePassed = timePassed + (Time.deltaTime * (GameManager.Instance.bulletSpeedMultiplier / 0.5f));
+        }
+        yield return true;
     }
 }
