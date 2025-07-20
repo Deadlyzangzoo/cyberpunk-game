@@ -30,6 +30,7 @@ public class BulletSpawnerController : MonoBehaviour
         bulletDirection = bulletGroup.bulletDirection;
         bulletsRemaining = bulletGroup.bulletNum;
         glitchedBulletsRemaining = bulletGroup.glitchedBulletNum;
+        adjacentGlitchedBulletsRemaining = bulletGroup.glitchedBulletAdjacentNum;
 
         for (int index = 0; index <= bulletGroup.bulletNum - 1; index++)
         {
@@ -52,7 +53,7 @@ public class BulletSpawnerController : MonoBehaviour
                     thisBulletIsGlitched = true;
                 }
 
-                else
+                else if (glitchedBulletsRemaining != 0)
                 {
                     thisBulletIsGlitched = RandomlyDecideWhetherThisBulletIsGlitched(bulletGroup);
                 }
@@ -64,13 +65,13 @@ public class BulletSpawnerController : MonoBehaviour
             if (thisBulletIsGlitched)
             {
                 glitchedBulletsRemaining -= 1;
-                if (bulletGroup.glitchedBulletAdjacentNum != 0)
+                if (adjacentGlitchedBulletsRemaining != 0)
                 {
                     nextBulletIsGlitched = true;
                     adjacentGlitchedBulletsRemaining -= 1;
                 }
             }
-            if (bulletGroup.glitchedBulletAdjacentNum != 0 && glitchedBulletsRemaining != 0 && adjacentGlitchedBulletsRemaining == 0)
+            if (bulletGroup.glitchedBulletAdjacentNum != 0 && glitchedBulletsRemaining > 0 && adjacentGlitchedBulletsRemaining == 0)
             {
                 adjacentGlitchedBulletsRemaining = bulletGroup.glitchedBulletAdjacentNum;
             }

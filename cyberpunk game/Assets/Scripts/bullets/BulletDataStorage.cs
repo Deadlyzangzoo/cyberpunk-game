@@ -675,4 +675,27 @@ public class BulletDataStorage {
 
         return bullet;
     }
+    public BulletClass FirewallWallOfDoomRightData()
+    {
+        BulletClass bullet = new();
+
+        bullet.startLocation = new Vector3(2.5f, 0.5f);
+        bullet.bulletNum = 21;
+        bullet.timeBetweenBullets = 0f;
+        bullet.bulletTimeAlive = 5f;
+        bullet.pathCurved = false;
+        bullet.curveControlPointOne = new Vector3(0f, 0f);
+        bullet.curveControlPointTwo = new Vector3(0f, 0f);
+        bullet.curveEndPoint = new Vector3(0f, 0f);
+        bullet.bulletDirection = new Vector2(-1.5f, 0f);
+        bullet.bulletDirectionChangeX = 0f;
+        bullet.bulletDirectionChangeY = 0f;
+        bullet.locationChangeBetweenBullets = new Vector3(0f, -0.08f);
+        bullet.glitchedBulletGuaranteed = true;
+        bullet.glitchedBulletChance = 0.2f;
+        bullet.glitchedBulletNum = 5;
+        bullet.glitchedBulletAdjacentNum = 5;
+
+        return bullet;
+    }
 }

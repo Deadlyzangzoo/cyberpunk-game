@@ -22,9 +22,11 @@ public class GameManager : MonoBehaviour
     private static GameManager _instance;
     public float bulletSpeedMultiplier;
     public bool coroutineAllowed;
+    private float time;
 
     private void Start()
     {
+        time = 0;
         FirewallBossController.Instance.StartFight();
         coroutineAllowed = true;
         bulletSpeedMultiplier = 0.5f;
@@ -32,6 +34,8 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        time = time + Time.deltaTime;
+        //Debug.Log(time);
         if (coroutineAllowed && bulletSpeedMultiplier > 0.5f)
         {
             StartCoroutine(WaitForBulletSlowDown());

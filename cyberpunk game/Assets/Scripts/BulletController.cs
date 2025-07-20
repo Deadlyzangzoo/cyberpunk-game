@@ -27,7 +27,7 @@ public class BulletController : MonoBehaviour
 
     void Awake()
     {
-        bulletGroupList = new string[29]
+        bulletGroupList = new string[30]
         {
             "EmptyBulletData",
             "TestBullet1",
@@ -58,6 +58,7 @@ public class BulletController : MonoBehaviour
             "BulletCircleSpamTwoLeft",
             "BulletCircleSpamThreeRight",
             "BulletCircleSpamThreeLeft",
+            "BulletWallOfDoomRight",
         };
     }
 
@@ -177,6 +178,10 @@ public class BulletController : MonoBehaviour
         else if (groupname == bulletGroupList[28])
         {
             newBulletGroup = bulletData.FirewallCircleSpamThreeLeftData();
+        }
+        else if (groupname == bulletGroupList[29])
+        {
+            newBulletGroup = bulletData.FirewallWallOfDoomRightData();
         }
         else
         {
