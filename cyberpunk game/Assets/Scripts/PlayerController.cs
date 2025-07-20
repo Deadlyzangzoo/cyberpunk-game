@@ -112,13 +112,18 @@ public class PlayerController : MonoBehaviour
             GameObject swing = Instantiate(swingPrefab, locationToSpawnSwing, transform.localRotation, transform);
             swing.transform.Rotate(0, 0, rotationAngle);
             StartCoroutine(DeleteSwingAfterSeconds(0.5f, swing));
-            if (GameManager.Instance.bulletSpeedMultiplier < 1)
+            if (GameManager.Instance.bulletSpeedMultiplier < 1f)
             {
                 GameManager.Instance.bulletSpeedMultiplier *= 1.2f;
+
+                if (GameManager.Instance.bulletSpeedMultiplier > 1f)
+                {
+                    GameManager.Instance.bulletSpeedMultiplier = 1f;
+                }
             }
             else
             {
-                GameManager.Instance.bulletSpeedMultiplier = 1;
+                GameManager.Instance.bulletSpeedMultiplier = 1f;
             }
             
         }

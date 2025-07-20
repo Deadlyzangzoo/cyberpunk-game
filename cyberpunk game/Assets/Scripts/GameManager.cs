@@ -45,23 +45,23 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator WaitForBulletSlowDown()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(3);
         StartCoroutine(StartBulletSlowdown());
     }
     private IEnumerator StartBulletSlowdown()
     {
         if (bulletSpeedMultiplier > 0.5f)
         {
-            bulletSpeedMultiplier -= 0.1f;
-            yield return new WaitForSeconds(0.01f);
-            if (bulletSpeedMultiplier < 0.5f)
+            bulletSpeedMultiplier = bulletSpeedMultiplier - 0.1f;
+            yield return new WaitForSeconds(0.5f);
+            if (bulletSpeedMultiplier > 0.5f)
             {
-                bulletSpeedMultiplier = 0.5f;
-                coroutineAllowed = true;
+                StartCoroutine(StartBulletSlowdown());
             }
             else
             {
-                StartCoroutine(StartBulletSlowdown());
+                bulletSpeedMultiplier = 0.5f;
+                coroutineAllowed = true;
             } 
         }
         else

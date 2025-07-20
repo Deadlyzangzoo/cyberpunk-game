@@ -152,7 +152,12 @@ public class IndividualBullet : MonoBehaviour
     }
     private IEnumerator CountDownToGettingDeleted(float timeAlive)
     {
-        yield return new WaitForSeconds((float)timeAlive);
+        float timePassed = 0f;
+        while (timePassed < timeAlive)
+        {
+            yield return new WaitForEndOfFrame();
+            timePassed = (Time.deltaTime + timePassed) * GameManager.Instance.bulletSpeedMultiplier/0.5f;
+        }
         if (!deflected)
         {
             GameObject.Destroy(gameObject);

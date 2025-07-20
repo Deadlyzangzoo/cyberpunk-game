@@ -149,7 +149,7 @@ public class BulletDataStorage {
 
         bullet.startLocation = new Vector3(-2.3f, 0.6f);
         bullet.bulletNum = 60;
-        bullet.timeBetweenBullets = 0f;
+        bullet.timeBetweenBullets = 0.005f;
         bullet.bulletTimeAlive = 1.5f;
         bullet.pathCurved = false;
         bullet.curveControlPointOne = new Vector3(0f, 0f);
@@ -172,7 +172,7 @@ public class BulletDataStorage {
 
         bullet.startLocation = new Vector3(2.3f, -1.2f);
         bullet.bulletNum = 60;
-        bullet.timeBetweenBullets = 0f;
+        bullet.timeBetweenBullets = 0.005f;
         bullet.bulletTimeAlive = 1.5f;
         bullet.pathCurved = false;
         bullet.curveControlPointOne = new Vector3(0f, 0f);
@@ -184,6 +184,123 @@ public class BulletDataStorage {
         bullet.locationChangeBetweenBullets = new Vector3(-0.08f, 0f);
         bullet.glitchedBulletGuaranteed = false;
         bullet.glitchedBulletChance = 0.2f;
+        bullet.glitchedBulletNum = 0;
+        bullet.glitchedBulletAdjacentNum = 0;
+
+        return bullet;
+    }
+
+    public BulletClass BulletDiagonalLineLeftData()
+    {
+        BulletClass bullet = new();
+
+        bullet.startLocation = new Vector3(-2.4f, 0.52f);
+        bullet.bulletNum = 21;
+        bullet.timeBetweenBullets = 0.08f;
+        bullet.bulletTimeAlive = 3f;
+        bullet.pathCurved = false;
+        bullet.curveControlPointOne = new Vector3(0f, 0f);
+        bullet.curveControlPointTwo = new Vector3(0f, 0f);
+        bullet.curveEndPoint = new Vector3(0f, 0f);
+        bullet.bulletDirection = new Vector2(1f, 0f);
+        bullet.bulletDirectionChangeX = 0f;
+        bullet.bulletDirectionChangeY = 0f;
+        bullet.locationChangeBetweenBullets = new Vector3(0f, -0.08f);
+        bullet.glitchedBulletGuaranteed = false;
+        bullet.glitchedBulletChance = 0f;
+        bullet.glitchedBulletNum = 0;
+        bullet.glitchedBulletAdjacentNum = 0;
+
+        return bullet;
+    }
+    public BulletClass BulletDiagonalLineRightData()
+    {
+        BulletClass bullet = new();
+
+        bullet.startLocation = new Vector3(2.4f, 0.52f);
+        bullet.bulletNum = 21;
+        bullet.timeBetweenBullets = 0.08f;
+        bullet.bulletTimeAlive = 3f;
+        bullet.pathCurved = false;
+        bullet.curveControlPointOne = new Vector3(0f, 0f);
+        bullet.curveControlPointTwo = new Vector3(0f, 0f);
+        bullet.curveEndPoint = new Vector3(0f, 0f);
+        bullet.bulletDirection = new Vector2(-1f, 0f);
+        bullet.bulletDirectionChangeX = 0f;
+        bullet.bulletDirectionChangeY = 0f;
+        bullet.locationChangeBetweenBullets = new Vector3(0f, -0.08f);
+        bullet.glitchedBulletGuaranteed = false;
+        bullet.glitchedBulletChance = 0f;
+        bullet.glitchedBulletNum = 0;
+        bullet.glitchedBulletAdjacentNum = 0;
+
+        return bullet;
+    }
+
+    public BulletClass BulletUnmovingLineLeftData()
+    {
+        BulletClass bullet = new();
+
+        bullet.startLocation = new Vector3(-0.9f, 0.52f);
+        bullet.bulletNum = 21;
+        bullet.timeBetweenBullets = 0.08f;
+        bullet.bulletTimeAlive = 5f;
+        bullet.pathCurved = false;
+        bullet.curveControlPointOne = new Vector3(0f, 0f);
+        bullet.curveControlPointTwo = new Vector3(0f, 0f);
+        bullet.curveEndPoint = new Vector3(0f, 0f);
+        bullet.bulletDirection = new Vector2(0f, 0f);
+        bullet.bulletDirectionChangeX = 0f;
+        bullet.bulletDirectionChangeY = 0f;
+        bullet.locationChangeBetweenBullets = new Vector3(0f, -0.08f);
+        bullet.glitchedBulletGuaranteed = false;
+        bullet.glitchedBulletChance = 0f;
+        bullet.glitchedBulletNum = 0;
+        bullet.glitchedBulletAdjacentNum = 0;
+
+        return bullet;
+    }
+    public BulletClass BulletUnmovingLineRightData()
+    {
+        BulletClass bullet = new();
+
+        bullet.startLocation = new Vector3(0.9f, 0.52f);
+        bullet.bulletNum = 21;
+        bullet.timeBetweenBullets = 0.08f;
+        bullet.bulletTimeAlive = 5f;
+        bullet.pathCurved = false;
+        bullet.curveControlPointOne = new Vector3(0f, 0f);
+        bullet.curveControlPointTwo = new Vector3(0f, 0f);
+        bullet.curveEndPoint = new Vector3(0f, 0f);
+        bullet.bulletDirection = new Vector2(0f, 0f);
+        bullet.bulletDirectionChangeX = 0f;
+        bullet.bulletDirectionChangeY = 0f;
+        bullet.locationChangeBetweenBullets = new Vector3(0f, -0.08f);
+        bullet.glitchedBulletGuaranteed = false;
+        bullet.glitchedBulletChance = 0f;
+        bullet.glitchedBulletNum = 0;
+        bullet.glitchedBulletAdjacentNum = 0;
+
+        return bullet;
+    }
+    public BulletClass BulletFlamethrowerApproachData()
+    {
+        BulletClass bullet = new();
+
+        bullet.startLocation = new Vector3(0.9f, 0.52f);
+        bullet.bulletNum = 50;
+        bullet.timeBetweenBullets = 0.08f;
+        bullet.bulletTimeAlive = 5f;
+        bullet.pathCurved = false;
+        bullet.curveControlPointOne = new Vector3(0f, 0f);
+        bullet.curveControlPointTwo = new Vector3(0f, 0f);
+        bullet.curveEndPoint = new Vector3(0f, 0f);
+        bullet.bulletDirection = new Vector2(0f, -1f);
+        bullet.bulletDirectionChangeX = 0f;
+        bullet.bulletDirectionChangeY = 0f;
+        bullet.locationChangeBetweenBullets = new Vector3(-0.036f, 0f);
+        bullet.glitchedBulletGuaranteed = false;
+        bullet.glitchedBulletChance = 0f;
         bullet.glitchedBulletNum = 0;
         bullet.glitchedBulletAdjacentNum = 0;
 

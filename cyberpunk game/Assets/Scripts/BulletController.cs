@@ -27,7 +27,7 @@ public class BulletController : MonoBehaviour
 
     void Awake()
     {
-        bulletGroupList = new string[8]
+        bulletGroupList = new string[13]
         {
             "EmptyBulletData",
             "TestBullet1",
@@ -36,7 +36,12 @@ public class BulletController : MonoBehaviour
             "BulletShortLineLeft",
             "BulletShortLineRight",
             "BulletShortLineTop",
-            "BulletShortLineBottom"
+            "BulletShortLineBottom",
+            "BulletDiagonalLineLeft",
+            "BulletDiagonalLineRight",
+            "BulletUnmovingLineLeft",
+            "BulletUnmovingLineRight",
+            "BulletFlamethrowerApproach",
         };
     }
 
@@ -72,6 +77,26 @@ public class BulletController : MonoBehaviour
         else if (groupname == bulletGroupList[7])
         {
             newBulletGroup = bulletData.BulletShortLineBottomData();
+        }
+        else if (groupname == bulletGroupList[8])
+        {
+            newBulletGroup = bulletData.BulletDiagonalLineLeftData();
+        }
+        else if (groupname == bulletGroupList[9])
+        {
+            newBulletGroup = bulletData.BulletDiagonalLineRightData();
+        }
+        else if (groupname == bulletGroupList[10])
+        {
+            newBulletGroup = bulletData.BulletUnmovingLineLeftData();
+        }
+        else if (groupname == bulletGroupList[11])
+        {
+            newBulletGroup = bulletData.BulletUnmovingLineRightData();
+        }
+        else if (groupname == bulletGroupList[12])
+        {
+            newBulletGroup = bulletData.BulletFlamethrowerApproachData();
         }
         else
         {
