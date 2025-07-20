@@ -156,7 +156,7 @@ public class IndividualBullet : MonoBehaviour
         while (timePassed < timeAlive)
         {
             yield return new WaitForEndOfFrame();
-            timePassed = (Time.deltaTime + timePassed) * GameManager.Instance.bulletSpeedMultiplier/0.5f;
+            timePassed = timePassed + (Time.deltaTime * (GameManager.Instance.bulletSpeedMultiplier/0.5f));
         }
         if (!deflected)
         {

@@ -47,7 +47,7 @@ public class BulletSpawnerController : MonoBehaviour
                     }
                 }
 
-                else if (bulletsRemaining - glitchedBulletsRemaining == 0)
+                else if (bulletsRemaining - glitchedBulletsRemaining == 0 && glitchedBulletsRemaining != 0)
                 {
                     thisBulletIsGlitched = true;
                 }
@@ -110,7 +110,7 @@ public class BulletSpawnerController : MonoBehaviour
     private bool RandomlyDecideWhetherThisBulletIsGlitched(BulletClass bulletGroup)
     {
         int randNum = Random.Range(1, 100);
-        if (randNum <= bulletGroup.glitchedBulletChance * 100)
+        if (randNum <= (bulletGroup.glitchedBulletChance * 100))
         {
             return true;
         }
