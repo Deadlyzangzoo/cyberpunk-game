@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8717804993323696255}
   - component: {fileID: 636524315289531229}
   - component: {fileID: 2417701397400467114}
+  - component: {fileID: -1086678808127498789}
   m_Layer: 8
   m_Name: GlitchedBulletPrefab
   m_TagString: Untagged
@@ -176,11 +177,15 @@ MonoBehaviour:
   curveControlPointTwo: {x: 0, y: 0, z: 0}
   curveEndPoint: {x: 0, y: 0, z: 0}
   moveDelta: {x: 0, y: 0}
+  timeAlive: 0
+  bulletSolid: 0
   blockPathCurved: 0
   blockCurveControlPointOne: 0
   blockCurveControlPointTwo: 0
   blockCurveEndPoint: 0
   blockMoveDelta: 0
+  blockTimeAlive: 0
+  blockBulletSolid: 0
   isThisBulletGlitched: 1
   lerp: 0
   startLocation: {x: 0, y: 0, z: 0}
@@ -189,4 +194,26 @@ MonoBehaviour:
   deflectCurveControlPointOne: {x: 0, y: 0, z: 0}
   deflectCurveControlPointTwo: {x: 0, y: 0, z: 0}
   deflectCurveEndPoint: {x: 0, y: 0, z: 0}
-  squarePrefab: {fileID: 6291796086882757856, guid: 64fee66637c442e488686eb296310a2a, type: 3}
+  deflectStarted: 0
+  bulletAnimator: {fileID: -1086678808127498789}
+--- !u!95 &-1086678808127498789
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7699531422332798606}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1fe1c13df589dee4c8ae64972c4026da, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

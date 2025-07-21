@@ -96,6 +96,8 @@ public class BulletSpawnerController : MonoBehaviour
             instantiatedBullet.SendMessage("SetMoveDelta", bulletDirection);
             instantiatedBullet.SendMessage("SetTimeAlive", bulletGroup.bulletTimeAlive);
             instantiatedBullet.SendMessage("SetBulletSolid", bulletGroup.bulletSolid);
+            instantiatedBullet.SendMessage("SetBulletGlitched", thisBulletIsGlitched);
+            instantiatedBullet.SendMessage("SetBulletDontDecay", bulletGroup.dontDecay);
 
             bulletsRemaining -= 1;
             if (bulletGroup.timeBetweenBullets > 0)

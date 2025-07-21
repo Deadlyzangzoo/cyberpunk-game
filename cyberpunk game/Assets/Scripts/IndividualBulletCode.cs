@@ -12,7 +12,9 @@ public class IndividualBullet : MonoBehaviour
     public Vector2 moveDelta;
     public float timeAlive;
     public bool bulletSolid;
+    public bool dontDecay;
     private Rigidbody2D rigidBody;
+    private SpriteRenderer spriteRenderer;
     public bool blockPathCurved;
     public bool blockCurveControlPointOne;
     public bool blockCurveControlPointTwo;
@@ -21,6 +23,8 @@ public class IndividualBullet : MonoBehaviour
     public bool blockTimeAlive;
     public bool blockBulletSolid;
     public bool isThisBulletGlitched;
+    public bool blockBulletGlitched;
+    public bool blockDontDecay;
     public float lerp;
     public Vector3 startLocation;
     public Vector2 result;
@@ -29,6 +33,7 @@ public class IndividualBullet : MonoBehaviour
     public Vector3 deflectCurveControlPointTwo;
     public Vector3 deflectCurveEndPoint;
     public bool deflectStarted;
+    public Animator bulletAnimator;
 
 
     public void SetPathCurved(bool recievedPathCurved)
@@ -94,13 +99,53 @@ public class IndividualBullet : MonoBehaviour
         }
 
     }
+    public void SetBulletGlitched(bool recievedBulletGlitched)
+    {
+        if (!blockBulletGlitched)
+        {
+            isThisBulletGlitched = recievedBulletGlitched;
+            blockBulletGlitched = true;
+        }
 
+    }
+    public void SetBulletDontDecay(bool recievedBulletDontDecay)
+    {
+        if (!blockDontDecay)
+        {
+            dontDecay = recievedBulletDontDecay;
+            blockDontDecay = true;
+        }
+
+    }
+
+
+    public void StartBulletDecayAnimation()
+    {
+        if (!dontDecay)
+        {
+            bulletAnimator.SetBool("bulletDecaying", true);
+        }
+        
+    }
+
+    private void Awake()
+    {
+        if (isThisBulletGlitched)
+        {
+            bulletAnimator.SetBool("bulletGlitched", true);
+        }
+    }
     private void Start()
     {
         deflectStarted = false;
         deflected = false;
         lerp = 0;
         rigidBody = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        if (isThisBulletGlitched)
+        {
+            spriteRenderer.color = Color.red;
+        }
         if (bulletSolid)
         {
             gameObject.layer = 3;
@@ -124,8 +169,12 @@ public class IndividualBullet : MonoBehaviour
                 {
                     GameObject.Destroy(gameObject);
                 }
+                if (lerp > 0.94)
+                {
+                    StartBulletDecayAnimation();
+                }
             }
-            else
+            else if (!bulletSolid)
             {
                 rigidBody.MovePosition(rigidBody.position + GameManager.Instance.bulletSpeedMultiplier * Time.deltaTime * moveDelta);
             }
@@ -163,6 +212,7 @@ public class IndividualBullet : MonoBehaviour
             else
             {
                 GameObject.Destroy(gameObject);
+                
             }
         }
     }
@@ -173,10 +223,15 @@ public class IndividualBullet : MonoBehaviour
         {
             yield return new WaitForEndOfFrame();
             timePassed = timePassed + (Time.deltaTime * (GameManager.Instance.bulletSpeedMultiplier/0.5f));
+            if (timeAlive - timePassed < 1.1f)
+            {
+                StartBulletDecayAnimation();
+            }
         }
         if (!deflected)
         {
             GameObject.Destroy(gameObject);
+            
         }
         
     }

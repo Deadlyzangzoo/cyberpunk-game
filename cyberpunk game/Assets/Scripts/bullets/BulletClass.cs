@@ -12,6 +12,7 @@ public class BulletClass
     public float timeBetweenBullets;
     public float bulletTimeAlive;
     public bool bulletSolid;
+    public bool dontDecay;
     public bool pathCurved;
     public Vector2 bulletDirection;
     public float bulletDirectionChangeX;

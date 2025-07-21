@@ -199,6 +199,7 @@ public class BulletDataStorage {
         bullet.timeBetweenBullets = 0.08f;
         bullet.bulletTimeAlive = 3f;
         bullet.pathCurved = false;
+        bullet.dontDecay = true;
         bullet.curveControlPointOne = new Vector3(0f, 0f);
         bullet.curveControlPointTwo = new Vector3(0f, 0f);
         bullet.curveEndPoint = new Vector3(0f, 0f);
@@ -222,6 +223,7 @@ public class BulletDataStorage {
         bullet.timeBetweenBullets = 0.08f;
         bullet.bulletTimeAlive = 3f;
         bullet.pathCurved = false;
+        bullet.dontDecay = true;
         bullet.curveControlPointOne = new Vector3(0f, 0f);
         bullet.curveControlPointTwo = new Vector3(0f, 0f);
         bullet.curveEndPoint = new Vector3(0f, 0f);
@@ -755,6 +757,7 @@ public class BulletDataStorage {
         bullet.timeBetweenBullets = 0f;
         bullet.bulletTimeAlive = 5f;
         bullet.pathCurved = false;
+        bullet.dontDecay = true;
         bullet.curveControlPointOne = new Vector3(0f, 0f);
         bullet.curveControlPointTwo = new Vector3(0f, 0f);
         bullet.curveEndPoint = new Vector3(0f, 0f);
