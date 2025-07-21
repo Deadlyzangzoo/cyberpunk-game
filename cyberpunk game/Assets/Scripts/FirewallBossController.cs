@@ -22,9 +22,11 @@ public class FirewallBossController : MonoBehaviour
     private static FirewallBossController _instance;
 
     public string[] bulletList;
+    public float damage;
 
     private void Start()
     {
+        damage = 0;
         bulletList = new string[34]
         {
             "BulletShortLineLeft",
@@ -84,28 +86,56 @@ public class FirewallBossController : MonoBehaviour
         BulletController bulletController = BulletController.Instance;
         CoroutineWithData cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(1));
         yield return cd.coroutine;
-        StartCoroutine(SpawnAllDirectionBulletEnclosure(bulletController));
+        Coroutine coroutine = StartCoroutine(SpawnAllDirectionBulletEnclosure(bulletController));
         cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(7));
         yield return cd.coroutine;
-        StartCoroutine(SpawnFlamethrowerTrap(bulletController));
+        if (!GameManager.Instance.fightAllowed)
+        {
+            StopCoroutine(coroutine);
+        }
+        coroutine = StartCoroutine(SpawnFlamethrowerTrap(bulletController));
         cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(10));
         yield return cd.coroutine;
-        StartCoroutine(SpawnSurpriseCurveUp(bulletController));
+        if (!GameManager.Instance.fightAllowed)
+        {
+            StopCoroutine(coroutine);
+        }
+        coroutine = StartCoroutine(SpawnSurpriseCurveUp(bulletController));
         cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(7));
         yield return cd.coroutine;
-        StartCoroutine(SpawnCurveHell(bulletController));
+        if (!GameManager.Instance.fightAllowed)
+        {
+            StopCoroutine(coroutine);
+        }
+        coroutine = StartCoroutine(SpawnCurveHell(bulletController));
         cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(12));
         yield return cd.coroutine;
-        StartCoroutine(SpawnCircleSpam(bulletController));
+        if (!GameManager.Instance.fightAllowed)
+        {
+            StopCoroutine(coroutine);
+        }
+        coroutine = StartCoroutine(SpawnCircleSpam(bulletController));
         cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(8));
         yield return cd.coroutine;
+        if (!GameManager.Instance.fightAllowed)
+        {
+            StopCoroutine(coroutine);
+        }
 
-        StartCoroutine(SpawnAllDirectionBulletEnclosure(bulletController));
+        coroutine = StartCoroutine(SpawnAllDirectionBulletEnclosure(bulletController));
         cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(2));
         yield return cd.coroutine;
-        StartCoroutine(SpawnCurveHell(bulletController));
+        if (!GameManager.Instance.fightAllowed)
+        {
+            StopCoroutine(coroutine);
+        }
+        coroutine = StartCoroutine(SpawnCurveHell(bulletController));
         cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(12));
         yield return cd.coroutine;
+        if (!GameManager.Instance.fightAllowed)
+        {
+            StopCoroutine(coroutine);
+        }
         for (int i = 0; i < 10; i++)
         {
             bulletController.StartSpawningBulletGroup(bulletList[25]);
@@ -132,10 +162,14 @@ public class FirewallBossController : MonoBehaviour
         bulletController.StartSpawningBulletGroup(bulletList[29]);
         cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(1f));
         yield return cd.coroutine;
-        StartCoroutine(SpawnTightSpaceCurveSpam(bulletController));
+        coroutine = StartCoroutine(SpawnTightSpaceCurveSpam(bulletController));
         cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(18f));
         yield return cd.coroutine;
-        StartCoroutine(SpawnBullets());
+        if (!GameManager.Instance.fightAllowed)
+        {
+            StopCoroutine(coroutine);
+        }
+        coroutine = StartCoroutine(SpawnBullets());
     }
     private IEnumerator SpawnLeftRightBulletEnclosure(BulletController bulletController)
     {
@@ -153,10 +187,14 @@ public class FirewallBossController : MonoBehaviour
     }
     private IEnumerator SpawnAllDirectionBulletEnclosure(BulletController bulletController)
     {
-        StartCoroutine(SpawnLeftRightBulletEnclosure(bulletController));
+        Coroutine coroutine = StartCoroutine(SpawnLeftRightBulletEnclosure(bulletController));
         CoroutineWithData cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(2));
         yield return cd.coroutine;
-        StartCoroutine(SpawnTopBottomBulletEnclosure(bulletController));
+        if (!GameManager.Instance.fightAllowed)
+        {
+            StopCoroutine(coroutine);
+        }
+        coroutine = StartCoroutine(SpawnTopBottomBulletEnclosure(bulletController));
     }
     private IEnumerator SpawnFlamethrowerTrap(BulletController bulletController)
     {

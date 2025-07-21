@@ -16,6 +16,7 @@ public class SwingController : MonoBehaviour
             {
                 PlayerController.Instance.health = 100 ;
             }
+            FirewallBossController.Instance.damage += 1 * (GameManager.Instance.bulletSpeedMultiplier / 0.5f);
             collision.gameObject.SendMessage("Deflect");
             GameObject.Destroy(gameObject);
         }

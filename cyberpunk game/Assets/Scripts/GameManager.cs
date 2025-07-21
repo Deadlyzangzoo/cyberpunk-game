@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -23,13 +25,31 @@ public class GameManager : MonoBehaviour
     public float bulletSpeedMultiplier;
     public bool coroutineAllowed;
     private float time;
+    public bool fightAllowed;
+    UnityEngine.SceneManagement.Scene currentScene;
 
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
     }
+
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+    void OnSceneLoaded(UnityEngine.SceneManagement.Scene scene, LoadSceneMode mode)
+    {
+        currentScene = scene;
+    }
+
+
     private void Start()
     {
+        fightAllowed = true;
         coroutineAllowed = true;
         bulletSpeedMultiplier = 0.5f;
     }
@@ -47,6 +67,15 @@ public class GameManager : MonoBehaviour
         {
             bulletSpeedMultiplier = 0.5f;
         }
+        if (currentScene.name == "FirewallBoss")
+        {
+            if (PlayerController.Instance.health < 0 || FirewallBossController.Instance.damage > 110)
+            {
+                fightAllowed = false;
+            }
+        }
+        
+
     }
 
     private IEnumerator WaitForBulletSlowDown()

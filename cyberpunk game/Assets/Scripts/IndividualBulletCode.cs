@@ -216,6 +216,13 @@ public class IndividualBullet : MonoBehaviour
             }
         }
     }
+    private void Update()
+    {
+        if (!GameManager.Instance.fightAllowed)
+        {
+            GameObject.Destroy(gameObject);
+        }
+    }
     private IEnumerator CountDownToGettingDeleted(float timeAlive)
     {
         float timePassed = 0f;
