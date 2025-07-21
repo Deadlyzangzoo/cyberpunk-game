@@ -26,15 +26,21 @@ public class PlayerController : MonoBehaviour
     private InputAction swingAction;
     private BoxCollider2D boxCollider;
     private Rigidbody2D rigidBody;
+    private SpriteRenderer spriteRenderer;
     private Vector2 moveDelta;
     private Vector2 lastDirection;
     public int health;
+    private bool invunerable;
+    private float invincibilityTime;
 
     private void Start()
     {
+        invincibilityTime = 1.5f;
+        invunerable = false;
         health = 100;
         rigidBody = GetComponent<Rigidbody2D>();
         boxCollider = GetComponent<BoxCollider2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         moveAction = InputSystem.actions.FindAction("Move");
         swingAction = InputSystem.actions.FindAction("Attack");
         lastDirection = new Vector3(0, 1, 0);
@@ -139,9 +145,59 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.layer == 7 || collision.gameObject.layer == 8 && !collision.gameObject.GetComponent<IndividualBullet>().deflected)
         {
-            health -= 20;
+            if (!invunerable)
+            {
+                StartCoroutine(GotHit());
+            }
             GameObject.Destroy(collision.gameObject);
         }
         
+    }
+
+    private IEnumerator GotHit()
+    {
+        invunerable = true;
+        health -= 20;
+        CoroutineWithData cd = new CoroutineWithData(this, WaitForSecondsWithData(invincibilityTime));
+        StartCoroutine(FlashForInvincibility(invincibilityTime));
+        yield return cd.coroutine;
+        invunerable = false;
+    }
+    private IEnumerator WaitForSecondsWithData(float timeWait)
+    {
+        yield return new WaitForSeconds(timeWait);
+        yield return true;
+    }
+    private IEnumerator FlashForInvincibility(float time)
+    {
+        float timePassed = 0f;
+        bool alphaIncreasing = false;
+        while (timePassed < time)
+        {
+            Color tempColour = spriteRenderer.color;
+            if (tempColour.a == 1)
+            {
+                alphaIncreasing = false ;
+            }
+            else if (tempColour.a <= 0.2f)
+            {
+                alphaIncreasing = true;
+            }
+            if (alphaIncreasing)
+            {
+                tempColour.a += 0.01f;
+            }
+            else
+            {
+                tempColour.a -= 0.01f;
+            }
+
+            spriteRenderer.color = tempColour;
+            yield return new WaitForEndOfFrame();
+            timePassed += Time.deltaTime;
+        }
+        Color resetColour = spriteRenderer.color;
+        resetColour.a = 1;
+        spriteRenderer.color = resetColour;
     }
 }

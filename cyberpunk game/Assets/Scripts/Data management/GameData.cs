@@ -6,12 +6,12 @@ using UnityEngine;
 public class GameData
 {
     public int deathCount;
-    public string sceneOn;
+    public string sceneThatThePlayerIsOn;
 
     //initial values for New Game
     public GameData()
     {
         this.deathCount = 0;
-        this.sceneOn = "Assets/Scenes/FirewallBoss.unity";
+        this.sceneThatThePlayerIsOn = "Assets/Scenes/FirewallBoss.unity";
     }
 }

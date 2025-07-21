@@ -8,6 +8,14 @@ public class SwingController : MonoBehaviour
     {
         if (collision.gameObject.layer == 8)
         {
+            if (PlayerController.Instance.health < 90)
+            {
+                PlayerController.Instance.health += 2;
+            }
+            else if (PlayerController.Instance.health >= 98)
+            {
+                PlayerController.Instance.health = 100 ;
+            }
             collision.gameObject.SendMessage("Deflect");
             GameObject.Destroy(gameObject);
         }
