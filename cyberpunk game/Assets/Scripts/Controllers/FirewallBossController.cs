@@ -179,7 +179,7 @@ public class FirewallBossController : MonoBehaviour
             cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(1.8f));
             yield return cd.coroutine;
         }
-        cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(2f));
+        cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(4f));
         yield return cd.coroutine;
         for (int i = 0; i < 5; i++)
         {

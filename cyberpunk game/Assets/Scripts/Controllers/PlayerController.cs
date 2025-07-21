@@ -159,7 +159,7 @@ public class PlayerController : MonoBehaviour
     private IEnumerator GotHit()
     {
         invunerable = true;
-        health -= 20;
+        health -=99;
         CoroutineWithData cd = new CoroutineWithData(this, WaitForSecondsWithData(invincibilityTime));
         StartCoroutine(FlashForInvincibility(invincibilityTime));
         yield return cd.coroutine;

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class GameOverController : MonoBehaviour
 {
@@ -26,13 +27,20 @@ public class GameOverController : MonoBehaviour
     private GameObject continueButton;
     private GameObject giveUpButton;
     private InputAction moveAction;
+    private InputAction confirmAction;
     private SpriteRenderer spriteRenderer;
     private SpriteRenderer continueButtonSpriteRenderer;
     private SpriteRenderer giveUpButtonSpriteRenderer;
+    private bool continueButtonSelected;
+    private bool allowSelection;
+    private Vector2 lastSelection;
 
     private void Start()
     {
+        continueButtonSelected = true;
         spriteRenderer = GetComponent<SpriteRenderer>();
+        moveAction = InputSystem.actions.FindAction("Move");
+        confirmAction = InputSystem.actions.FindAction("Attack");
     }
     public void StartGameOver()
     {
@@ -43,6 +51,7 @@ public class GameOverController : MonoBehaviour
         StartCoroutine(TextFadeIn(spriteRenderer));
         StartCoroutine(TextFadeIn(continueButtonSpriteRenderer));
         StartCoroutine(TextFadeIn(giveUpButtonSpriteRenderer));
+        allowSelection = true;
     }
 
     private IEnumerator TextFadeIn(SpriteRenderer spriteRenderer)
@@ -53,6 +62,45 @@ public class GameOverController : MonoBehaviour
             tempColor.a += 0.01f;
             spriteRenderer.color = tempColor;
             yield return new WaitForSeconds(0.01f);
+        }
+    }
+
+    private void Update()
+    {
+        if (allowSelection)
+        {
+            if (moveAction.ReadValue<Vector2>().x != 0)
+            {
+                lastSelection = moveAction.ReadValue<Vector2>();
+            }
+            if (lastSelection.x < 0)
+            {
+                continueButtonSelected = true;
+                continueButtonSpriteRenderer.color = Color.yellow;
+                giveUpButtonSpriteRenderer.color = Color.white;
+            }
+            else if (lastSelection.x > 0)
+            {
+                continueButtonSelected = false;
+                continueButtonSpriteRenderer.color = Color.white;
+                giveUpButtonSpriteRenderer.color = Color.yellow;
+            }
+            if (confirmAction.WasPressedThisFrame())
+            {
+                if (continueButtonSelected)
+                {
+                    SceneManager.LoadScene(GameManager.Instance.currentScene.name);
+                    GameManager.Instance.fightAllowed = true;
+                    GameManager.Instance.deathCount += 1;
+                }
+                else
+                {
+                    GameManager.Instance.deathCount += 1;
+                    DataPersistenceManager.Instance.SaveGame();
+                    SceneManager.LoadScene("Assets/Scenes/Main Menu.unity");
+                    GameManager.Instance.fightAllowed = true;
+                }
+            }
         }
     }
 }

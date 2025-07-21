@@ -5,7 +5,7 @@ using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour
+public class GameManager : MonoBehaviour, IDataPersistence
 {
     public static GameManager Instance
     {
@@ -27,11 +27,21 @@ public class GameManager : MonoBehaviour
     public bool coroutineAllowed;
     private float time;
     public bool fightAllowed;
-    UnityEngine.SceneManagement.Scene currentScene;
+    public int deathCount;
+    public UnityEngine.SceneManagement.Scene currentScene;
 
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
+    }
+
+    public void LoadData(GameData data)
+    {
+        this.deathCount = data.deathCount;
+    }
+    public void SaveData(ref GameData data)
+    {
+        data.deathCount = this.deathCount;
     }
 
     private void OnEnable()
@@ -59,6 +69,7 @@ public class GameManager : MonoBehaviour
     {
         time = time + Time.deltaTime;
         //Debug.Log(time);
+        Debug.Log(deathCount);
         if (coroutineAllowed && bulletSpeedMultiplier > 0.5f)
         {
             StartCoroutine(WaitForBulletSlowDown());
