@@ -6,7 +6,13 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Main menu.unity
+    guid: cc90ee3830e162d439f411e8f435f265
+  - enabled: 0
     path: Assets/Scenes/TestScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/FirewallBoss.unity
+    guid: 9c59258158d9fc44c8cfaf0e85e6e53e
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: c02ab5fbce9cc0f4ca59785242217525, type: 3}

@@ -32,9 +32,11 @@ public class PlayerController : MonoBehaviour
     public int health;
     private bool invunerable;
     private float invincibilityTime;
+    private float swingCooldownTime;
 
     private void Start()
     {
+        swingCooldownTime = 1f;
         invincibilityTime = 1.5f;
         invunerable = false;
         health = 100;
@@ -117,7 +119,7 @@ public class PlayerController : MonoBehaviour
 
             GameObject swing = Instantiate(swingPrefab, locationToSpawnSwing, transform.localRotation, transform);
             swing.transform.Rotate(0, 0, rotationAngle);
-            StartCoroutine(DeleteSwingAfterSeconds(0.5f, swing));
+            StartCoroutine(DeleteSwingAfterSeconds(swingCooldownTime, swing));
             if (GameManager.Instance.bulletSpeedMultiplier < 1f)
             {
                 GameManager.Instance.bulletSpeedMultiplier *= 1.2f;

@@ -9,5 +9,6 @@ public class TextController : MonoBehaviour
     public TMP_Text healthText;
     void Update()
     {
+        healthText.text = PlayerController.Instance.health.ToString() + ", " + FirewallBossController.Instance.damage.ToString();
     }
 }

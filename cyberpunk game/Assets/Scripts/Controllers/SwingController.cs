@@ -8,7 +8,7 @@ public class SwingController : MonoBehaviour
     {
         if (collision.gameObject.layer == 8)
         {
-            if (PlayerController.Instance.health < 90)
+            if (PlayerController.Instance.health < 98)
             {
                 PlayerController.Instance.health += 2;
             }

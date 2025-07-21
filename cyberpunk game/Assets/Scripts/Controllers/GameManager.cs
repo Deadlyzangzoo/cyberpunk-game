@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -69,13 +70,12 @@ public class GameManager : MonoBehaviour
         }
         if (currentScene.name == "FirewallBoss")
         {
-            if (PlayerController.Instance.health < 0 || FirewallBossController.Instance.damage > 110)
+            if (PlayerController.Instance.health <= 0 || FirewallBossController.Instance.damage > 130)
             {
                 fightAllowed = false;
+                FirewallBossController.Instance.SendMessage("EndFight");
             }
         }
-        
-
     }
 
     private IEnumerator WaitForBulletSlowDown()

@@ -23,6 +23,9 @@ public class FirewallBossController : MonoBehaviour
 
     public string[] bulletList;
     public float damage;
+    public GameObject squarePrefab;
+    private GameObject instantiatedSquare;
+    private SpriteRenderer squareSpriteRenderer;
 
     private void Start()
     {
@@ -70,6 +73,33 @@ public class FirewallBossController : MonoBehaviour
     {
         StartCoroutine(SpawnBullets());
     }
+
+    public void EndFight()
+    {
+        instantiatedSquare = Instantiate(squarePrefab, Vector3.zero, Quaternion.identity);
+        instantiatedSquare.transform.localScale = new Vector3(5f, 5f, 1f);
+        squareSpriteRenderer = instantiatedSquare.GetComponent<SpriteRenderer>();
+        Color tempColor = squareSpriteRenderer.color;
+        tempColor = Color.black;
+        tempColor.a = 0;
+        squareSpriteRenderer.color = tempColor;
+        StartCoroutine(SquareFadeIn(squareSpriteRenderer));
+        if (PlayerController.Instance.health <= 0)
+        {
+            GameOverController.Instance.SendMessage("StartGameOver");
+        }
+    }
+    private IEnumerator SquareFadeIn(SpriteRenderer squareSpriteRenderer)
+    {
+        while (squareSpriteRenderer.color.a < 1f)
+        {
+            Color tempColor = squareSpriteRenderer.color;
+            tempColor.a += 0.01f;
+            squareSpriteRenderer.color = tempColor;
+            yield return new WaitForSeconds(0.01f);
+        }
+    }
+
     private IEnumerator WaitForSecondsWithBulletSpeedUp(float timeWait)
     {
         float timePassed = 0f;
@@ -92,6 +122,7 @@ public class FirewallBossController : MonoBehaviour
         if (!GameManager.Instance.fightAllowed)
         {
             StopCoroutine(coroutine);
+            yield break;
         }
         coroutine = StartCoroutine(SpawnFlamethrowerTrap(bulletController));
         cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(10));
@@ -99,6 +130,7 @@ public class FirewallBossController : MonoBehaviour
         if (!GameManager.Instance.fightAllowed)
         {
             StopCoroutine(coroutine);
+            yield break;
         }
         coroutine = StartCoroutine(SpawnSurpriseCurveUp(bulletController));
         cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(7));
@@ -106,6 +138,7 @@ public class FirewallBossController : MonoBehaviour
         if (!GameManager.Instance.fightAllowed)
         {
             StopCoroutine(coroutine);
+            yield break;
         }
         coroutine = StartCoroutine(SpawnCurveHell(bulletController));
         cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(12));
@@ -113,6 +146,7 @@ public class FirewallBossController : MonoBehaviour
         if (!GameManager.Instance.fightAllowed)
         {
             StopCoroutine(coroutine);
+            yield break;
         }
         coroutine = StartCoroutine(SpawnCircleSpam(bulletController));
         cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(8));
@@ -120,6 +154,7 @@ public class FirewallBossController : MonoBehaviour
         if (!GameManager.Instance.fightAllowed)
         {
             StopCoroutine(coroutine);
+            yield break;
         }
 
         coroutine = StartCoroutine(SpawnAllDirectionBulletEnclosure(bulletController));
@@ -128,6 +163,7 @@ public class FirewallBossController : MonoBehaviour
         if (!GameManager.Instance.fightAllowed)
         {
             StopCoroutine(coroutine);
+            yield break;
         }
         coroutine = StartCoroutine(SpawnCurveHell(bulletController));
         cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(12));
@@ -135,6 +171,7 @@ public class FirewallBossController : MonoBehaviour
         if (!GameManager.Instance.fightAllowed)
         {
             StopCoroutine(coroutine);
+            yield break;
         }
         for (int i = 0; i < 10; i++)
         {
@@ -168,6 +205,7 @@ public class FirewallBossController : MonoBehaviour
         if (!GameManager.Instance.fightAllowed)
         {
             StopCoroutine(coroutine);
+            yield break;
         }
         coroutine = StartCoroutine(SpawnBullets());
     }
@@ -193,6 +231,7 @@ public class FirewallBossController : MonoBehaviour
         if (!GameManager.Instance.fightAllowed)
         {
             StopCoroutine(coroutine);
+            yield break;
         }
         coroutine = StartCoroutine(SpawnTopBottomBulletEnclosure(bulletController));
     }

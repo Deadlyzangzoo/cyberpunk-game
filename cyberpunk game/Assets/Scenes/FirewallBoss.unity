@@ -860,6 +860,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletList: []
+  damage: 0
+  squarePrefab: {fileID: 6291796086882757856, guid: 64fee66637c442e488686eb296310a2a, type: 3}
 --- !u!4 &1785333696
 Transform:
   m_ObjectHideFlags: 0
