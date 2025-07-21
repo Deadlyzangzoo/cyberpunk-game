@@ -62,6 +62,7 @@ public class FirewallBossController : MonoBehaviour
             "BulletTightSpaceCurveSpamThree",
             "BulletTightSpaceCurveSpamFour",
         };
+        StartFight();
     }
     public void StartFight()
     {

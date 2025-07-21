@@ -24,10 +24,12 @@ public class GameManager : MonoBehaviour
     public bool coroutineAllowed;
     private float time;
 
+    private void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
     private void Start()
     {
-        time = 0;
-        FirewallBossController.Instance.StartFight();
         coroutineAllowed = true;
         bulletSpeedMultiplier = 0.5f;
     }
