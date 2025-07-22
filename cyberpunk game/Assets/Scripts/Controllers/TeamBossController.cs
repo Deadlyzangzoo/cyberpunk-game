@@ -29,7 +29,7 @@ public class TeamBossController : MonoBehaviour
     private void Start()
     {
         damage = 0;
-        bulletList = new string[32]
+        bulletList = new string[38]
         {
             "BulletRandomRightBulletSpam",
             "BulletRandomTopBulletSpam",
@@ -63,6 +63,12 @@ public class TeamBossController : MonoBehaviour
             "BulletTurretTopRight",
             "BulletTurretLeft",
             "BulletTurretRight",
+            "BulletSpinnyBallRight",
+            "BulletSpinnyBallTop",
+            "BulletSpinnyBallLeft",
+            "BulletSpinnyBallBottom",
+            "BulletRandomRightBulletSlow",
+            "BulletRandomTopBulletSlow",
         };
         StartFight();
     }
@@ -119,10 +125,70 @@ public class TeamBossController : MonoBehaviour
         StartCoroutine(BombSpam(bulletController));
         cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(9));
         yield return cd.coroutine;
-        StartCoroutine (CurveCenter(bulletController));
-        cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(3));
+        StartCoroutine(CurveCenter(bulletController));
+        cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(6));
         yield return cd.coroutine;
         StartCoroutine(TurretSpam(bulletController));
+        cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(6));
+        yield return cd.coroutine;
+        StartCoroutine(SpawnSpinnyBall(bulletController));
+        cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(7.99999f));
+        yield return cd.coroutine;
+        StartCoroutine(SpawnSpinnyBall(bulletController)); 
+        cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(2.6665f));
+        yield return cd.coroutine;
+        StartCoroutine(SpawnSpinnyBall(bulletController)); 
+        cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(2.6665f));
+        yield return cd.coroutine;
+        StartCoroutine(SpawnSpinnyBall(bulletController)); 
+        cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(2.6665f));
+        yield return cd.coroutine;
+        StartCoroutine(SpawnSpinnyBall(bulletController));
+        StartCoroutine(TurretSpam(bulletController));
+        cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(2.6665f));
+        yield return cd.coroutine;
+        StartCoroutine(SpawnSpinnyBall(bulletController));
+        cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(2.6665f));
+        yield return cd.coroutine;
+        StartCoroutine(SpawnSpinnyBall(bulletController));
+        StartCoroutine(TurretSpam(bulletController));
+        cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(2.6665f));
+        yield return cd.coroutine;
+        StartCoroutine(SpawnSpinnyBall(bulletController));
+        cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(2.6665f));
+        yield return cd.coroutine;
+        StartCoroutine(SpawnSpinnyBall(bulletController));
+        cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(2.6665f));
+        yield return cd.coroutine;
+        StartCoroutine(SpawnSpinnyBall(bulletController));
+        StartCoroutine(RandomBulletRainSlow(bulletController));
+        cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(2.6665f));
+        yield return cd.coroutine;
+        StartCoroutine(SpawnSpinnyBall(bulletController));
+        cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(2.6665f));
+        yield return cd.coroutine;
+        StartCoroutine(SpawnSpinnyBall(bulletController));
+        cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(2.6665f));
+        yield return cd.coroutine;
+        StartCoroutine(SpawnSpinnyBall(bulletController));
+        cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(2.6665f));
+        yield return cd.coroutine;
+        StartCoroutine(SpawnSpinnyBall(bulletController));
+        cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(2.6665f));
+        yield return cd.coroutine;
+        StartCoroutine(SpawnSpinnyBall(bulletController));
+        cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(2.6665f));
+        yield return cd.coroutine;
+        StartCoroutine(SpawnSpinnyBall(bulletController));
+        cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(2.6665f));
+        yield return cd.coroutine;
+        StartCoroutine(SpawnSpinnyBall(bulletController));
+        cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(2.6665f));
+        yield return cd.coroutine;
+        StartCoroutine(SpawnSpinnyBall(bulletController));
+        cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(2.6665f));
+        yield return cd.coroutine;
+        StartCoroutine(SpawnSpinnyBall(bulletController));
     }
 
     private IEnumerator RandomBulletRain(BulletController bulletController)
@@ -212,7 +278,7 @@ public class TeamBossController : MonoBehaviour
         cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(0.5f));
         yield return cd.coroutine;
         bulletController.StartSpawningBulletGroup(bulletList[26]);
-        cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(0.5f));
+        cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(1f));
         yield return cd.coroutine;
         bulletController.StartSpawningBulletGroup(bulletList[27]);
         cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(0.5f));
@@ -221,7 +287,7 @@ public class TeamBossController : MonoBehaviour
         cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(0.5f));
         yield return cd.coroutine;
         bulletController.StartSpawningBulletGroup(bulletList[29]);
-        cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(0.5f));
+        cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(1f));
         yield return cd.coroutine;
         bulletController.StartSpawningBulletGroup(bulletList[30]);
         cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(0.5f));
@@ -229,5 +295,26 @@ public class TeamBossController : MonoBehaviour
         bulletController.StartSpawningBulletGroup(bulletList[31]);
         cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(0.5f));
         yield return cd.coroutine;
+    }
+    private IEnumerator SpawnSpinnyBall(BulletController bulletController)
+    {
+        bulletController.StartSpawningBulletGroup(bulletList[32]);
+        CoroutineWithData cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(1.99999f));
+        yield return cd.coroutine;
+        bulletController.StartSpawningBulletGroup(bulletList[33]);
+        cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(1.99999f));
+        yield return cd.coroutine;
+        bulletController.StartSpawningBulletGroup(bulletList[34]);
+        cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(1.99999f));
+        yield return cd.coroutine;
+        bulletController.StartSpawningBulletGroup(bulletList[35]);
+    }
+    private IEnumerator RandomBulletRainSlow(BulletController bulletController)
+    {
+        bulletController.StartSpawningBulletGroup(bulletList[36]);
+        CoroutineWithData cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(19));
+        yield return cd.coroutine;
+        bulletController.StartSpawningBulletGroup(bulletList[37]);
+
     }
 }

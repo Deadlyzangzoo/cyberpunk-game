@@ -27,7 +27,7 @@ public class BulletController : MonoBehaviour
 
     void Awake()
     {
-        bulletGroupList = new string[70]
+        bulletGroupList = new string[76]
         {
             "EmptyBulletData",
             "TestBullet1",
@@ -99,6 +99,12 @@ public class BulletController : MonoBehaviour
             "BulletTurretTopRight",
             "BulletTurretLeft",
             "BulletTurretRight",
+            "BulletSpinnyBallRight",
+            "BulletSpinnyBallTop",
+            "BulletSpinnyBallLeft",
+            "BulletSpinnyBallBottom",
+            "BulletRandomRightBulletSlow",
+            "BulletRandomTopBulletSlow",
         };
     }
 
@@ -382,6 +388,30 @@ public class BulletController : MonoBehaviour
         else if (groupname == bulletGroupList[69])
         {
             newBulletGroup = bulletData.TeamRightTurretData();
+        }
+        else if (groupname == bulletGroupList[70])
+        {
+            newBulletGroup = bulletData.TeamSpinnyBallRightData();
+        }
+        else if (groupname == bulletGroupList[71])
+        {
+            newBulletGroup = bulletData.TeamSpinnyBallTopData();
+        }
+        else if (groupname == bulletGroupList[72])
+        {
+            newBulletGroup = bulletData.TeamSpinnyBallLeftData();
+        }
+        else if (groupname == bulletGroupList[73])
+        {
+            newBulletGroup = bulletData.TeamSpinnyBallBottomData();
+        }
+        else if (groupname == bulletGroupList[74])
+        {
+            newBulletGroup = bulletData.TeamRandomRightBulletSlowData();
+        }
+        else if (groupname == bulletGroupList[75])
+        {
+            newBulletGroup = bulletData.TeamRandomTopBulletSlowData();
         }
         else
         {
