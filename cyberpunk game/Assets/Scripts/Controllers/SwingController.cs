@@ -8,16 +8,24 @@ public class SwingController : MonoBehaviour
     {
         if (collision.gameObject.layer == 8)
         {
-            if (PlayerController.Instance.health < 98)
+            if (PlayerController.Instance.health < 99)
             {
-                PlayerController.Instance.health += 2;
+                PlayerController.Instance.health += 1;
             }
-            else if (PlayerController.Instance.health >= 98)
+            else if (PlayerController.Instance.health >= 99)
             {
                 PlayerController.Instance.health = 100 ;
             }
-            FirewallBossController.Instance.damage += 1 * (GameManager.Instance.bulletSpeedMultiplier / 0.5f);
-            collision.gameObject.SendMessage("Deflect");
+            if (GameManager.Instance.currentScene.name == "FirewallBoss")
+            {
+                FirewallBossController.Instance.damage += 1 * (GameManager.Instance.bulletSpeedMultiplier / 0.5f);
+            }
+            else if (GameManager.Instance.currentScene.name == "TeamBoss")
+            {
+                TeamBossController.Instance.damage += 1 * (GameManager.Instance.bulletSpeedMultiplier / 0.5f);
+            }
+
+                collision.gameObject.SendMessage("Deflect");
             GameObject.Destroy(gameObject);
         }
     }

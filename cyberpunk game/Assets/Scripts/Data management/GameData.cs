@@ -12,6 +12,6 @@ public class GameData
     public GameData()
     {
         this.deathCount = 0;
-        this.sceneThatThePlayerIsOn = "Assets/Scenes/FirewallBoss.unity";
+        this.sceneThatThePlayerIsOn = "Assets/Scenes/TeamBoss.unity";
     }
 }

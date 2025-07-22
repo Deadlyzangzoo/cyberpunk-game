@@ -14,6 +14,7 @@ public class BulletClass
     public bool bulletSolid;
     public bool dontDecay;
     public bool pathCurved;
+    public Vector2[] randomSpawnBetween;
     public Vector2 bulletDirection;
     public float bulletDirectionChangeX;
     public float bulletDirectionChangeY;
@@ -23,7 +24,6 @@ public class BulletClass
     public Vector3 curveControlPointTwo;
     public Vector3 curveEndPoint;
     public Vector3 locationChangeBetweenBullets;
-
     public bool glitchedBulletGuaranteed;
     public float glitchedBulletChance;
     public int glitchedBulletNum;

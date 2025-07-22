@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        swingCooldownTime = 1f;
+        swingCooldownTime = 0.3f;
         invincibilityTime = 1.5f;
         invunerable = false;
         health = 100;

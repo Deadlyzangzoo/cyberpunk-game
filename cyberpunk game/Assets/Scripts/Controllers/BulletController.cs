@@ -27,7 +27,7 @@ public class BulletController : MonoBehaviour
 
     void Awake()
     {
-        bulletGroupList = new string[38]
+        bulletGroupList = new string[42]
         {
             "EmptyBulletData",
             "TestBullet1",
@@ -67,6 +67,10 @@ public class BulletController : MonoBehaviour
             "BulletTightSpaceCurveSpamTwo",
             "BulletTightSpaceCurveSpamThree",
             "BulletTightSpaceCurveSpamFour",
+            "BulletRandomRightBulletSpam",
+            "BulletRandomTopBulletSpam",
+            "BulletMiddleLRBomb",
+            "BulletMiddleUDBomb",
         };
     }
 
@@ -222,6 +226,22 @@ public class BulletController : MonoBehaviour
         else if (groupname == bulletGroupList[37])
         {
             newBulletGroup = bulletData.FirewallTightSpaceCurveSpamFourData();
+        }
+        else if (groupname == bulletGroupList[38])
+        {
+            newBulletGroup = bulletData.TeamRandomRightBulletSpamData();
+        }
+        else if (groupname == bulletGroupList[39])
+        {
+            newBulletGroup = bulletData.TeamRandomTopBulletSpamData();
+        }
+        else if (groupname == bulletGroupList[40])
+        {
+            newBulletGroup = bulletData.TeamBombMiddleLRData();
+        }
+        else if (groupname == bulletGroupList[41])
+        {
+            newBulletGroup = bulletData.TeamBombMiddleUDData();
         }
         else
         {

@@ -75,9 +75,16 @@ public class BulletSpawnerController : MonoBehaviour
 
             if (index != 0)
             {
-                bulletDirection.x = bulletDirection.x + bulletGroup.bulletDirectionChangeX;
-                bulletDirection.y = bulletDirection.y + bulletGroup.bulletDirectionChangeY;
-                spawnLocation = spawnLocation + bulletGroup.locationChangeBetweenBullets;
+                if (bulletGroup.randomSpawnBetween == null)
+                {
+                    bulletDirection.x = bulletDirection.x + bulletGroup.bulletDirectionChangeX;
+                    bulletDirection.y = bulletDirection.y + bulletGroup.bulletDirectionChangeY;
+                    spawnLocation = spawnLocation + bulletGroup.locationChangeBetweenBullets;
+                }
+                else
+                {
+                    spawnLocation = new Vector3(Random.Range(bulletGroup.randomSpawnBetween[0].x * 100, bulletGroup.randomSpawnBetween[1].x * 100)/100, Random.Range(bulletGroup.randomSpawnBetween[0].y * 100, bulletGroup.randomSpawnBetween[1].y * 100)/100);
+                }
             }
 
             if (thisBulletIsGlitched)

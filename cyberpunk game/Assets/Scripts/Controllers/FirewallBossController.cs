@@ -77,7 +77,7 @@ public class FirewallBossController : MonoBehaviour
     public void EndFight()
     {
         instantiatedSquare = Instantiate(squarePrefab, Vector3.zero, Quaternion.identity);
-        instantiatedSquare.transform.localScale = new Vector3(5f, 5f, 1f);
+        instantiatedSquare.transform.localScale = new Vector3(10f, 5f, 1f);
         squareSpriteRenderer = instantiatedSquare.GetComponent<SpriteRenderer>();
         Color tempColor = squareSpriteRenderer.color;
         tempColor = Color.black;
@@ -89,6 +89,7 @@ public class FirewallBossController : MonoBehaviour
             GameOverController.Instance.SendMessage("StartGameOver");
         }
     }
+
     private IEnumerator SquareFadeIn(SpriteRenderer squareSpriteRenderer)
     {
         while (squareSpriteRenderer.color.a < 1f)
