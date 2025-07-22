@@ -69,7 +69,6 @@ public class GameManager : MonoBehaviour, IDataPersistence
     {
         time = time + Time.deltaTime;
         //Debug.Log(time);
-        Debug.Log(deathCount);
         if (coroutineAllowed && bulletSpeedMultiplier > 0.5f)
         {
             StartCoroutine(WaitForBulletSlowDown());
@@ -81,7 +80,7 @@ public class GameManager : MonoBehaviour, IDataPersistence
         }
         if (currentScene.name == "FirewallBoss")
         {
-            if (PlayerController.Instance.health <= 0 || FirewallBossController.Instance.damage > 130)
+            if (PlayerController.Instance.health <= 0 || FirewallBossController.Instance.damage > 300)
             {
                 fightAllowed = false;
                 FirewallBossController.Instance.SendMessage("EndFight");

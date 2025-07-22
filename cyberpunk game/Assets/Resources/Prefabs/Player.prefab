@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2327645158616245291}
   - component: {fileID: 4397961599082628553}
   - component: {fileID: 3062456444012246382}
+  - component: {fileID: 7424677953408547900}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -76,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a6b5d1752e36cf34b9fcf3ffd1d159a5, type: 3}
+  m_Sprite: {fileID: 128931002, guid: 0cec36a42d213fc49a8387fe902f1ca9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -146,18 +147,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.01, y: -0.03}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.08, y: 0.08}
+    pivot: {x: 0.63414633, y: 0.5}
+    oldSize: {x: 0.41, y: 0.46}
     newSize: {x: 0.08, y: 0.08}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.08, y: 0.08}
+  m_Size: {x: 0.12, y: 0.4}
   m_EdgeRadius: 0
 --- !u!114 &3062456444012246382
 MonoBehaviour:
@@ -173,3 +174,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   swingPrefab: {fileID: 1057955917285445759, guid: 5181515ef173c074a9a1aa0cca4805bd, type: 3}
   health: 0
+  movementSpeed: 1.5
+--- !u!95 &7424677953408547900
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6228151958253795989}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 26c7349d4aad21345bd2e7c1c32d021b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

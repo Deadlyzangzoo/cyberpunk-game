@@ -185,7 +185,7 @@ public class IndividualBullet : MonoBehaviour
             {
                 startLocation = rigidBody.position;
                 deflectStarted = true;
-                deflectCurveEndPoint = new Vector3(0f, 1f);
+                deflectCurveEndPoint = new Vector3(0f, 1.5f);
                 if (startLocation.x <= 0)
                 {
                     deflectCurveControlPointOne = new Vector3(-3f, 0f);

@@ -33,6 +33,7 @@ public class PlayerController : MonoBehaviour
     private bool invunerable;
     private float invincibilityTime;
     private float swingCooldownTime;
+    public float movementSpeed;
 
     private void Start()
     {
@@ -46,6 +47,7 @@ public class PlayerController : MonoBehaviour
         moveAction = InputSystem.actions.FindAction("Move");
         swingAction = InputSystem.actions.FindAction("Attack");
         lastDirection = new Vector3(0, 1, 0);
+
     }
 
     private void FixedUpdate()
@@ -55,7 +57,7 @@ public class PlayerController : MonoBehaviour
         {
             lastDirection = moveDelta;
         }
-        rigidBody.MovePosition(rigidBody.position + moveDelta * Time.deltaTime);
+        rigidBody.MovePosition(rigidBody.position + moveDelta * Time.deltaTime * movementSpeed);
     }
 
     private void Update()
@@ -68,52 +70,52 @@ public class PlayerController : MonoBehaviour
             //right
             if (lastDirection.x>0 && lastDirection.y == 0)
             {
-                locationToSpawnSwing.x += 0.1f;
+                locationToSpawnSwing.x += 0.3f;
                 rotationAngle = -90;
             }
             //left
             else if (lastDirection.x < 0 && lastDirection.y == 0)
             {
-                locationToSpawnSwing.x -= 0.1f;
+                locationToSpawnSwing.x -= 0.3f;
                 rotationAngle = 90;
             }
             //up
             else if (lastDirection.x == 0 && lastDirection.y > 0)
             {
-                locationToSpawnSwing.y += 0.1f;
+                locationToSpawnSwing.y += 0.3f;
             }
             //down
             else if (lastDirection.x == 0 && lastDirection.y < 0)
             {
-                locationToSpawnSwing.y -= 0.1f;
+                locationToSpawnSwing.y -= 0.3f;
                 rotationAngle = 180;
             }
             //upright
             if (lastDirection.x > 0 && lastDirection.y > 0)
             {
-                locationToSpawnSwing.x += 0.071f;
-                locationToSpawnSwing.y += 0.071f;
+                locationToSpawnSwing.x += 0.213f;
+                locationToSpawnSwing.y += 0.213f;
                 rotationAngle = -45;
             }
             //downright
             if (lastDirection.x > 0 && lastDirection.y < 0)
             {
-                locationToSpawnSwing.x += 0.071f;
-                locationToSpawnSwing.y -= 0.071f;
+                locationToSpawnSwing.x += 0.213f;
+                locationToSpawnSwing.y -= 0.213f;
                 rotationAngle = -135;
             }
             //upleft
             if (lastDirection.x < 0 && lastDirection.y > 0)
             {
-                locationToSpawnSwing.x -= 0.071f;
-                locationToSpawnSwing.y += 0.071f;
+                locationToSpawnSwing.x -= 0.213f;
+                locationToSpawnSwing.y += 0.213f;
                 rotationAngle = 45;
             }
             //downleft
             if (lastDirection.x < 0 && lastDirection.y < 0)
             {
-                locationToSpawnSwing.x -= 0.071f;
-                locationToSpawnSwing.y -= 0.071f;
+                locationToSpawnSwing.x -= 0.213f;
+                locationToSpawnSwing.y -= 0.213f;
                 rotationAngle = 135;
             }
 
@@ -159,7 +161,7 @@ public class PlayerController : MonoBehaviour
     private IEnumerator GotHit()
     {
         invunerable = true;
-        health -=99;
+        health -=20;
         CoroutineWithData cd = new CoroutineWithData(this, WaitForSecondsWithData(invincibilityTime));
         StartCoroutine(FlashForInvincibility(invincibilityTime));
         yield return cd.coroutine;

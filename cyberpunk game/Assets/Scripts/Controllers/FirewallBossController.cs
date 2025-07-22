@@ -158,7 +158,7 @@ public class FirewallBossController : MonoBehaviour
         }
 
         coroutine = StartCoroutine(SpawnAllDirectionBulletEnclosure(bulletController));
-        cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(2));
+        cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(4));
         yield return cd.coroutine;
         if (!GameManager.Instance.fightAllowed)
         {
@@ -194,7 +194,7 @@ public class FirewallBossController : MonoBehaviour
             yield return cd.coroutine;
         }
         bulletController.StartSpawningBulletGroup(bulletList[28]);
-        cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(5f));
+        cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(7.5f));
         yield return cd.coroutine;
         bulletController.StartSpawningBulletGroup(bulletList[29]);
         cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(1f));
@@ -239,7 +239,7 @@ public class FirewallBossController : MonoBehaviour
     {
         bulletController.StartSpawningBulletGroup(bulletList[4]);
         bulletController.StartSpawningBulletGroup(bulletList[5]);
-        CoroutineWithData cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(3));
+        CoroutineWithData cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(4));
         yield return cd.coroutine;
         bulletController.StartSpawningBulletGroup(bulletList[6]);
         bulletController.StartSpawningBulletGroup(bulletList[7]);
