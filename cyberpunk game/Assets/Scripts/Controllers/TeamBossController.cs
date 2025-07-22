@@ -29,12 +29,40 @@ public class TeamBossController : MonoBehaviour
     private void Start()
     {
         damage = 0;
-        bulletList = new string[4]
+        bulletList = new string[32]
         {
             "BulletRandomRightBulletSpam",
             "BulletRandomTopBulletSpam",
             "BulletMiddleLRBomb",
             "BulletMiddleUDBomb",
+            "BulletTopLeftLRBomb",
+            "BulletTopLeftUDBomb",
+            "BulletBottomRightLRBomb",
+            "BulletBottomRightUDBomb",
+            "BulletMiddleLeftLRBomb",
+            "BulletMiddleLeftUDBomb",
+            "BulletTopRightLRBomb",
+            "BulletTopRightUDBomb",
+            "BulletTopMiddleLRBomb",
+            "BulletTopMiddleUDBomb",
+            "BulletMiddleRightLRBomb",
+            "BulletMiddleRightUDBomb",
+            "BulletBottomMiddleLRBomb",
+            "BulletBottomMiddleUDBomb",
+            "BulletBottomLeftLRBomb",
+            "BulletBottomLeftUDBomb",
+            "BulletMiddleDiagonalLRBomb",
+            "BulletMiddleDiagonalUDBomb",
+            "BulletLeftCurveDownWall",
+            "BulletRightCurveDownWall",
+            "BulletTurretBottomLeft",
+            "BulletTurretBottomMiddle",
+            "BulletTurretBottomRight",
+            "BulletTurretTopLeft",
+            "BulletTurretTopMiddle",
+            "BulletTurretTopRight",
+            "BulletTurretLeft",
+            "BulletTurretRight",
         };
         StartFight();
     }
@@ -88,8 +116,13 @@ public class TeamBossController : MonoBehaviour
         StartCoroutine(RandomBulletRain(bulletController));
         cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(26));
         yield return cd.coroutine;
-        bulletController.StartSpawningBulletGroup(bulletList[2]);
-        bulletController.StartSpawningBulletGroup(bulletList[3]);
+        StartCoroutine(BombSpam(bulletController));
+        cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(9));
+        yield return cd.coroutine;
+        StartCoroutine (CurveCenter(bulletController));
+        cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(3));
+        yield return cd.coroutine;
+        StartCoroutine(TurretSpam(bulletController));
     }
 
     private IEnumerator RandomBulletRain(BulletController bulletController)
@@ -99,5 +132,102 @@ public class TeamBossController : MonoBehaviour
         yield return cd.coroutine;
         bulletController.StartSpawningBulletGroup(bulletList[1]);
 
+    }
+    private IEnumerator BombSpam(BulletController bulletController)
+    {
+        bulletController.StartSpawningBulletGroup(bulletList[2]);
+        bulletController.StartSpawningBulletGroup(bulletList[3]);
+        CoroutineWithData cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(1));
+        yield return cd.coroutine;
+        bulletController.StartSpawningBulletGroup(bulletList[4]);
+        bulletController.StartSpawningBulletGroup(bulletList[5]);
+        cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(0.7f));
+        yield return cd.coroutine;
+        bulletController.StartSpawningBulletGroup(bulletList[6]);
+        bulletController.StartSpawningBulletGroup(bulletList[7]);
+        cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(0.5f));
+        yield return cd.coroutine;
+        bulletController.StartSpawningBulletGroup(bulletList[8]);
+        bulletController.StartSpawningBulletGroup(bulletList[9]);
+        cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(0.9f));
+        yield return cd.coroutine;
+        bulletController.StartSpawningBulletGroup(bulletList[10]);
+        bulletController.StartSpawningBulletGroup(bulletList[11]);
+        cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(2f));
+        yield return cd.coroutine;
+        bulletController.StartSpawningBulletGroup(bulletList[12]);
+        bulletController.StartSpawningBulletGroup(bulletList[13]);
+        cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(0.2f));
+        yield return cd.coroutine;
+        bulletController.StartSpawningBulletGroup(bulletList[4]);
+        bulletController.StartSpawningBulletGroup(bulletList[5]);
+        cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(0.2f));
+        yield return cd.coroutine;
+        bulletController.StartSpawningBulletGroup(bulletList[6]);
+        bulletController.StartSpawningBulletGroup(bulletList[7]);
+        cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(0.4f));
+        yield return cd.coroutine;
+        bulletController.StartSpawningBulletGroup(bulletList[14]);
+        bulletController.StartSpawningBulletGroup(bulletList[15]);
+        cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(0.5f));
+        yield return cd.coroutine;
+        bulletController.StartSpawningBulletGroup(bulletList[8]);
+        bulletController.StartSpawningBulletGroup(bulletList[9]);
+        cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(0.5f));
+        yield return cd.coroutine;
+        bulletController.StartSpawningBulletGroup(bulletList[16]);
+        bulletController.StartSpawningBulletGroup(bulletList[17]);
+        cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(0.3f));
+        yield return cd.coroutine;
+        bulletController.StartSpawningBulletGroup(bulletList[18]);
+        bulletController.StartSpawningBulletGroup(bulletList[19]);
+        cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(0.2f));
+        yield return cd.coroutine;
+        bulletController.StartSpawningBulletGroup(bulletList[6]);
+        bulletController.StartSpawningBulletGroup(bulletList[7]);
+        cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(0.1f));
+        yield return cd.coroutine;
+        bulletController.StartSpawningBulletGroup(bulletList[10]);
+        bulletController.StartSpawningBulletGroup(bulletList[11]);
+        cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(0.1f));
+        yield return cd.coroutine;
+        bulletController.StartSpawningBulletGroup(bulletList[20]);
+        bulletController.StartSpawningBulletGroup(bulletList[21]);
+        cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(0.4f));
+        yield return cd.coroutine;
+    }
+    private IEnumerator CurveCenter(BulletController bulletController)
+    {
+        bulletController.StartSpawningBulletGroup(bulletList[22]);
+        bulletController.StartSpawningBulletGroup(bulletList[23]);
+        CoroutineWithData cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(1));
+        yield return cd.coroutine;
+    }
+    private IEnumerator TurretSpam(BulletController bulletController)
+    {
+        bulletController.StartSpawningBulletGroup(bulletList[24]);
+        CoroutineWithData cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(0.5f));
+        yield return cd.coroutine;
+        bulletController.StartSpawningBulletGroup(bulletList[25]);
+        cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(0.5f));
+        yield return cd.coroutine;
+        bulletController.StartSpawningBulletGroup(bulletList[26]);
+        cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(0.5f));
+        yield return cd.coroutine;
+        bulletController.StartSpawningBulletGroup(bulletList[27]);
+        cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(0.5f));
+        yield return cd.coroutine;
+        bulletController.StartSpawningBulletGroup(bulletList[28]);
+        cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(0.5f));
+        yield return cd.coroutine;
+        bulletController.StartSpawningBulletGroup(bulletList[29]);
+        cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(0.5f));
+        yield return cd.coroutine;
+        bulletController.StartSpawningBulletGroup(bulletList[30]);
+        cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(0.5f));
+        yield return cd.coroutine;
+        bulletController.StartSpawningBulletGroup(bulletList[31]);
+        cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(0.5f));
+        yield return cd.coroutine;
     }
 }

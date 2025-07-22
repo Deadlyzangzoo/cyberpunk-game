@@ -97,10 +97,19 @@ public class BulletSpawnerController : MonoBehaviour
             }
 
             instantiatedBullet.SendMessage("SetPathCurved", bulletGroup.pathCurved);
-            instantiatedBullet.SendMessage("SetCurveControlPointOne", bulletGroup.curveControlPointOne);
-            instantiatedBullet.SendMessage("SetCurveControlPointTwo", bulletGroup.curveControlPointTwo);
-            instantiatedBullet.SendMessage("SetCurveEndPoint", bulletGroup.curveEndPoint);
-            instantiatedBullet.SendMessage("SetMoveDelta", bulletDirection);
+            if (bulletGroup.locationChangeBetweenBullets == new Vector3(0f, 0f))
+            {
+                instantiatedBullet.SendMessage("SetCurveControlPointOne", bulletGroup.curveControlPointOne);
+                instantiatedBullet.SendMessage("SetCurveControlPointTwo", bulletGroup.curveControlPointTwo);
+                instantiatedBullet.SendMessage("SetCurveEndPoint", bulletGroup.curveEndPoint);
+            }
+            else
+            {
+                instantiatedBullet.SendMessage("SetCurveControlPointOne", bulletGroup.curveControlPointOne + spawnLocation);
+                instantiatedBullet.SendMessage("SetCurveControlPointTwo", bulletGroup.curveControlPointTwo + spawnLocation);
+                instantiatedBullet.SendMessage("SetCurveEndPoint", bulletGroup.curveEndPoint + spawnLocation);
+            }
+                instantiatedBullet.SendMessage("SetMoveDelta", bulletDirection);
             instantiatedBullet.SendMessage("SetTimeAlive", bulletGroup.bulletTimeAlive);
             instantiatedBullet.SendMessage("SetBulletSolid", bulletGroup.bulletSolid);
             instantiatedBullet.SendMessage("SetBulletGlitched", thisBulletIsGlitched);

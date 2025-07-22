@@ -27,7 +27,7 @@ public class BulletController : MonoBehaviour
 
     void Awake()
     {
-        bulletGroupList = new string[42]
+        bulletGroupList = new string[70]
         {
             "EmptyBulletData",
             "TestBullet1",
@@ -71,6 +71,34 @@ public class BulletController : MonoBehaviour
             "BulletRandomTopBulletSpam",
             "BulletMiddleLRBomb",
             "BulletMiddleUDBomb",
+            "BulletTopLeftLRBomb",
+            "BulletTopLeftUDBomb",
+            "BulletBottomRightLRBomb",
+            "BulletBottomRightUDBomb",
+            "BulletMiddleLeftLRBomb",
+            "BulletMiddleLeftUDBomb",
+            "BulletTopRightLRBomb",
+            "BulletTopRightUDBomb",
+            "BulletTopMiddleLRBomb",
+            "BulletTopMiddleUDBomb",
+            "BulletMiddleRightLRBomb",
+            "BulletMiddleRightUDBomb",
+            "BulletBottomMiddleLRBomb",
+            "BulletBottomMiddleUDBomb",
+            "BulletBottomLeftLRBomb",
+            "BulletBottomLeftUDBomb",
+            "BulletMiddleDiagonalLRBomb",
+            "BulletMiddleDiagonalUDBomb",
+            "BulletLeftCurveDownWall",
+            "BulletRightCurveDownWall",
+            "BulletTurretBottomLeft",
+            "BulletTurretBottomMiddle",
+            "BulletTurretBottomRight",
+            "BulletTurretTopLeft",
+            "BulletTurretTopMiddle",
+            "BulletTurretTopRight",
+            "BulletTurretLeft",
+            "BulletTurretRight",
         };
     }
 
@@ -242,6 +270,118 @@ public class BulletController : MonoBehaviour
         else if (groupname == bulletGroupList[41])
         {
             newBulletGroup = bulletData.TeamBombMiddleUDData();
+        }
+        else if (groupname == bulletGroupList[42])
+        {
+            newBulletGroup = bulletData.TeamBombTopLeftLRData();
+        }
+        else if (groupname == bulletGroupList[43])
+        {
+            newBulletGroup = bulletData.TeamBombTopLeftUDData();
+        }
+        else if (groupname == bulletGroupList[44])
+        {
+            newBulletGroup = bulletData.TeamBombBottomRightLRData();
+        }
+        else if (groupname == bulletGroupList[45])
+        {
+            newBulletGroup = bulletData.TeamBombBottomRightUDData();
+        }
+        else if (groupname == bulletGroupList[46])
+        {
+            newBulletGroup = bulletData.TeamBombMiddleLeftLRData();
+        }
+        else if (groupname == bulletGroupList[47])
+        {
+            newBulletGroup = bulletData.TeamBombMiddleLeftUDData();
+        }
+        else if (groupname == bulletGroupList[48])
+        {
+            newBulletGroup = bulletData.TeamBombTopRightLRData();
+        }
+        else if (groupname == bulletGroupList[49])
+        {
+            newBulletGroup = bulletData.TeamBombTopRightUDData();
+        }
+        else if (groupname == bulletGroupList[50])
+        {
+            newBulletGroup = bulletData.TeamBombTopMiddleLRData();
+        }
+        else if (groupname == bulletGroupList[51])
+        {
+            newBulletGroup = bulletData.TeamBombTopMiddleUDData();
+        }
+        else if (groupname == bulletGroupList[52])
+        {
+            newBulletGroup = bulletData.TeamBombMiddleRightLRData();
+        }
+        else if (groupname == bulletGroupList[53])
+        {
+            newBulletGroup = bulletData.TeamBombMiddleRightUDData();
+        }
+        else if (groupname == bulletGroupList[54])
+        {
+            newBulletGroup = bulletData.TeamBombBottomMiddleLRData();
+        }
+        else if (groupname == bulletGroupList[55])
+        {
+            newBulletGroup = bulletData.TeamBombBottomMiddleUDData();
+        }
+        else if (groupname == bulletGroupList[56])
+        {
+            newBulletGroup = bulletData.TeamBombBottomLeftLRData();
+        }
+        else if (groupname == bulletGroupList[57])
+        {
+            newBulletGroup = bulletData.TeamBombBottomLeftUDData();
+        }
+        else if (groupname == bulletGroupList[58])
+        {
+            newBulletGroup = bulletData.TeamBombMiddleDiagonalLRData();
+        }
+        else if (groupname == bulletGroupList[59])
+        {
+            newBulletGroup = bulletData.TeamBombMiddleDiagonalUDData();
+        }
+        else if (groupname == bulletGroupList[60])
+        {
+            newBulletGroup = bulletData.TeamLeftCurveDownData();
+        }
+        else if (groupname == bulletGroupList[61])
+        {
+            newBulletGroup = bulletData.TeamRightCurveDownData();
+        }
+        else if (groupname == bulletGroupList[62])
+        {
+            newBulletGroup = bulletData.TeamBottomLeftTurretData();
+        }
+        else if (groupname == bulletGroupList[63])
+        {
+            newBulletGroup = bulletData.TeamBottomMiddleTurretData();
+        }
+        else if (groupname == bulletGroupList[64])
+        {
+            newBulletGroup = bulletData.TeamBottomRightTurretData();
+        }
+        else if (groupname == bulletGroupList[65])
+        {
+            newBulletGroup = bulletData.TeamTopLeftTurretData();
+        }
+        else if (groupname == bulletGroupList[66])
+        {
+            newBulletGroup = bulletData.TeamTopMiddleTurretData();
+        }
+        else if (groupname == bulletGroupList[67])
+        {
+            newBulletGroup = bulletData.TeamTopRightTurretData();
+        }
+        else if (groupname == bulletGroupList[68])
+        {
+            newBulletGroup = bulletData.TeamLeftTurretData();
+        }
+        else if (groupname == bulletGroupList[69])
+        {
+            newBulletGroup = bulletData.TeamRightTurretData();
         }
         else
         {

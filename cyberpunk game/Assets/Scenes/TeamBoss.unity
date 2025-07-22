@@ -512,11 +512,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2014172574773185233, guid: f2e1816ea61ef654292219136f498a6e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.3
+      value: -4.3
       objectReference: {fileID: 0}
     - target: {fileID: 2014172574773185233, guid: f2e1816ea61ef654292219136f498a6e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.9000001
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4998928704837232596, guid: f2e1816ea61ef654292219136f498a6e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4998928704837232596, guid: f2e1816ea61ef654292219136f498a6e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5834385003576282545, guid: f2e1816ea61ef654292219136f498a6e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.6000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 5834385003576282545, guid: f2e1816ea61ef654292219136f498a6e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.3000001
       objectReference: {fileID: 0}
     - target: {fileID: 7951734621890518103, guid: f2e1816ea61ef654292219136f498a6e, type: 3}
       propertyPath: m_Name
@@ -525,6 +541,14 @@ PrefabInstance:
     - target: {fileID: 7951734621890518103, guid: f2e1816ea61ef654292219136f498a6e, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8420594685550786212, guid: f2e1816ea61ef654292219136f498a6e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8420594685550786212, guid: f2e1816ea61ef654292219136f498a6e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -642,8 +666,8 @@ SceneRoots:
   - {fileID: 1025018793}
   - {fileID: 2033887570}
   - {fileID: 268496799}
-  - {fileID: 1869010089}
   - {fileID: 335213463}
   - {fileID: 1960445106}
   - {fileID: 955093061}
   - {fileID: 945569117}
+  - {fileID: 1869010089}
