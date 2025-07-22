@@ -13,8 +13,14 @@ public class BulletSpawnerController : MonoBehaviour
     public GameObject bulletPrefab;
     public GameObject glitchedBulletPrefab;
     private GameObject instantiatedBullet;
+    public GameObject plusBombPrefab;
+    public GameObject crossBombPrefab;
+    private Vector2 location;
+    private bool plus;
+    private float time;
 
-    void StartBulletSpawning(BulletClass newBulletGroup)
+
+    public void StartBulletSpawning(BulletClass newBulletGroup)
     {
         StartCoroutine(CreateBullets(newBulletGroup));
     }
@@ -151,5 +157,34 @@ public class BulletSpawnerController : MonoBehaviour
             timePassed = timePassed + (Time.deltaTime * (GameManager.Instance.bulletSpeedMultiplier / 0.5f));
         }
         yield return true;
+    }
+
+    public IEnumerator CreateBomb()
+    {
+        GameObject instantiatedBomb = new();
+        if (plus)
+        {
+            instantiatedBomb = Instantiate(plusBombPrefab, location, Quaternion.identity);
+        }
+        else
+        {
+            instantiatedBomb = Instantiate(crossBombPrefab, location, Quaternion.identity);
+        }
+        CoroutineWithData cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(time));
+        yield return cd.coroutine;
+        GameManager.Destroy(instantiatedBomb);
+        GameObject.Destroy(gameObject);
+    }
+    private void SetBombLocation(Vector2 locationRecieved)
+    {
+        location = locationRecieved;
+    }
+    private void SetBombPlus(bool plusRecieved)
+    {
+        plus = plusRecieved;
+    }
+    private void SetBombTime(float timeRecieved)
+    {
+        time = timeRecieved;
     }
 }

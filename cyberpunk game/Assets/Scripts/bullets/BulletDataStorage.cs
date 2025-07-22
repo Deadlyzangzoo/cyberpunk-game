@@ -686,7 +686,7 @@ public class BulletDataStorage {
         bullet.startLocation = new Vector3(4.3f, 1f);
         bullet.bulletNum = 29;
         bullet.timeBetweenBullets = 0f;
-        bullet.bulletTimeAlive = 10f;
+        bullet.bulletTimeAlive = 13f;
         bullet.pathCurved = false;
         bullet.curveControlPointOne = new Vector3(0f, 0f);
         bullet.curveControlPointTwo = new Vector3(0f, 0f);
@@ -1642,14 +1642,14 @@ public class BulletDataStorage {
         bullet.startLocation = new Vector3(0f, -0.5f);
         bullet.bulletNum = 20;
         bullet.timeBetweenBullets = 0.1f;
-        bullet.bulletTimeAlive = 4f;
+        bullet.bulletTimeAlive = 6f;
         bullet.pathCurved = false;
         bullet.curveControlPointOne = new Vector3(0f, 0f);
         bullet.curveControlPointTwo = new Vector3(0f, 0f);
         bullet.curveEndPoint = new Vector3(0f, 0f);
-        bullet.bulletDirection = new Vector2(2, -2);
+        bullet.bulletDirection = new Vector2(1.5f, -1.5f);
         bullet.bulletDirectionChangeX = 0f;
-        bullet.bulletDirectionChangeY = 0.2f;
+        bullet.bulletDirectionChangeY = 0.15f;
         bullet.locationChangeBetweenBullets = new Vector3(0f, 0f);
         bullet.glitchedBulletGuaranteed = false;
         bullet.glitchedBulletChance = 0.4f;
@@ -1665,13 +1665,13 @@ public class BulletDataStorage {
         bullet.startLocation = new Vector3(0f, -0.5f);
         bullet.bulletNum = 20;
         bullet.timeBetweenBullets = 0.1f;
-        bullet.bulletTimeAlive = 4f;
+        bullet.bulletTimeAlive = 6f;
         bullet.pathCurved = false;
         bullet.curveControlPointOne = new Vector3(0f, 0f);
         bullet.curveControlPointTwo = new Vector3(0f, 0f);
         bullet.curveEndPoint = new Vector3(0f, 0f);
-        bullet.bulletDirection = new Vector2(2, 2);
-        bullet.bulletDirectionChangeX = -0.2f;
+        bullet.bulletDirection = new Vector2(1.5f, 1.5f);
+        bullet.bulletDirectionChangeX = -0.15f;
         bullet.bulletDirectionChangeY = 0f;
         bullet.locationChangeBetweenBullets = new Vector3(0f, 0f);
         bullet.glitchedBulletGuaranteed = false;
@@ -1688,14 +1688,14 @@ public class BulletDataStorage {
         bullet.startLocation = new Vector3(0f, -0.5f);
         bullet.bulletNum = 20;
         bullet.timeBetweenBullets = 0.1f;
-        bullet.bulletTimeAlive = 4f;
+        bullet.bulletTimeAlive = 6f;
         bullet.pathCurved = false;
         bullet.curveControlPointOne = new Vector3(0f, 0f);
         bullet.curveControlPointTwo = new Vector3(0f, 0f);
         bullet.curveEndPoint = new Vector3(0f, 0f);
-        bullet.bulletDirection = new Vector2(-2, 2);
+        bullet.bulletDirection = new Vector2(-1.5f, 1.5f);
         bullet.bulletDirectionChangeX = 0f;
-        bullet.bulletDirectionChangeY = -0.2f;
+        bullet.bulletDirectionChangeY = -0.15f;
         bullet.locationChangeBetweenBullets = new Vector3(0f, 0f);
         bullet.glitchedBulletGuaranteed = false;
         bullet.glitchedBulletChance = 0.4f;
@@ -1711,13 +1711,13 @@ public class BulletDataStorage {
         bullet.startLocation = new Vector3(0f, -0.5f);
         bullet.bulletNum = 20;
         bullet.timeBetweenBullets = 0.1f;
-        bullet.bulletTimeAlive = 4f;
+        bullet.bulletTimeAlive = 6f;
         bullet.pathCurved = false;
         bullet.curveControlPointOne = new Vector3(0f, 0f);
         bullet.curveControlPointTwo = new Vector3(0f, 0f);
         bullet.curveEndPoint = new Vector3(0f, 0f);
-        bullet.bulletDirection = new Vector2(-2, -2);
-        bullet.bulletDirectionChangeX = 0.2f;
+        bullet.bulletDirection = new Vector2(-1.5f, -1.5f);
+        bullet.bulletDirectionChangeX = 0.15f;
         bullet.bulletDirectionChangeY = 0f;
         bullet.locationChangeBetweenBullets = new Vector3(0f, 0f);
         bullet.glitchedBulletGuaranteed = false;
@@ -1733,7 +1733,7 @@ public class BulletDataStorage {
 
         bullet.startLocation = new Vector3(4.3f, 0f);
         bullet.bulletNum = 20;
-        bullet.timeBetweenBullets = 0.5f;
+        bullet.timeBetweenBullets = 0.7f;
         bullet.bulletTimeAlive = 6f;
         bullet.randomSpawnBetween = new Vector2[2]
         {
@@ -1761,12 +1761,12 @@ public class BulletDataStorage {
 
         bullet.startLocation = new Vector3(0f, 2f);
         bullet.bulletNum = 100;
-        bullet.timeBetweenBullets = 0.1f;
+        bullet.timeBetweenBullets = 0.2f;
         bullet.bulletTimeAlive = 8f;
         bullet.randomSpawnBetween = new Vector2[2]
         {
-            new Vector2(-4.3f, 1),
-            new Vector2(4.3f, 1)
+            new Vector2(-4.3f, 2),
+            new Vector2(4.3f, 2)
         };
         bullet.pathCurved = false;
         bullet.curveControlPointOne = new Vector3(0f, 0f);

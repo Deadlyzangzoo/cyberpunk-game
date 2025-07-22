@@ -119,76 +119,220 @@ public class TeamBossController : MonoBehaviour
         BulletController bulletController = BulletController.Instance;
         CoroutineWithData cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(1));
         yield return cd.coroutine;
-        StartCoroutine(RandomBulletRain(bulletController));
-        cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(26));
+        Coroutine coroutine = StartCoroutine(RandomBulletRain(bulletController));
+        cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(24));
         yield return cd.coroutine;
-        StartCoroutine(BombSpam(bulletController));
+        if (!GameManager.Instance.fightAllowed)
+        {
+            StopCoroutine(coroutine);
+            yield break;
+        }
+        bulletController.SpawnBomb(new Vector2(0f, 0f), true, 2f);
+        coroutine = StartCoroutine(BombSpam(bulletController));
         cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(9));
         yield return cd.coroutine;
-        StartCoroutine(CurveCenter(bulletController));
+        if (!GameManager.Instance.fightAllowed)
+        {
+            StopCoroutine(coroutine);
+            yield break;
+        }
+        coroutine = StartCoroutine(CurveCenter(bulletController));
         cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(6));
         yield return cd.coroutine;
-        StartCoroutine(TurretSpam(bulletController));
+        if (!GameManager.Instance.fightAllowed)
+        {
+            StopCoroutine(coroutine);
+            yield break;
+        }
+        coroutine = StartCoroutine(TurretSpam(bulletController));
         cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(6));
         yield return cd.coroutine;
-        StartCoroutine(SpawnSpinnyBall(bulletController));
+        if (!GameManager.Instance.fightAllowed)
+        {
+            StopCoroutine(coroutine);
+            yield break;
+        }
+        coroutine = StartCoroutine(SpawnSpinnyBall(bulletController));
         cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(7.99999f));
         yield return cd.coroutine;
-        StartCoroutine(SpawnSpinnyBall(bulletController)); 
+        if (!GameManager.Instance.fightAllowed)
+        {
+            StopCoroutine(coroutine);
+            yield break;
+        }
+        coroutine = StartCoroutine(SpawnSpinnyBall(bulletController)); 
         cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(2.6665f));
         yield return cd.coroutine;
-        StartCoroutine(SpawnSpinnyBall(bulletController)); 
+        if (!GameManager.Instance.fightAllowed)
+        {
+            StopCoroutine(coroutine);
+            yield break;
+        }
+        coroutine = StartCoroutine(SpawnSpinnyBall(bulletController)); 
         cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(2.6665f));
         yield return cd.coroutine;
-        StartCoroutine(SpawnSpinnyBall(bulletController)); 
+        if (!GameManager.Instance.fightAllowed)
+        {
+            StopCoroutine(coroutine);
+            yield break;
+        }
+        coroutine = StartCoroutine(SpawnSpinnyBall(bulletController)); 
         cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(2.6665f));
         yield return cd.coroutine;
-        StartCoroutine(SpawnSpinnyBall(bulletController));
-        StartCoroutine(TurretSpam(bulletController));
+        if (!GameManager.Instance.fightAllowed)
+        {
+            StopCoroutine(coroutine);
+            yield break;
+        }
+        coroutine = StartCoroutine(SpawnSpinnyBall(bulletController));
+        coroutine = StartCoroutine(TurretSpam(bulletController));
         cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(2.6665f));
         yield return cd.coroutine;
-        StartCoroutine(SpawnSpinnyBall(bulletController));
+        if (!GameManager.Instance.fightAllowed)
+        {
+            StopCoroutine(coroutine);
+            yield break;
+        }
+        coroutine = StartCoroutine(SpawnSpinnyBall(bulletController));
         cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(2.6665f));
         yield return cd.coroutine;
-        StartCoroutine(SpawnSpinnyBall(bulletController));
-        StartCoroutine(TurretSpam(bulletController));
+        if (!GameManager.Instance.fightAllowed)
+        {
+            StopCoroutine(coroutine);
+            yield break;
+        }
+        coroutine = StartCoroutine(SpawnSpinnyBall(bulletController));
+        coroutine = StartCoroutine(TurretSpam(bulletController));
         cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(2.6665f));
         yield return cd.coroutine;
-        StartCoroutine(SpawnSpinnyBall(bulletController));
+        if (!GameManager.Instance.fightAllowed)
+        {
+            StopCoroutine(coroutine);
+            yield break;
+        }
+        coroutine = StartCoroutine(SpawnSpinnyBall(bulletController));
         cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(2.6665f));
         yield return cd.coroutine;
-        StartCoroutine(SpawnSpinnyBall(bulletController));
+        if (!GameManager.Instance.fightAllowed)
+        {
+            StopCoroutine(coroutine);
+            yield break;
+        }
+        coroutine = StartCoroutine(SpawnSpinnyBall(bulletController));
         cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(2.6665f));
         yield return cd.coroutine;
-        StartCoroutine(SpawnSpinnyBall(bulletController));
-        StartCoroutine(RandomBulletRainSlow(bulletController));
+        if (!GameManager.Instance.fightAllowed)
+        {
+            StopCoroutine(coroutine);
+            yield break;
+        }
+        coroutine = StartCoroutine(SpawnSpinnyBall(bulletController));
+        coroutine = StartCoroutine(RandomBulletRainSlow(bulletController));
         cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(2.6665f));
         yield return cd.coroutine;
-        StartCoroutine(SpawnSpinnyBall(bulletController));
+        if (!GameManager.Instance.fightAllowed)
+        {
+            StopCoroutine(coroutine);
+            yield break;
+        }
+        coroutine = StartCoroutine(SpawnSpinnyBall(bulletController));
         cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(2.6665f));
         yield return cd.coroutine;
-        StartCoroutine(SpawnSpinnyBall(bulletController));
+        if (!GameManager.Instance.fightAllowed)
+        {
+            StopCoroutine(coroutine);
+            yield break;
+        }
+        coroutine = StartCoroutine(SpawnSpinnyBall(bulletController));
         cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(2.6665f));
         yield return cd.coroutine;
-        StartCoroutine(SpawnSpinnyBall(bulletController));
+        if (!GameManager.Instance.fightAllowed)
+        {
+            StopCoroutine(coroutine);
+            yield break;
+        }
+        coroutine = StartCoroutine(SpawnSpinnyBall(bulletController));
         cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(2.6665f));
         yield return cd.coroutine;
-        StartCoroutine(SpawnSpinnyBall(bulletController));
+        if (!GameManager.Instance.fightAllowed)
+        {
+            StopCoroutine(coroutine);
+            yield break;
+        }
+        coroutine = StartCoroutine(SpawnSpinnyBall(bulletController));
         cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(2.6665f));
         yield return cd.coroutine;
-        StartCoroutine(SpawnSpinnyBall(bulletController));
+        if (!GameManager.Instance.fightAllowed)
+        {
+            StopCoroutine(coroutine);
+            yield break;
+        }
+        coroutine = StartCoroutine(SpawnSpinnyBall(bulletController));
         cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(2.6665f));
         yield return cd.coroutine;
-        StartCoroutine(SpawnSpinnyBall(bulletController));
+        if (!GameManager.Instance.fightAllowed)
+        {
+            StopCoroutine(coroutine);
+            yield break;
+        }
+        coroutine = StartCoroutine(SpawnSpinnyBall(bulletController));
         cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(2.6665f));
         yield return cd.coroutine;
-        StartCoroutine(SpawnSpinnyBall(bulletController));
+        if (!GameManager.Instance.fightAllowed)
+        {
+            StopCoroutine(coroutine);
+            yield break;
+        }
+        coroutine = StartCoroutine(SpawnSpinnyBall(bulletController));
         cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(2.6665f));
         yield return cd.coroutine;
-        StartCoroutine(SpawnSpinnyBall(bulletController));
+        if (!GameManager.Instance.fightAllowed)
+        {
+            StopCoroutine(coroutine);
+            yield break;
+        }
+        coroutine = StartCoroutine(SpawnSpinnyBall(bulletController));
         cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(2.6665f));
         yield return cd.coroutine;
-        StartCoroutine(SpawnSpinnyBall(bulletController));
+        if (!GameManager.Instance.fightAllowed)
+        {
+            StopCoroutine(coroutine);
+            yield break;
+        }
+        coroutine = StartCoroutine(SpawnSpinnyBall(bulletController));
+        cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(2.6665f));
+        yield return cd.coroutine;
+        if (!GameManager.Instance.fightAllowed)
+        {
+            StopCoroutine(coroutine);
+            yield break;
+        }
+        coroutine = StartCoroutine(SpawnSpinnyBall(bulletController));
+        cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(2.6665f));
+        yield return cd.coroutine;
+        if (!GameManager.Instance.fightAllowed)
+        {
+            StopCoroutine(coroutine);
+            yield break;
+        }
+        coroutine = StartCoroutine(SpawnSpinnyBall(bulletController));
+        cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(10f));
+        yield return cd.coroutine;
+        if (!GameManager.Instance.fightAllowed)
+        {
+            StopCoroutine(coroutine);
+            yield break;
+        }
+        bulletController.StartSpawningBulletGroup(bulletList[36]);
+        bulletController.StartSpawningBulletGroup(bulletList[37]);
+        cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(20f));
+        yield return cd.coroutine;
+        if (!GameManager.Instance.fightAllowed)
+        {
+            StopCoroutine(coroutine);
+            yield break;
+        }
+        StartCoroutine(SpawnBullets());
     }
 
     private IEnumerator RandomBulletRain(BulletController bulletController)
@@ -203,58 +347,72 @@ public class TeamBossController : MonoBehaviour
     {
         bulletController.StartSpawningBulletGroup(bulletList[2]);
         bulletController.StartSpawningBulletGroup(bulletList[3]);
+        bulletController.SpawnBomb(new Vector2(-2.5f, 0f), true, 1f);
         CoroutineWithData cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(1));
         yield return cd.coroutine;
         bulletController.StartSpawningBulletGroup(bulletList[4]);
         bulletController.StartSpawningBulletGroup(bulletList[5]);
+        bulletController.SpawnBomb(new Vector2(2f, -1.5f), true, 0.7f);
         cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(0.7f));
         yield return cd.coroutine;
         bulletController.StartSpawningBulletGroup(bulletList[6]);
         bulletController.StartSpawningBulletGroup(bulletList[7]);
+        bulletController.SpawnBomb(new Vector2(-1f, -0.5f), true, 0.5f);
         cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(0.5f));
         yield return cd.coroutine;
         bulletController.StartSpawningBulletGroup(bulletList[8]);
         bulletController.StartSpawningBulletGroup(bulletList[9]);
+        bulletController.SpawnBomb(new Vector2(2f, 0.5f), false, 0.9f);
         cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(0.9f));
         yield return cd.coroutine;
         bulletController.StartSpawningBulletGroup(bulletList[10]);
         bulletController.StartSpawningBulletGroup(bulletList[11]);
+        bulletController.SpawnBomb(new Vector2(0f, 0f), false, 2f);
         cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(2f));
         yield return cd.coroutine;
         bulletController.StartSpawningBulletGroup(bulletList[12]);
         bulletController.StartSpawningBulletGroup(bulletList[13]);
+        bulletController.SpawnBomb(new Vector2(-2.5f, 0f), true, 0.2f);
         cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(0.2f));
         yield return cd.coroutine;
         bulletController.StartSpawningBulletGroup(bulletList[4]);
         bulletController.StartSpawningBulletGroup(bulletList[5]);
+        bulletController.SpawnBomb(new Vector2(2f, -1.5f), true, 0.2f);
         cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(0.2f));
         yield return cd.coroutine;
         bulletController.StartSpawningBulletGroup(bulletList[6]);
         bulletController.StartSpawningBulletGroup(bulletList[7]);
+        bulletController.SpawnBomb(new Vector2(2f, -0.3f), true, 0.4f);
         cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(0.4f));
         yield return cd.coroutine;
         bulletController.StartSpawningBulletGroup(bulletList[14]);
         bulletController.StartSpawningBulletGroup(bulletList[15]);
+        bulletController.SpawnBomb(new Vector2(-1f, -0.5f), true, 0.5f);
         cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(0.5f));
         yield return cd.coroutine;
         bulletController.StartSpawningBulletGroup(bulletList[8]);
         bulletController.StartSpawningBulletGroup(bulletList[9]);
+        bulletController.SpawnBomb(new Vector2(0f, -1f), false, 0.5f);
         cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(0.5f));
         yield return cd.coroutine;
         bulletController.StartSpawningBulletGroup(bulletList[16]);
         bulletController.StartSpawningBulletGroup(bulletList[17]);
+        bulletController.SpawnBomb(new Vector2(-1f, -1.5f), false, 0.3f);
         cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(0.3f));
         yield return cd.coroutine;
         bulletController.StartSpawningBulletGroup(bulletList[18]);
         bulletController.StartSpawningBulletGroup(bulletList[19]);
+        bulletController.SpawnBomb(new Vector2(2f, -1.5f), true, 0.2f);
         cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(0.2f));
         yield return cd.coroutine;
         bulletController.StartSpawningBulletGroup(bulletList[6]);
         bulletController.StartSpawningBulletGroup(bulletList[7]);
+        bulletController.SpawnBomb(new Vector2(2f, 0.5f), false, 0.1f);
         cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(0.1f));
         yield return cd.coroutine;
         bulletController.StartSpawningBulletGroup(bulletList[10]);
         bulletController.StartSpawningBulletGroup(bulletList[11]);
+        bulletController.SpawnBomb(new Vector2(0f, -1f), false, 0.1f);
         cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(0.1f));
         yield return cd.coroutine;
         bulletController.StartSpawningBulletGroup(bulletList[20]);

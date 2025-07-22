@@ -80,10 +80,18 @@ public class GameManager : MonoBehaviour, IDataPersistence
         }
         if (currentScene.name == "FirewallBoss")
         {
-            if (PlayerController.Instance.health <= 0 || FirewallBossController.Instance.damage > 300)
+            if (PlayerController.Instance.health <= 0 || FirewallBossController.Instance.damage > 250)
             {
                 fightAllowed = false;
                 FirewallBossController.Instance.SendMessage("EndFight");
+            }
+        }
+        else if (currentScene.name == "TeamBoss")
+        {
+            if (PlayerController.Instance.health <= 0 || TeamBossController.Instance.damage > 250)
+            {
+                fightAllowed = false;
+                TeamBossController.Instance.SendMessage("EndFight");
             }
         }
     }

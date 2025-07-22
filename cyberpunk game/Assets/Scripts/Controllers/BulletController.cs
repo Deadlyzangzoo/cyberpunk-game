@@ -420,4 +420,12 @@ public class BulletController : MonoBehaviour
         GameObject bulletSpawner = Instantiate(bulletSpawnerPrefab, transform);
         bulletSpawner.SendMessage("StartBulletSpawning", newBulletGroup);
     }
+    public void SpawnBomb(Vector2 location, bool plus, float time)
+    {
+        GameObject bulletSpawner = Instantiate(bulletSpawnerPrefab, transform);
+        bulletSpawner.SendMessage("SetBombLocation", location);
+        bulletSpawner.SendMessage("SetBombPlus", plus);
+        bulletSpawner.SendMessage("SetBombTime", time);
+        bulletSpawner.SendMessage("CreateBomb");
+    }
 }

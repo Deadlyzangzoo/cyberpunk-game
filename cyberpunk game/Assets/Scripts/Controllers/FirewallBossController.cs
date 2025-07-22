@@ -208,7 +208,7 @@ public class FirewallBossController : MonoBehaviour
             StopCoroutine(coroutine);
             yield break;
         }
-        coroutine = StartCoroutine(SpawnBullets());
+        StartCoroutine(SpawnBullets());
     }
     private IEnumerator SpawnLeftRightBulletEnclosure(BulletController bulletController)
     {
