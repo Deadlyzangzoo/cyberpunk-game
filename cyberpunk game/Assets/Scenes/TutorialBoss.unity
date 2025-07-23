@@ -236,6 +236,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ed277dceb551864b90c1a679994816f, type: 3}
+--- !u!1001 &1166028185
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5927673801670188762, guid: 4d4e7f20f4202ec45b05bbed37d75be2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.6340671
+      objectReference: {fileID: 0}
+    - target: {fileID: 5927673801670188762, guid: 4d4e7f20f4202ec45b05bbed37d75be2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.870018
+      objectReference: {fileID: 0}
+    - target: {fileID: 5927673801670188762, guid: 4d4e7f20f4202ec45b05bbed37d75be2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.4401035
+      objectReference: {fileID: 0}
+    - target: {fileID: 5927673801670188762, guid: 4d4e7f20f4202ec45b05bbed37d75be2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5927673801670188762, guid: 4d4e7f20f4202ec45b05bbed37d75be2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5927673801670188762, guid: 4d4e7f20f4202ec45b05bbed37d75be2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5927673801670188762, guid: 4d4e7f20f4202ec45b05bbed37d75be2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5927673801670188762, guid: 4d4e7f20f4202ec45b05bbed37d75be2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5927673801670188762, guid: 4d4e7f20f4202ec45b05bbed37d75be2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5927673801670188762, guid: 4d4e7f20f4202ec45b05bbed37d75be2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8587703630369370959, guid: 4d4e7f20f4202ec45b05bbed37d75be2, type: 3}
+      propertyPath: m_Name
+      value: DataPersistenceManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4d4e7f20f4202ec45b05bbed37d75be2, type: 3}
 --- !u!1001 &1181060290
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -336,16 +393,16 @@ MonoBehaviour:
   - those bullets you dodged are programs. avoiding them will be essential to your
     mission.
   - but you don't need to just dodge. like any program, some bullets have bugs.
-  - vulnerabilities.
+  - 
   - you can swing your blade with [z] or [y]. this will exploit the bugs in bullets
     you strike.
-  - attack this bullet.
+  - use your attack to send this bullet back at the enemy.
   - failure. try again.
   - good.
   - swinging your blade will increase the movement speed of bullets.
-  - this is because the enemy is panicking.
-  - when the enemy is panicking, they will take more damage.
-  - try to deal as much damage as you can.
+  - 
+  - faster bullets will deal more damage to the enemy.
+  - 
   - dodge these bullets while attacking them.
   - failure. you didn't deal enough damage. try again.
   - good.
@@ -747,6 +804,63 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1001 &8626680132853303804
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 154088779920272572, guid: e91ad45acb3c53746815d23e0fc51a58, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 154088779920272572, guid: e91ad45acb3c53746815d23e0fc51a58, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 154088779920272572, guid: e91ad45acb3c53746815d23e0fc51a58, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 154088779920272572, guid: e91ad45acb3c53746815d23e0fc51a58, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 154088779920272572, guid: e91ad45acb3c53746815d23e0fc51a58, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 154088779920272572, guid: e91ad45acb3c53746815d23e0fc51a58, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 154088779920272572, guid: e91ad45acb3c53746815d23e0fc51a58, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 154088779920272572, guid: e91ad45acb3c53746815d23e0fc51a58, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 154088779920272572, guid: e91ad45acb3c53746815d23e0fc51a58, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 154088779920272572, guid: e91ad45acb3c53746815d23e0fc51a58, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7789267339330111871, guid: e91ad45acb3c53746815d23e0fc51a58, type: 3}
+      propertyPath: m_Name
+      value: EnergyBar
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e91ad45acb3c53746815d23e0fc51a58, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -758,3 +872,5 @@ SceneRoots:
   - {fileID: 1191338348}
   - {fileID: 1998774614}
   - {fileID: 1909250162}
+  - {fileID: 1166028185}
+  - {fileID: 8626680132853303804}

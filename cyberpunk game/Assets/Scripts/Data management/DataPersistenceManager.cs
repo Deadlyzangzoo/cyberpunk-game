@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using UnityEngine.SceneManagement;
 
 public class DataPersistenceManager : MonoBehaviour
 {
     [Header("File storage config")]
     [SerializeField] private string fileName;
 
-    public GameData gameData;
+    private GameData gameData;
     private List<IDataPersistence> dataPersistenceObjects;
     private FileDataHandler dataHandler;
 
@@ -26,6 +27,7 @@ public class DataPersistenceManager : MonoBehaviour
 
     private void Start()
     {
+        this.gameData = new GameData();
         this.dataHandler = new FileDataHandler(Application.persistentDataPath, fileName);
         this.dataPersistenceObjects = FindAllDataPersistenceObjects();
     }
@@ -46,6 +48,7 @@ public class DataPersistenceManager : MonoBehaviour
         {
             dataPersistenceObj.LoadData(gameData);
         }
+        SceneManager.LoadScene(gameData.sceneThatThePlayerIsOn);
     }
     public void SaveGame()
     {

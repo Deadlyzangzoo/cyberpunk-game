@@ -51,7 +51,6 @@ public class SelectionController : MonoBehaviour
             if (selectedOption == 0)
             {
                 DataPersistenceManager.Instance.LoadGame();
-                SceneManager.LoadScene(DataPersistenceManager.Instance.gameData.sceneThatThePlayerIsOn);
             }
         }
     }

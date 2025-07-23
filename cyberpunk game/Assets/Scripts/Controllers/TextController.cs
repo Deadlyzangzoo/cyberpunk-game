@@ -33,11 +33,6 @@ public class TextController : MonoBehaviour, IDataPersistence
     public bool fakeNInPosition;
     public bool fakeOInPosition;
 
-    //void Update()
-    //{
-    //    healthText.text = PlayerController.Instance.health.ToString() + ", " + TeamBossController.Instance.damage.ToString();
-    //}
-
     private void Start()
     {
         damage = 0;
@@ -54,7 +49,7 @@ public class TextController : MonoBehaviour, IDataPersistence
         coroutine = new CoroutineWithData(this, SpawnText(text[2]));
         yield return coroutine.coroutine;
         bulletController.StartSpawningBulletGroup("BulletRandomRightTutorial");
-        yield return new WaitForSeconds(25);
+        yield return new WaitForSeconds(12.5f);
         if (PlayerController.Instance.health == 100)
         {
             coroutine = new CoroutineWithData(this, SpawnText(text[4]));
@@ -69,8 +64,6 @@ public class TextController : MonoBehaviour, IDataPersistence
         coroutine = new CoroutineWithData(this, SpawnText(text[5]));
         yield return coroutine.coroutine;
         coroutine = new CoroutineWithData(this, SpawnText(text[6]));
-        yield return coroutine.coroutine;
-        coroutine = new CoroutineWithData(this, SpawnText(text[7]));
         yield return coroutine.coroutine;
         coroutine = new CoroutineWithData(this, SpawnText(text[8]));
         yield return coroutine.coroutine;
@@ -90,11 +83,7 @@ public class TextController : MonoBehaviour, IDataPersistence
         yield return coroutine.coroutine;
         coroutine = new CoroutineWithData(this, SpawnText(text[12]));
         yield return coroutine.coroutine;
-        coroutine = new CoroutineWithData(this, SpawnText(text[13]));
-        yield return coroutine.coroutine;
         coroutine = new CoroutineWithData(this, SpawnText(text[14]));
-        yield return coroutine.coroutine;
-        coroutine = new CoroutineWithData(this, SpawnText(text[15]));
         yield return coroutine.coroutine;
         coroutine = new CoroutineWithData(this, SpawnText(text[16]));
         yield return coroutine.coroutine;

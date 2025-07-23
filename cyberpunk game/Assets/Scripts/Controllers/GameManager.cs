@@ -5,44 +5,29 @@ using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour, IDataPersistence
+public class GameManager : MonoBehaviour
 {
-    public static GameManager Instance
-    {
-        get
-        {
-            if (_instance == null)
-                _instance = FindObjectOfType(typeof(GameManager)) as GameManager;
-
-            return _instance;
-        }
-        set
-        {
-            _instance = value;
-        }
-    }
-
-    private static GameManager _instance;
+    public static GameManager Instance { get; private set; }
     public float bulletSpeedMultiplier;
     public bool coroutineAllowed;
     private float time;
     public bool fightAllowed;
-    public int deathCount;
     public UnityEngine.SceneManagement.Scene currentScene;
 
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject);
+        if (Instance == null)
+        {
+            DontDestroyOnLoad(gameObject);
+            Instance = this;
+        }
+        else
+        {
+            GameObject.Destroy(gameObject);
+        }
     }
 
-    public void LoadData(GameData data)
-    {
-        this.deathCount = data.deathCount;
-    }
-    public void SaveData(ref GameData data)
-    {
-        data.deathCount = this.deathCount;
-    }
+    
 
     private void OnEnable()
     {

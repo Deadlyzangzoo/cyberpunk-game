@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
-public class GameOverController : MonoBehaviour
+public class GameOverController : MonoBehaviour, IDataPersistence
 {
     public static GameOverController Instance
     {
@@ -34,6 +34,7 @@ public class GameOverController : MonoBehaviour
     private bool continueButtonSelected;
     private bool allowSelection;
     private Vector2 lastSelection;
+    public int deathCount;
 
     private void Start()
     {
@@ -91,16 +92,25 @@ public class GameOverController : MonoBehaviour
                 {
                     SceneManager.LoadScene(GameManager.Instance.currentScene.name);
                     GameManager.Instance.fightAllowed = true;
-                    GameManager.Instance.deathCount += 1;
+                    deathCount += 1;
                 }
                 else
                 {
-                    GameManager.Instance.deathCount += 1;
+                    deathCount += 1;
                     DataPersistenceManager.Instance.SaveGame();
                     SceneManager.LoadScene("Assets/Scenes/Main Menu.unity");
                     GameManager.Instance.fightAllowed = true;
                 }
             }
         }
+    }
+    public void LoadData(GameData data)
+    {
+        this.deathCount = data.deathCount;
+    }
+    public void SaveData(ref GameData data)
+    {
+        data.deathCount = this.deathCount;
+        data.sceneThatThePlayerIsOn = "Assets/Scenes/" + GameManager.Instance.currentScene.name + ".unity";
     }
 }
