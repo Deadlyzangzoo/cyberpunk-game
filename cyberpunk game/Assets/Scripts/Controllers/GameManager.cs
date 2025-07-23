@@ -68,7 +68,7 @@ public class GameManager : MonoBehaviour, IDataPersistence
     private void Update()
     {
         time = time + Time.deltaTime;
-        Debug.Log(time);
+        //Debug.Log(time);
         if (coroutineAllowed && bulletSpeedMultiplier > 0.5f)
         {
             StartCoroutine(WaitForBulletSlowDown());

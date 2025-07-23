@@ -1734,7 +1734,7 @@ public class BulletDataStorage {
         bullet.startLocation = new Vector3(4.3f, 0f);
         bullet.bulletNum = 20;
         bullet.timeBetweenBullets = 0.7f;
-        bullet.bulletTimeAlive = 6f;
+        bullet.bulletTimeAlive = 9f;
         bullet.randomSpawnBetween = new Vector2[2]
         {
             new Vector2(4.3f, -2),
