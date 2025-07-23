@@ -24,8 +24,12 @@ public class SwingController : MonoBehaviour
             {
                 TeamBossController.Instance.damage += 1 * (GameManager.Instance.bulletSpeedMultiplier / 0.5f);
             }
-
-                collision.gameObject.SendMessage("Deflect");
+            else if (GameManager.Instance.currentScene.name == "TutorialBoss" && collision.gameObject.name != "fakeN(Clone)" && collision.gameObject.name != "fakeO(Clone)")
+            {
+                TextController.Instance.damage += 1 * (GameManager.Instance.bulletSpeedMultiplier / 0.5f);
+            }
+            
+            collision.gameObject.SendMessage("Deflect");
             GameObject.Destroy(gameObject);
         }
     }

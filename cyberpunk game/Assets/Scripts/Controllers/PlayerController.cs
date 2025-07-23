@@ -147,7 +147,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.layer == 7 || collision.gameObject.layer == 8 && !collision.gameObject.GetComponent<IndividualBullet>().deflected)
+        if (collision.gameObject.layer == 7 || collision.gameObject.layer == 8 && (collision.gameObject.name != "fakeN(Clone)" && collision.gameObject.name != "fakeO(Clone)"))
         {
             if (!invunerable)
             {

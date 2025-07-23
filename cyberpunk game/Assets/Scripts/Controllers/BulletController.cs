@@ -27,7 +27,7 @@ public class BulletController : MonoBehaviour
 
     void Awake()
     {
-        bulletGroupList = new string[76]
+        bulletGroupList = new string[79]
         {
             "EmptyBulletData",
             "TestBullet1",
@@ -105,6 +105,9 @@ public class BulletController : MonoBehaviour
             "BulletSpinnyBallBottom",
             "BulletRandomRightBulletSlow",
             "BulletRandomTopBulletSlow",
+            "BulletRandomRightTutorial",
+            "BulletSingleRightGlitchedTutorial",
+            "BulletRandomRightGlitchedTutorial",
         };
     }
 
@@ -413,8 +416,21 @@ public class BulletController : MonoBehaviour
         {
             newBulletGroup = bulletData.TeamRandomTopBulletSlowData();
         }
+        else if (groupname == bulletGroupList[76])
+        {
+            newBulletGroup = bulletData.TutorialRandomRightBulletData();
+        }
+        else if (groupname == bulletGroupList[77])
+        {
+            newBulletGroup = bulletData.TutorialSingleGlitchedBulletRightData();
+        }
+        else if (groupname == bulletGroupList[78])
+        {
+            newBulletGroup = bulletData.TutorialRandomRightBulletGlitchedData();
+        }
         else
         {
+            Debug.LogError("you set the bullet group name wrong dumbass");
             newBulletGroup = bulletData.EmptyBulletData();
         }
         GameObject bulletSpawner = Instantiate(bulletSpawnerPrefab, transform);
