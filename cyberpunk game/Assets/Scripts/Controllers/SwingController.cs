@@ -8,6 +8,7 @@ public class SwingController : MonoBehaviour
     {
         if (collision.gameObject.layer == 8)
         {
+            PlayerController.Instance.timeSinceLastAttack = 0;
             if (PlayerController.Instance.health < 99)
             {
                 PlayerController.Instance.health += 1;

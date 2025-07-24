@@ -34,6 +34,7 @@ public class PlayerController : MonoBehaviour
     private float invincibilityTime;
     private float swingCooldownTime;
     public float movementSpeed;
+    public float timeSinceLastAttack;
 
     private void Start()
     {
@@ -62,7 +63,11 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-
+        if (timeSinceLastAttack > 3)
+        {
+            timeSinceLastAttack = 0;
+            health--;
+        }
         if (swingAction.WasPressedThisFrame() && transform.childCount==0)
         {
             Vector3 locationToSpawnSwing = transform.position;

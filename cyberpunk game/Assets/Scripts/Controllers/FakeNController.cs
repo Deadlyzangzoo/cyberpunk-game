@@ -14,7 +14,6 @@ public class fakeNController : MonoBehaviour
     private Rigidbody2D rb;
     private void Start()
     {
-        transform.position = new Vector2(-3.633f, 1.2321f);
         rb = GetComponent<Rigidbody2D>();
     }
     public void Deflect()

@@ -13,6 +13,9 @@ public class GameManager : MonoBehaviour
     private float time;
     public bool fightAllowed;
     public UnityEngine.SceneManagement.Scene currentScene;
+    public GameObject squarePrefab;
+    private GameObject instantiatedSquare;
+    private SpriteRenderer squareSpriteRenderer;
 
     private void Awake()
     {
@@ -40,6 +43,10 @@ public class GameManager : MonoBehaviour
     void OnSceneLoaded(UnityEngine.SceneManagement.Scene scene, LoadSceneMode mode)
     {
         currentScene = scene;
+        if (instantiatedSquare != null)
+        {
+            FadeInScene();
+        }
     }
 
 
@@ -63,20 +70,18 @@ public class GameManager : MonoBehaviour
         {
             bulletSpeedMultiplier = 0.5f;
         }
-        if (currentScene.name == "FirewallBoss")
+        if (currentScene.name == "FirewallBoss" && fightAllowed)
         {
             if (PlayerController.Instance.health <= 0 || FirewallBossController.Instance.damage > 250)
             {
                 fightAllowed = false;
-                FirewallBossController.Instance.SendMessage("EndFight");
             }
         }
-        else if (currentScene.name == "TeamBoss")
+        else if (currentScene.name == "TeamBoss" && fightAllowed)
         {
             if (PlayerController.Instance.health <= 0 || TeamBossController.Instance.damage > 250)
             {
                 fightAllowed = false;
-                TeamBossController.Instance.SendMessage("EndFight");
             }
         }
     }
@@ -108,5 +113,52 @@ public class GameManager : MonoBehaviour
             coroutineAllowed = true;
         }
         
+    }
+    private IEnumerator SquareFadeIn(SpriteRenderer squareSpriteRenderer)
+    {
+        if (squareSpriteRenderer != null)
+        {
+            while (squareSpriteRenderer.color.a < 1f)
+            {
+                Color tempColor = squareSpriteRenderer.color;
+                tempColor.a += 0.05f;
+                squareSpriteRenderer.color = tempColor;
+                yield return new WaitForSeconds(0.01f);
+            }
+        }
+        
+    }
+    public void FadeOutScene()
+    {
+        instantiatedSquare = Instantiate(squarePrefab, Vector3.zero, Quaternion.identity);
+        DontDestroyOnLoad(instantiatedSquare);
+        instantiatedSquare.transform.localScale = new Vector3(10f, 5f, 1f);
+        squareSpriteRenderer = instantiatedSquare.GetComponent<SpriteRenderer>();
+        Color tempColor = squareSpriteRenderer.color;
+        tempColor = Color.black;
+        tempColor.a = 0;
+        squareSpriteRenderer.color = tempColor;
+        StartCoroutine(SquareFadeIn(squareSpriteRenderer));
+    }
+    public void FadeInScene()
+    {
+        instantiatedSquare.transform.localScale = new Vector3(10f, 5f, 1f);
+        squareSpriteRenderer = instantiatedSquare.GetComponent<SpriteRenderer>();
+        Color tempColor = squareSpriteRenderer.color;
+        tempColor = Color.black;
+        tempColor.a = 0;
+        squareSpriteRenderer.color = tempColor;
+        StartCoroutine(SquareFadeOut(squareSpriteRenderer));
+    }
+    private IEnumerator SquareFadeOut(SpriteRenderer squareSpriteRenderer)
+    {
+        while (squareSpriteRenderer.color.a > 0f && squareSpriteRenderer != null)
+        {
+            Color tempColor = squareSpriteRenderer.color;
+            tempColor.a -= 0.01f;
+            squareSpriteRenderer.color = tempColor;
+            yield return new WaitForSeconds(0.01f);
+        }
+        GameObject.Destroy(squareSpriteRenderer.gameObject);
     }
 }

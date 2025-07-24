@@ -14,7 +14,6 @@ public class FakeOController : MonoBehaviour
 
     private void Start()
     {
-        transform.position = new Vector2(0.8718f, 1.23226f);
         rb = GetComponent<Rigidbody2D>();
     }
 

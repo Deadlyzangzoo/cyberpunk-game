@@ -6,9 +6,10 @@ public class EnergyBarController : MonoBehaviour
 {
     private SpriteRenderer spriteRenderer;
     private Sprite[] sprites;
-
+    private bool dead;
     private void Start()
     {
+        dead = false;
         spriteRenderer = GetComponent<SpriteRenderer>();
         sprites = new Sprite[21]
         {
@@ -120,6 +121,12 @@ public class EnergyBarController : MonoBehaviour
         else if (PlayerController.Instance.health <= 0)
         {
             spriteRenderer.sprite = sprites[0];
+            if (!dead)
+            {
+                dead = true;
+                GameManager.Instance.SendMessage("FadeOutScene");
+                GameOverController.Instance.SendMessage("StartGameOver");
+            }
         }
     }
 }

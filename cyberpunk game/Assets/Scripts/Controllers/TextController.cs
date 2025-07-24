@@ -36,10 +36,17 @@ public class TextController : MonoBehaviour, IDataPersistence
     private void Start()
     {
         damage = 0;
-        StartCoroutine(startTutorial());
+        if (GameManager.Instance.currentScene.name == "TutorialBoss")
+        {
+            StartCoroutine(StartTutorial());
+        }
+        else if (GameManager.Instance.currentScene.name == "FinalBoss")
+        {
+            StartCoroutine(StartFinalBoss());
+        }
     }
 
-    private IEnumerator startTutorial()
+    private IEnumerator StartTutorial()
     {
         BulletController bulletController = BulletController.Instance;
         CoroutineWithData coroutine = new CoroutineWithData(this, SpawnText(text[0]));
@@ -137,6 +144,76 @@ public class TextController : MonoBehaviour, IDataPersistence
         SceneManager.LoadScene("Assets/Scenes/FirewallBoss.unity");
 
     }
+    private IEnumerator StartFinalBoss()
+    {
+        BulletController bulletController = BulletController.Instance;
+        CoroutineWithData coroutine = new CoroutineWithData(this, SpawnText(text[0]));
+        yield return coroutine.coroutine;
+        //coroutine = new CoroutineWithData(this, SpawnText(text[1]));
+        //yield return coroutine.coroutine;
+        //coroutine = new CoroutineWithData(this, SpawnText(text[2]));
+        //yield return coroutine.coroutine;
+        //coroutine = new CoroutineWithData(this, SpawnText(text[3]));
+        //yield return coroutine.coroutine;
+        //coroutine = new CoroutineWithData(this, SpawnText(text[4]));
+        //yield return coroutine.coroutine;
+        //coroutine = new CoroutineWithData(this, SpawnText(text[5]));
+        //yield return coroutine.coroutine;
+        //coroutine = new CoroutineWithData(this, SpawnText(text[6]));
+        //yield return coroutine.coroutine;
+        //coroutine = new CoroutineWithData(this, SpawnText(text[7]));
+        //yield return coroutine.coroutine;
+        //coroutine = new CoroutineWithData(this, SpawnText(text[8]));
+        //yield return coroutine.coroutine;
+        //coroutine = new CoroutineWithData(this, SpawnText(text[9]));
+        //yield return coroutine.coroutine;
+        //coroutine = new CoroutineWithData(this, SpawnText(text[10]));
+        //yield return coroutine.coroutine;
+        //coroutine = new CoroutineWithData(this, SpawnText(text[11]));
+        //yield return coroutine.coroutine;
+        //coroutine = new CoroutineWithData(this, SpawnText(text[12]));
+        //yield return coroutine.coroutine;
+
+        StartCoroutine(SpawnFakeOAfterFrames(9, new Vector2(-1.950525f, 1.746f)));
+        StartCoroutine(SpawnFakeNAfterFrames(53, new Vector2(-0.175f, 1.2312f)));
+        coroutine = new CoroutineWithData(this, SpawnText(text[13]));
+        yield return coroutine.coroutine;
+        while (!fakeNInPosition || !fakeOInPosition)
+        {
+            yield return new WaitForEndOfFrame();
+        }
+        yield return new WaitForSeconds(2f);
+        coroutine = new CoroutineWithData(this, SpawnText(text[14]));
+        yield return coroutine.coroutine;
+        coroutine = new CoroutineWithData(this, SpawnText(text[15]));
+        yield return coroutine.coroutine;
+        coroutine = new CoroutineWithData(this, SpawnText(text[16]));
+        yield return coroutine.coroutine;
+        coroutine = new CoroutineWithData(this, SpawnText(text[17]));
+        yield return coroutine.coroutine;
+        coroutine = new CoroutineWithData(this, SpawnText(text[18]));
+        yield return coroutine.coroutine;
+        coroutine = new CoroutineWithData(this, SpawnText(text[19]));
+        yield return coroutine.coroutine;
+        coroutine = new CoroutineWithData(this, SpawnText(text[20]));
+        yield return coroutine.coroutine;
+        coroutine = new CoroutineWithData(this, SpawnText(text[21]));
+        yield return coroutine.coroutine;
+        coroutine = new CoroutineWithData(this, SpawnText(text[22]));
+        yield return coroutine.coroutine;
+        coroutine = new CoroutineWithData(this, SpawnText(text[24]));
+        yield return coroutine.coroutine;
+        coroutine = new CoroutineWithData(this, SpawnText(text[25]));
+        yield return coroutine.coroutine;
+        coroutine = new CoroutineWithData(this, SpawnText(text[26]));
+        yield return coroutine.coroutine;
+        coroutine = new CoroutineWithData(this, SpawnText(text[27]));
+        yield return coroutine.coroutine;
+        coroutine = new CoroutineWithData(this, SpawnText(text[28]));
+        yield return coroutine.coroutine;
+        coroutine = new CoroutineWithData(this, SpawnText(text[29]));
+        yield return coroutine.coroutine;
+    }
     private IEnumerator SpawnText(string text)
     {
         tutorialTextUI.text = "";
@@ -176,7 +253,7 @@ public class TextController : MonoBehaviour, IDataPersistence
 
     public void SaveData(ref GameData data)
     {
-        if (GameManager.Instance.currentScene.name == "TutorialBoss")
+        if (GameManager.Instance.currentScene.name == "TutorialBoss" && fakeNInPosition && fakeOInPosition)
         {
             data.sceneThatThePlayerIsOn = "Assets/Scenes/FirewallBoss.unity";
         }

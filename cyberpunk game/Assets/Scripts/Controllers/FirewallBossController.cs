@@ -23,9 +23,6 @@ public class FirewallBossController : MonoBehaviour
 
     public string[] bulletList;
     public float damage;
-    public GameObject squarePrefab;
-    private GameObject instantiatedSquare;
-    private SpriteRenderer squareSpriteRenderer;
 
     private void Start()
     {
@@ -74,32 +71,7 @@ public class FirewallBossController : MonoBehaviour
         StartCoroutine(SpawnBullets());
     }
 
-    public void EndFight()
-    {
-        instantiatedSquare = Instantiate(squarePrefab, Vector3.zero, Quaternion.identity);
-        instantiatedSquare.transform.localScale = new Vector3(10f, 5f, 1f);
-        squareSpriteRenderer = instantiatedSquare.GetComponent<SpriteRenderer>();
-        Color tempColor = squareSpriteRenderer.color;
-        tempColor = Color.black;
-        tempColor.a = 0;
-        squareSpriteRenderer.color = tempColor;
-        StartCoroutine(SquareFadeIn(squareSpriteRenderer));
-        if (PlayerController.Instance.health <= 0)
-        {
-            GameOverController.Instance.SendMessage("StartGameOver");
-        }
-    }
-
-    private IEnumerator SquareFadeIn(SpriteRenderer squareSpriteRenderer)
-    {
-        while (squareSpriteRenderer.color.a < 1f)
-        {
-            Color tempColor = squareSpriteRenderer.color;
-            tempColor.a += 0.01f;
-            squareSpriteRenderer.color = tempColor;
-            yield return new WaitForSeconds(0.01f);
-        }
-    }
+    
 
     private IEnumerator WaitForSecondsWithBulletSpeedUp(float timeWait)
     {
