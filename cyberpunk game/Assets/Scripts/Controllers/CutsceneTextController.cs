@@ -210,9 +210,9 @@ public class CutsceneTextController : MonoBehaviour, IDataPersistence
         for (int index = 0; index < text.Length; index++)
         {
             textBox.text += text[index];
-            yield return new WaitForSeconds(0f);
+            yield return new WaitForSeconds(0.05f);
         }
-        yield return new WaitForSeconds(0f);
+        yield return new WaitForSeconds(2f);
     }
 
     private IEnumerator SquareFadeIn()

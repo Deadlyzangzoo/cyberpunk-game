@@ -73,7 +73,7 @@ public class GameManager : MonoBehaviour
         }
         if (currentScene.name == "FirewallBoss" && fightAllowed)
         {
-            if (PlayerController.Instance.health <= 0 || FirewallBossController.Instance.damage > 1)
+            if (PlayerController.Instance.health <= 0 || FirewallBossController.Instance.damage > 250)
             {
                 fightAllowed = false;
                 FirewallBossController.Instance.EndFight();
@@ -81,7 +81,7 @@ public class GameManager : MonoBehaviour
         }
         else if (currentScene.name == "TeamBoss" && fightAllowed)
         {
-            if (PlayerController.Instance.health <= 0 || TeamBossController.Instance.damage > 1)
+            if (PlayerController.Instance.health <= 0 || TeamBossController.Instance.damage > 200)
             {
                 fightAllowed = false;
                 
