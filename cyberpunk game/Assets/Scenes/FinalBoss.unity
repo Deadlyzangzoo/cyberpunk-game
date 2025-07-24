@@ -426,11 +426,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6017427059068953206, guid: b65ac94886b35344183d65208d3615ac, type: 3}
       propertyPath: text.Array.data[5]
-      value: I was the one that hired you.
+      value: I was the one who hired you.
       objectReference: {fileID: 0}
     - target: {fileID: 6017427059068953206, guid: b65ac94886b35344183d65208d3615ac, type: 3}
       propertyPath: text.Array.data[6]
-      value: Hah, you're probably really angry right now.
+      value: Heheh... you probably want to take me down, right now.
       objectReference: {fileID: 0}
     - target: {fileID: 6017427059068953206, guid: b65ac94886b35344183d65208d3615ac, type: 3}
       propertyPath: text.Array.data[7]
@@ -446,7 +446,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6017427059068953206, guid: b65ac94886b35344183d65208d3615ac, type: 3}
       propertyPath: text.Array.data[10]
-      value: You've only used other people's bullets against them.
+      value: You've only used other people's bullets against themselves. And I refuse
+        to send a single bullet to you.
       objectReference: {fileID: 0}
     - target: {fileID: 6017427059068953206, guid: b65ac94886b35344183d65208d3615ac, type: 3}
       propertyPath: text.Array.data[11]
@@ -454,11 +455,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6017427059068953206, guid: b65ac94886b35344183d65208d3615ac, type: 3}
       propertyPath: text.Array.data[12]
-      value: ...was just stolen from your robot buddy.
+      value: ...was just stolen from your machine "friend".
       objectReference: {fileID: 0}
     - target: {fileID: 6017427059068953206, guid: b65ac94886b35344183d65208d3615ac, type: 3}
       propertyPath: text.Array.data[13]
-      value: Really, y  u're empty inside. Quite like me, to be ho  est.
+      value: Really, y  u're empty inside. Just like me, to be ho  est.
       objectReference: {fileID: 0}
     - target: {fileID: 6017427059068953206, guid: b65ac94886b35344183d65208d3615ac, type: 3}
       propertyPath: text.Array.data[14]
@@ -478,7 +479,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6017427059068953206, guid: b65ac94886b35344183d65208d3615ac, type: 3}
       propertyPath: text.Array.data[18]
-      value: Taking other people's ideas, and manipulating them for your own power...
+      value: Taking other people's hopes, and manipulating them for your own power...
       objectReference: {fileID: 0}
     - target: {fileID: 6017427059068953206, guid: b65ac94886b35344183d65208d3615ac, type: 3}
       propertyPath: text.Array.data[19]
@@ -486,38 +487,38 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6017427059068953206, guid: b65ac94886b35344183d65208d3615ac, type: 3}
       propertyPath: text.Array.data[20]
-      value: But your issue is that you took every dream to heart. Made them your
-        own.
+      value: But your issue is that you took a dream to heart. Made it your own.
       objectReference: {fileID: 0}
     - target: {fileID: 6017427059068953206, guid: b65ac94886b35344183d65208d3615ac, type: 3}
       propertyPath: text.Array.data[21]
-      value: Filling yourself with weakness.
+      value: Filled yourself with weakness.
       objectReference: {fileID: 0}
     - target: {fileID: 6017427059068953206, guid: b65ac94886b35344183d65208d3615ac, type: 3}
       propertyPath: text.Array.data[22]
-      value: If you're gonna take other people's dreams as your own...
+      value: That's why you cannot ever, truly, become strong.
       objectReference: {fileID: 0}
     - target: {fileID: 6017427059068953206, guid: b65ac94886b35344183d65208d3615ac, type: 3}
       propertyPath: text.Array.data[23]
-      value: You should detach yourself first, and exploit them.
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6017427059068953206, guid: b65ac94886b35344183d65208d3615ac, type: 3}
       propertyPath: text.Array.data[24]
-      value: But it seems your time is running out.
+      value: ...now, it seems your time is running out.
       objectReference: {fileID: 0}
     - target: {fileID: 6017427059068953206, guid: b65ac94886b35344183d65208d3615ac, type: 3}
       propertyPath: text.Array.data[25]
-      value: After leaving virtual space, my men will remove your leg...
+      value: After leaving virtual space, my men will detatch your leg and extract
+        the program...
       objectReference: {fileID: 0}
     - target: {fileID: 6017427059068953206, guid: b65ac94886b35344183d65208d3615ac, type: 3}
       propertyPath: text.Array.data[26]
-      value: And use that machine's "dreams" to wipe out the rebels, bringing a new
+      value: And use that thing's "dreams" to wipe out the Rebels, bringing a new
         age.
       objectReference: {fileID: 0}
     - target: {fileID: 6017427059068953206, guid: b65ac94886b35344183d65208d3615ac, type: 3}
       propertyPath: text.Array.data[27]
       value: You can do nothing. There's no happy ending for one who can't dream
-        of that ending themselves.
+        of it themselves.
       objectReference: {fileID: 0}
     - target: {fileID: 6017427059068953206, guid: b65ac94886b35344183d65208d3615ac, type: 3}
       propertyPath: text.Array.data[28]
@@ -525,7 +526,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6017427059068953206, guid: b65ac94886b35344183d65208d3615ac, type: 3}
       propertyPath: text.Array.data[29]
-      value: Goodbye.
+      value: Farewell, Anota.
       objectReference: {fileID: 0}
     - target: {fileID: 6017427059068953206, guid: b65ac94886b35344183d65208d3615ac, type: 3}
       propertyPath: text.Array.data[30]

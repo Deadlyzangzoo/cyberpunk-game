@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class FirewallBossController : MonoBehaviour
+public class FirewallBossController : MonoBehaviour, IDataPersistence
 {
     public static FirewallBossController Instance
     {
@@ -71,6 +72,11 @@ public class FirewallBossController : MonoBehaviour
         StartCoroutine(SpawnBullets());
     }
 
+    public void EndFight()
+    {
+        DataPersistenceManager.Instance.SaveGame();
+        SceneManager.LoadScene("Assets/Scenes/Dialogue One.unity");
+    }
     
 
     private IEnumerator WaitForSecondsWithBulletSpeedUp(float timeWait)
@@ -269,5 +275,17 @@ public class FirewallBossController : MonoBehaviour
         cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(4.5f));
         yield return cd.coroutine;
         bulletController.StartSpawningBulletGroup(bulletList[33]);
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        if (GameManager.Instance.currentScene.name == "FirewallBoss")
+        {
+            data.sceneThatThePlayerIsOn = "Assets/Scenes/Dialogue One.unity";
+        }
+    }
+    public void LoadData(GameData data)
+    {
+
     }
 }

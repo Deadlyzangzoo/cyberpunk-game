@@ -4,22 +4,7 @@ using UnityEngine;
 
 public class BulletController : MonoBehaviour
 {
-    public static BulletController Instance
-    {
-        get
-        {
-            if (_instance == null)
-                _instance = FindObjectOfType(typeof(BulletController)) as BulletController;
-
-            return _instance;
-        }
-        set
-        {
-            _instance = value;
-        }
-    }
-
-    private static BulletController _instance;
+    public static BulletController Instance { get; private set; }
 
     public string[] bulletGroupList;
     public GameObject bulletSpawnerPrefab;
@@ -27,6 +12,10 @@ public class BulletController : MonoBehaviour
 
     void Awake()
     {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
         bulletGroupList = new string[79]
         {
             "EmptyBulletData",

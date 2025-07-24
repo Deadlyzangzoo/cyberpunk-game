@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
-using UnityEngine.SceneManagement;
 
 public class DataPersistenceManager : MonoBehaviour
 {
@@ -48,14 +47,15 @@ public class DataPersistenceManager : MonoBehaviour
         {
             dataPersistenceObj.LoadData(gameData);
         }
-        SceneManager.LoadScene(gameData.sceneThatThePlayerIsOn);
     }
     public void SaveGame()
     {
         foreach (IDataPersistence dataPersistenceObj in dataPersistenceObjects)
         {
+            Debug.Log(dataPersistenceObj);
             dataPersistenceObj.SaveData(ref gameData);
         }
+        Debug.Log(gameData.sceneThatThePlayerIsOn);
         dataHandler.Save(gameData);
     }
 

@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
-public class SelectionController : MonoBehaviour
+public class SelectionController : MonoBehaviour, IDataPersistence
 {
     private InputAction moveAction;
     private InputAction confirmAction;
@@ -13,6 +13,7 @@ public class SelectionController : MonoBehaviour
     private Vector2[] optionLocationsList;
     private int selectedOption;
     private float selectionDirection;
+    private string sceneToLoad;
 
 
     private void Start()
@@ -51,7 +52,15 @@ public class SelectionController : MonoBehaviour
             if (selectedOption == 0)
             {
                 DataPersistenceManager.Instance.LoadGame();
+                SceneManager.LoadScene(sceneToLoad);
             }
         }
+    }
+    public void SaveData(ref GameData data)
+    {
+    }
+    public void LoadData(GameData data)
+    {
+        sceneToLoad = data.sceneThatThePlayerIsOn;
     }
 }

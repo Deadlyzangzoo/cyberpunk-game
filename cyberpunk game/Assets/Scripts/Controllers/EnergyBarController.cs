@@ -125,7 +125,10 @@ public class EnergyBarController : MonoBehaviour
             {
                 dead = true;
                 GameManager.Instance.SendMessage("FadeOutScene");
-                GameOverController.Instance.SendMessage("StartGameOver");
+                if (GameOverController.Instance != null)
+                {
+                    GameOverController.Instance.SendMessage("StartGameOver");
+                }
             }
         }
     }

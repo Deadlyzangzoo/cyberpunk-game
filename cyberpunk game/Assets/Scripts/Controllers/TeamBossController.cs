@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class TeamBossController : MonoBehaviour
+public class TeamBossController : MonoBehaviour, IDataPersistence
 {
     public static TeamBossController Instance
     {
@@ -77,6 +78,12 @@ public class TeamBossController : MonoBehaviour
     {
         StartCoroutine(SpawnBullets());
     }
+    public void EndFight()
+    {
+        DataPersistenceManager.Instance.SaveGame();
+        SceneManager.LoadScene("Assets/Scenes/Dialogue Two.unity");
+    }
+
     private IEnumerator WaitForSecondsWithBulletSpeedUp(float timeWait)
     {
         float timePassed = 0f;
@@ -446,6 +453,18 @@ public class TeamBossController : MonoBehaviour
         CoroutineWithData cd = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(19));
         yield return cd.coroutine;
         bulletController.StartSpawningBulletGroup(bulletList[37]);
+
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        if (GameManager.Instance.currentScene.name == "TeamBoss")
+        {
+            data.sceneThatThePlayerIsOn = "Assets/Scenes/Dialogue Two.unity";
+        }
+    }
+    public void LoadData(GameData data)
+    {
 
     }
 }

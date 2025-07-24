@@ -103,6 +103,7 @@ public class TextController : MonoBehaviour, IDataPersistence
             damage = 0;
             coroutine = new CoroutineWithData(this, SpawnText(text[17]));
             yield return coroutine.coroutine;
+            PlayerController.Instance.health = 100;
             bulletController.StartSpawningBulletGroup("BulletRandomRightGlitchedTutorial");
             coroutine = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(25f));
             yield return coroutine.coroutine;
@@ -149,30 +150,30 @@ public class TextController : MonoBehaviour, IDataPersistence
         BulletController bulletController = BulletController.Instance;
         CoroutineWithData coroutine = new CoroutineWithData(this, SpawnText(text[0]));
         yield return coroutine.coroutine;
-        //coroutine = new CoroutineWithData(this, SpawnText(text[1]));
-        //yield return coroutine.coroutine;
-        //coroutine = new CoroutineWithData(this, SpawnText(text[2]));
-        //yield return coroutine.coroutine;
-        //coroutine = new CoroutineWithData(this, SpawnText(text[3]));
-        //yield return coroutine.coroutine;
-        //coroutine = new CoroutineWithData(this, SpawnText(text[4]));
-        //yield return coroutine.coroutine;
-        //coroutine = new CoroutineWithData(this, SpawnText(text[5]));
-        //yield return coroutine.coroutine;
-        //coroutine = new CoroutineWithData(this, SpawnText(text[6]));
-        //yield return coroutine.coroutine;
-        //coroutine = new CoroutineWithData(this, SpawnText(text[7]));
-        //yield return coroutine.coroutine;
-        //coroutine = new CoroutineWithData(this, SpawnText(text[8]));
-        //yield return coroutine.coroutine;
-        //coroutine = new CoroutineWithData(this, SpawnText(text[9]));
-        //yield return coroutine.coroutine;
-        //coroutine = new CoroutineWithData(this, SpawnText(text[10]));
-        //yield return coroutine.coroutine;
-        //coroutine = new CoroutineWithData(this, SpawnText(text[11]));
-        //yield return coroutine.coroutine;
-        //coroutine = new CoroutineWithData(this, SpawnText(text[12]));
-        //yield return coroutine.coroutine;
+        coroutine = new CoroutineWithData(this, SpawnText(text[1]));
+        yield return coroutine.coroutine;
+        coroutine = new CoroutineWithData(this, SpawnText(text[2]));
+        yield return coroutine.coroutine;
+        coroutine = new CoroutineWithData(this, SpawnText(text[3]));
+        yield return coroutine.coroutine;
+        coroutine = new CoroutineWithData(this, SpawnText(text[4]));
+        yield return coroutine.coroutine;
+        coroutine = new CoroutineWithData(this, SpawnText(text[5]));
+        yield return coroutine.coroutine;
+        coroutine = new CoroutineWithData(this, SpawnText(text[6]));
+        yield return coroutine.coroutine;
+        coroutine = new CoroutineWithData(this, SpawnText(text[7]));
+        yield return coroutine.coroutine;
+        coroutine = new CoroutineWithData(this, SpawnText(text[8]));
+        yield return coroutine.coroutine;
+        coroutine = new CoroutineWithData(this, SpawnText(text[9]));
+        yield return coroutine.coroutine;
+        coroutine = new CoroutineWithData(this, SpawnText(text[10]));
+        yield return coroutine.coroutine;
+        coroutine = new CoroutineWithData(this, SpawnText(text[11]));
+        yield return coroutine.coroutine;
+        coroutine = new CoroutineWithData(this, SpawnText(text[12]));
+        yield return coroutine.coroutine;
 
         StartCoroutine(SpawnFakeOAfterFrames(9, new Vector2(-1.950525f, 1.746f)));
         StartCoroutine(SpawnFakeNAfterFrames(53, new Vector2(-0.175f, 1.2312f)));
@@ -181,8 +182,10 @@ public class TextController : MonoBehaviour, IDataPersistence
         while (!fakeNInPosition || !fakeOInPosition)
         {
             yield return new WaitForEndOfFrame();
+            PlayerController.Instance.health = 62;
         }
         yield return new WaitForSeconds(2f);
+        PlayerController.Instance.health = 47;
         coroutine = new CoroutineWithData(this, SpawnText(text[14]));
         yield return coroutine.coroutine;
         coroutine = new CoroutineWithData(this, SpawnText(text[15]));
@@ -213,6 +216,10 @@ public class TextController : MonoBehaviour, IDataPersistence
         yield return coroutine.coroutine;
         coroutine = new CoroutineWithData(this, SpawnText(text[29]));
         yield return coroutine.coroutine;
+        coroutine = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(3));
+        yield return coroutine.coroutine;
+        DataPersistenceManager.Instance.SaveGame();
+        SceneManager.LoadScene("Assets/Scenes/Credits.unity");
     }
     private IEnumerator SpawnText(string text)
     {
@@ -220,9 +227,9 @@ public class TextController : MonoBehaviour, IDataPersistence
         for (int index = 0; index < text.Length; index++)
         {
             tutorialTextUI.text += text[index];
-            yield return new WaitForSeconds(0.05f);
+            yield return new WaitForSeconds(0f);
         }
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(0);
     }
     public IEnumerator WaitForSecondsWithBulletSpeedUp(float timeWait)
     {
@@ -256,6 +263,10 @@ public class TextController : MonoBehaviour, IDataPersistence
         if (GameManager.Instance.currentScene.name == "TutorialBoss" && fakeNInPosition && fakeOInPosition)
         {
             data.sceneThatThePlayerIsOn = "Assets/Scenes/FirewallBoss.unity";
+        }
+        else if (GameManager.Instance.currentScene.name == "FinalBoss" && fakeNInPosition && fakeOInPosition)
+        {
+            data.sceneThatThePlayerIsOn = "Assets/Scenes/Credits.unity";
         }
     }
     public void LoadData(GameData data)

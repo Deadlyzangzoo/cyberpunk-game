@@ -66,7 +66,7 @@ public class PlayerController : MonoBehaviour
         if (timeSinceLastAttack > 3)
         {
             timeSinceLastAttack = 0;
-            health--;
+            health-=2;
         }
         if (swingAction.WasPressedThisFrame() && transform.childCount==0)
         {
@@ -142,6 +142,7 @@ public class PlayerController : MonoBehaviour
             }
             
         }
+        timeSinceLastAttack += Time.deltaTime;
     }
 
     IEnumerator DeleteSwingAfterSeconds(float seconds, GameObject swing)

@@ -115,7 +115,7 @@ public class BulletSpawnerController : MonoBehaviour
                 instantiatedBullet.SendMessage("SetCurveControlPointTwo", bulletGroup.curveControlPointTwo + spawnLocation);
                 instantiatedBullet.SendMessage("SetCurveEndPoint", bulletGroup.curveEndPoint + spawnLocation);
             }
-                instantiatedBullet.SendMessage("SetMoveDelta", bulletDirection);
+            instantiatedBullet.SendMessage("SetMoveDelta", bulletDirection);
             instantiatedBullet.SendMessage("SetTimeAlive", bulletGroup.bulletTimeAlive);
             instantiatedBullet.SendMessage("SetBulletSolid", bulletGroup.bulletSolid);
             instantiatedBullet.SendMessage("SetBulletGlitched", thisBulletIsGlitched);

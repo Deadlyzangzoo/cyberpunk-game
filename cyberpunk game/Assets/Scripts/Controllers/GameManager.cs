@@ -42,6 +42,7 @@ public class GameManager : MonoBehaviour
     }
     void OnSceneLoaded(UnityEngine.SceneManagement.Scene scene, LoadSceneMode mode)
     {
+        fightAllowed = true;
         currentScene = scene;
         if (instantiatedSquare != null)
         {
@@ -72,16 +73,19 @@ public class GameManager : MonoBehaviour
         }
         if (currentScene.name == "FirewallBoss" && fightAllowed)
         {
-            if (PlayerController.Instance.health <= 0 || FirewallBossController.Instance.damage > 250)
+            if (PlayerController.Instance.health <= 0 || FirewallBossController.Instance.damage > 1)
             {
                 fightAllowed = false;
+                FirewallBossController.Instance.EndFight();
             }
         }
         else if (currentScene.name == "TeamBoss" && fightAllowed)
         {
-            if (PlayerController.Instance.health <= 0 || TeamBossController.Instance.damage > 250)
+            if (PlayerController.Instance.health <= 0 || TeamBossController.Instance.damage > 1)
             {
                 fightAllowed = false;
+                
+                TeamBossController.Instance.EndFight();
             }
         }
     }

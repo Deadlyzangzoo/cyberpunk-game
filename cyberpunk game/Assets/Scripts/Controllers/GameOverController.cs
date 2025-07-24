@@ -35,9 +35,11 @@ public class GameOverController : MonoBehaviour, IDataPersistence
     private bool allowSelection;
     private Vector2 lastSelection;
     public int deathCount;
+    public bool gameOvered;
 
     private void Start()
     {
+        gameOvered = false;
         continueButtonSelected = true;
         spriteRenderer = GetComponent<SpriteRenderer>();
         moveAction = InputSystem.actions.FindAction("Move");
@@ -45,6 +47,7 @@ public class GameOverController : MonoBehaviour, IDataPersistence
     }
     public void StartGameOver()
     {
+        gameOvered = true;
         continueButton = Instantiate(continueButtonPrefab);
         giveUpButton = Instantiate(giveUpButtonPrefab);
         continueButtonSpriteRenderer = continueButton.GetComponent<SpriteRenderer>();
@@ -110,7 +113,10 @@ public class GameOverController : MonoBehaviour, IDataPersistence
     }
     public void SaveData(ref GameData data)
     {
+        if (gameOvered)
+        {
+            data.sceneThatThePlayerIsOn = "Assets/Scenes/" + GameManager.Instance.currentScene.name + ".unity";
+        }
         data.deathCount = this.deathCount;
-        data.sceneThatThePlayerIsOn = "Assets/Scenes/" + GameManager.Instance.currentScene.name + ".unity";
     }
 }
