@@ -34,6 +34,7 @@ public class DataPersistenceManager : MonoBehaviour
     public void NewGame()
     {
         this.gameData= new GameData();
+        dataHandler.Save(gameData);
     }
     public void LoadGame()
     {
@@ -52,10 +53,8 @@ public class DataPersistenceManager : MonoBehaviour
     {
         foreach (IDataPersistence dataPersistenceObj in dataPersistenceObjects)
         {
-            Debug.Log(dataPersistenceObj);
             dataPersistenceObj.SaveData(ref gameData);
         }
-        Debug.Log(gameData.sceneThatThePlayerIsOn);
         dataHandler.Save(gameData);
     }
 

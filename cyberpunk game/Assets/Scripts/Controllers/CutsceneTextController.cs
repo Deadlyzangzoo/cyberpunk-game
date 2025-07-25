@@ -143,6 +143,8 @@ public class CutsceneTextController : MonoBehaviour, IDataPersistence
         yield return coroutine.coroutine;
         coroutine = new CoroutineWithData(this, SpawnText(anotaText[25], anotaTextBox));
         yield return coroutine.coroutine;
+        SquareFadeOutAtStart.Instance.FadeIn();
+        yield return new WaitForSeconds(1);
         DataPersistenceManager.Instance.SaveGame();
         SceneManager.LoadScene("Assets/Scenes/TeamBoss.unity");
     }
@@ -190,6 +192,8 @@ public class CutsceneTextController : MonoBehaviour, IDataPersistence
         yield return coroutine.coroutine;
         coroutine = new CoroutineWithData(this, SpawnText(otherText[4], otherTextBox));
         yield return coroutine.coroutine;
+        SquareFadeOutAtStart.Instance.FadeIn();
+        yield return new WaitForSeconds(1);
         DataPersistenceManager.Instance.SaveGame();
         SceneManager.LoadScene("Assets/Scenes/FinalBoss.unity");
 

@@ -10,7 +10,6 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
     public float bulletSpeedMultiplier;
     public bool coroutineAllowed;
-    private float time;
     public bool fightAllowed;
     public UnityEngine.SceneManagement.Scene currentScene;
     public GameObject squarePrefab;
@@ -60,8 +59,6 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        time = time + Time.deltaTime;
-        //Debug.Log(time);
         if (coroutineAllowed && bulletSpeedMultiplier > 0.5f)
         {
             StartCoroutine(WaitForBulletSlowDown());

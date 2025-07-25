@@ -74,10 +74,17 @@ public class FirewallBossController : MonoBehaviour, IDataPersistence
 
     public void EndFight()
     {
+        StartCoroutine(EndFightCoroutine());
+    }
+    private IEnumerator EndFightCoroutine()
+    {
+
+        SquareFadeOutAtStart.Instance.FadeIn();
+        yield return new WaitForSeconds(1);
         DataPersistenceManager.Instance.SaveGame();
         SceneManager.LoadScene("Assets/Scenes/Dialogue One.unity");
     }
-    
+
 
     private IEnumerator WaitForSecondsWithBulletSpeedUp(float timeWait)
     {

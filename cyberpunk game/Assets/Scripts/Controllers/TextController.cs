@@ -141,6 +141,8 @@ public class TextController : MonoBehaviour, IDataPersistence
         yield return coroutine.coroutine;
         coroutine = new CoroutineWithData(this, SpawnText(text[29]));
         yield return coroutine.coroutine;
+        SquareFadeOutAtStart.Instance.FadeIn();
+        yield return new WaitForSeconds(1);
         DataPersistenceManager.Instance.SaveGame();
         SceneManager.LoadScene("Assets/Scenes/FirewallBoss.unity");
 
@@ -215,8 +217,6 @@ public class TextController : MonoBehaviour, IDataPersistence
         coroutine = new CoroutineWithData(this, SpawnText(text[28]));
         yield return coroutine.coroutine;
         coroutine = new CoroutineWithData(this, SpawnText(text[29]));
-        yield return coroutine.coroutine;
-        coroutine = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(3));
         yield return coroutine.coroutine;
         DataPersistenceManager.Instance.SaveGame();
         SceneManager.LoadScene("Assets/Scenes/Credits.unity");

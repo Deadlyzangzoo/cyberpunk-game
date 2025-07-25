@@ -28,7 +28,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.8, z: 0}
-  m_LocalScale: {x: 1, y: 0.5, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 1500462217
   m_SortingLayer: 1
   m_SortingOrder: 1
-  m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f77e111d4c09cd540aea1197d03742dd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
@@ -99,3 +99,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   continueButtonPrefab: {fileID: 2778662225930041443, guid: c9a39bb9e59c66042909d37d67b31953, type: 3}
   giveUpButtonPrefab: {fileID: 7600076940508798545, guid: c0066c9378128464998292cc91e2b4df, type: 3}
+  deathCount: 0
+  gameOvered: 0
