@@ -35,10 +35,11 @@ public class PlayerController : MonoBehaviour
     private float swingCooldownTime;
     public float movementSpeed;
     public float timeSinceLastAttack;
-
+    public Animator playerAnimator;
+    public AudioSource audioSource;
     private void Start()
     {
-        swingCooldownTime = 0.3f;
+        swingCooldownTime = 0.5f;
         invincibilityTime = 1.5f;
         invunerable = false;
         health = 100;
@@ -56,9 +57,23 @@ public class PlayerController : MonoBehaviour
         moveDelta = moveAction.ReadValue<Vector2>();
         if (moveDelta.x != 0 || moveDelta.y != 0)
         {
+            playerAnimator.SetBool("moving", true);
             lastDirection = moveDelta;
         }
-        rigidBody.MovePosition(rigidBody.position + moveDelta * Time.deltaTime * movementSpeed);
+        else
+        {
+            playerAnimator.SetBool("moving",false);
+
+        }
+            rigidBody.MovePosition(rigidBody.position + moveDelta * Time.deltaTime * movementSpeed);
+        if (lastDirection.x < 0)
+        {
+            playerAnimator.SetBool("flipped", false);
+        }
+        else if (lastDirection.x > 0)
+        {
+            playerAnimator.SetBool("flipped", true);
+        }
     }
 
     private void Update()
@@ -76,55 +91,57 @@ public class PlayerController : MonoBehaviour
             if (lastDirection.x>0 && lastDirection.y == 0)
             {
                 locationToSpawnSwing.x += 0.3f;
-                rotationAngle = -90;
+                rotationAngle = -180;
             }
             //left
             else if (lastDirection.x < 0 && lastDirection.y == 0)
             {
                 locationToSpawnSwing.x -= 0.3f;
-                rotationAngle = 90;
+                rotationAngle = 0;
             }
             //up
             else if (lastDirection.x == 0 && lastDirection.y > 0)
             {
+                rotationAngle = -90;
                 locationToSpawnSwing.y += 0.3f;
             }
             //down
             else if (lastDirection.x == 0 && lastDirection.y < 0)
             {
                 locationToSpawnSwing.y -= 0.3f;
-                rotationAngle = 180;
+                rotationAngle = 90;
             }
             //upright
             if (lastDirection.x > 0 && lastDirection.y > 0)
             {
                 locationToSpawnSwing.x += 0.213f;
                 locationToSpawnSwing.y += 0.213f;
-                rotationAngle = -45;
+                rotationAngle = -135;
             }
             //downright
             if (lastDirection.x > 0 && lastDirection.y < 0)
             {
                 locationToSpawnSwing.x += 0.213f;
                 locationToSpawnSwing.y -= 0.213f;
-                rotationAngle = -135;
+                rotationAngle = 135;
             }
             //upleft
             if (lastDirection.x < 0 && lastDirection.y > 0)
             {
                 locationToSpawnSwing.x -= 0.213f;
                 locationToSpawnSwing.y += 0.213f;
-                rotationAngle = 45;
+                rotationAngle = -45;
             }
             //downleft
             if (lastDirection.x < 0 && lastDirection.y < 0)
             {
                 locationToSpawnSwing.x -= 0.213f;
                 locationToSpawnSwing.y -= 0.213f;
-                rotationAngle = 135;
+                rotationAngle = 45;
             }
 
             GameObject swing = Instantiate(swingPrefab, locationToSpawnSwing, transform.localRotation, transform);
+            playerAnimator.SetBool("swinging", true);
             swing.transform.Rotate(0, 0, rotationAngle);
             StartCoroutine(DeleteSwingAfterSeconds(swingCooldownTime, swing));
             if (GameManager.Instance.bulletSpeedMultiplier < 1f)
@@ -149,6 +166,7 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(seconds);
         Destroy(swing);
+        playerAnimator.SetBool("swinging", false);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -166,6 +184,7 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator GotHit()
     {
+        audioSource.Play();
         invunerable = true;
         health -=20;
         CoroutineWithData cd = new CoroutineWithData(this, WaitForSecondsWithData(invincibilityTime));

@@ -142,10 +142,6 @@ public class IndividualBullet : MonoBehaviour
         lerp = 0;
         rigidBody = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        if (isThisBulletGlitched)
-        {
-            spriteRenderer.color = Color.red;
-        }
         if (bulletSolid)
         {
             gameObject.layer = 3;

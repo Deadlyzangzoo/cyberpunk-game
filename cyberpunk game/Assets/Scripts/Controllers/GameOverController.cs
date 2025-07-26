@@ -36,6 +36,7 @@ public class GameOverController : MonoBehaviour, IDataPersistence
     private Vector2 lastSelection;
     public int deathCount;
     public bool gameOvered;
+    public AudioSource audioSource;
 
     private void Start()
     {
@@ -47,6 +48,7 @@ public class GameOverController : MonoBehaviour, IDataPersistence
     }
     public void StartGameOver()
     {
+        audioSource.Play();
         gameOvered = true;
         continueButton = Instantiate(continueButtonPrefab);
         giveUpButton = Instantiate(giveUpButtonPrefab);

@@ -240,6 +240,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7eb39fe904ad8ab48a5d30f63cb3cbe0, type: 3}
+--- !u!1001 &832502567
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3392599125117501862, guid: b120747f032da794c889fe0a22de12d3, type: 3}
+      propertyPath: m_Name
+      value: bg
+      objectReference: {fileID: 0}
+    - target: {fileID: 7679977491809390219, guid: b120747f032da794c889fe0a22de12d3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7679977491809390219, guid: b120747f032da794c889fe0a22de12d3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7679977491809390219, guid: b120747f032da794c889fe0a22de12d3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7679977491809390219, guid: b120747f032da794c889fe0a22de12d3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7679977491809390219, guid: b120747f032da794c889fe0a22de12d3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7679977491809390219, guid: b120747f032da794c889fe0a22de12d3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7679977491809390219, guid: b120747f032da794c889fe0a22de12d3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7679977491809390219, guid: b120747f032da794c889fe0a22de12d3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7679977491809390219, guid: b120747f032da794c889fe0a22de12d3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7679977491809390219, guid: b120747f032da794c889fe0a22de12d3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b120747f032da794c889fe0a22de12d3, type: 3}
 --- !u!1001 &991359250
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -593,8 +650,34 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2179838855672679621, guid: b75ac907412a1f147b416a9fa317b3d3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1661488467}
   m_SourcePrefab: {fileID: 100100000, guid: b75ac907412a1f147b416a9fa317b3d3, type: 3}
+--- !u!1 &1661488465 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2179838855672679621, guid: b75ac907412a1f147b416a9fa317b3d3, type: 3}
+  m_PrefabInstance: {fileID: 1661488464}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1661488466 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6350601484569452866, guid: b75ac907412a1f147b416a9fa317b3d3, type: 3}
+  m_PrefabInstance: {fileID: 1661488464}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1661488467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1661488465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cf16eb48bffe3f4db73ee8360b767b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 1661488466}
 --- !u!1001 &1845747180
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -817,7 +900,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -926,3 +1009,4 @@ SceneRoots:
   - {fileID: 1192059875}
   - {fileID: 821715358}
   - {fileID: 2067652872}
+  - {fileID: 832502567}

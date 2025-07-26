@@ -183,6 +183,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 422180130abb1554e8405422a0299000, type: 3}
+--- !u!1001 &279576827
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3392599125117501862, guid: b120747f032da794c889fe0a22de12d3, type: 3}
+      propertyPath: m_Name
+      value: bg
+      objectReference: {fileID: 0}
+    - target: {fileID: 7679977491809390219, guid: b120747f032da794c889fe0a22de12d3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7679977491809390219, guid: b120747f032da794c889fe0a22de12d3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7679977491809390219, guid: b120747f032da794c889fe0a22de12d3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7679977491809390219, guid: b120747f032da794c889fe0a22de12d3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7679977491809390219, guid: b120747f032da794c889fe0a22de12d3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7679977491809390219, guid: b120747f032da794c889fe0a22de12d3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7679977491809390219, guid: b120747f032da794c889fe0a22de12d3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7679977491809390219, guid: b120747f032da794c889fe0a22de12d3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7679977491809390219, guid: b120747f032da794c889fe0a22de12d3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7679977491809390219, guid: b120747f032da794c889fe0a22de12d3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b120747f032da794c889fe0a22de12d3, type: 3}
 --- !u!1 &351524375
 GameObject:
   m_ObjectHideFlags: 0
@@ -214,7 +271,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -550,7 +607,7 @@ MonoBehaviour:
     Rebel attackers!
   - I'm going with you, to chase this dream you have.
   - And you CAN'T make me change my mind, so don't try it!
-  - Anota. What about you?
+  - Savi. What about you?
   - ...
   - Know what? We'll name you after leaving the City, as a symbol of being free.
   - Hey, if there's an enemy, we'll just have to defeat them, right? HEY! YOU GUYS!
@@ -560,8 +617,8 @@ MonoBehaviour:
   - I'm inside your prosthetic leg. Are you here to let me out?
   - Ah, I'm rather shy, you see. Can we please go to a different section of cyberspace?
     I'm dying to be let out.
-  - I'm not sure. It's probably the influence of you letting me out of my confined
-    Server.
+  - Your appearance was an unexpected variable. It gave me room to hope, and thus
+    room to make choices.
   - I must thank you for that.
   - Well, I was developed by the rebels to take down the [Corporation]. You probably
     went through the same training I did.
@@ -804,8 +861,34 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2179838855672679621, guid: b75ac907412a1f147b416a9fa317b3d3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8766028534877059356}
   m_SourcePrefab: {fileID: 100100000, guid: b75ac907412a1f147b416a9fa317b3d3, type: 3}
+--- !u!1 &8766028534877059354 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2179838855672679621, guid: b75ac907412a1f147b416a9fa317b3d3, type: 3}
+  m_PrefabInstance: {fileID: 8766028534877059353}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &8766028534877059355 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6350601484569452866, guid: b75ac907412a1f147b416a9fa317b3d3, type: 3}
+  m_PrefabInstance: {fileID: 8766028534877059353}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8766028534877059356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8766028534877059354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cf16eb48bffe3f4db73ee8360b767b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 8766028534877059355}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -818,3 +901,4 @@ SceneRoots:
   - {fileID: 8766028534877059353}
   - {fileID: 1584152318}
   - {fileID: 351524377}
+  - {fileID: 279576827}

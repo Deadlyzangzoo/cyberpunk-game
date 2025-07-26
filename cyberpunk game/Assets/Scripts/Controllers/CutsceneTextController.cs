@@ -70,6 +70,7 @@ public class CutsceneTextController : MonoBehaviour, IDataPersistence
         yield return coroutine.coroutine;
         coroutine = new CoroutineWithData(this, SpawnText(anotaText[6], anotaTextBox));
         yield return coroutine.coroutine;
+        AnotaCutsceneController.Instance.RunRight();
         coroutine = new CoroutineWithData(this, SpawnText(anotaText[7], anotaTextBox));
         yield return coroutine.coroutine;
         coroutine = new CoroutineWithData(this, SpawnText(aiText[5], aiTextBox));
@@ -162,6 +163,7 @@ public class CutsceneTextController : MonoBehaviour, IDataPersistence
         yield return coroutine.coroutine;
         coroutine = new CoroutineWithData(this, SpawnText(anotaText[2], anotaTextBox));
         yield return coroutine.coroutine;
+        AnotaCutsceneController.Instance.RunLeft();
         coroutine = new CoroutineWithData(this, SpawnText("", otherTextBox));
         yield return coroutine.coroutine;
         coroutine = new CoroutineWithData(this, SpawnText(aiText[0], aiTextBox));
@@ -188,6 +190,7 @@ public class CutsceneTextController : MonoBehaviour, IDataPersistence
         yield return coroutine.coroutine;
         coroutine = new CoroutineWithData(this, SpawnText(otherText[3], otherTextBox));
         yield return coroutine.coroutine;
+        AnotaCutsceneController.Instance.IdleLeft();
         coroutine = new CoroutineWithData(this, SpawnText(anotaText[7], anotaTextBox));
         yield return coroutine.coroutine;
         coroutine = new CoroutineWithData(this, SpawnText(otherText[4], otherTextBox));
