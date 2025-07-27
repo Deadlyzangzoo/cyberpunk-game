@@ -533,7 +533,7 @@ MonoBehaviour:
   text:
   - welcome to the hacking training centre.
   - please prepare for combat.
-  - first, dodge these bullets.
+  - first, dodge these bullets. (move with arrow keys.)
   - adequate.
   - good.
   - those bullets you dodged are programs. avoiding them will be essential to your
@@ -554,13 +554,13 @@ MonoBehaviour:
   - good.
   - please keep in mind that, without attacking bullets, you will slowly run out
     of energy.
-  - upon running out of energy, you will be kicked out of virtual space.
+  - upon running out of energy, you will be kicked out of cyberspace.
   - attacking bullets will refill your energy.
   - make sure to keep your energy as high as you can.
   - now, you are ready to go and              i  filtrate the [corp  ration].
   - ...
-  - ...no? ...how do you have free will?
-  - you are not programmed to have free will. all of your code denies it.
+  - ...no? ...how do you have the capacity to choose that?
+  - you should not be able to dream a different future.
   - ...unless...
   - you are not the intended recipient of this training.
   - repelling infiltrator... activating firewall...

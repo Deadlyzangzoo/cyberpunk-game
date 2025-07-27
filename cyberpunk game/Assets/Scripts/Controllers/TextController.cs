@@ -66,7 +66,10 @@ public class TextController : MonoBehaviour, IDataPersistence
         {
             coroutine = new CoroutineWithData(this, SpawnText(text[3]));
             yield return coroutine.coroutine;
-            PlayerController.Instance.health = 100;
+            if (GameManager.Instance.fightAllowed)
+            {
+                PlayerController.Instance.health = 100;
+            }
         }
         coroutine = new CoroutineWithData(this, SpawnText(text[5]));
         yield return coroutine.coroutine;
@@ -103,7 +106,10 @@ public class TextController : MonoBehaviour, IDataPersistence
             damage = 0;
             coroutine = new CoroutineWithData(this, SpawnText(text[17]));
             yield return coroutine.coroutine;
-            PlayerController.Instance.health = 100;
+            if (GameManager.Instance.fightAllowed)
+            {
+                PlayerController.Instance.health = 100;
+            }
             bulletController.StartSpawningBulletGroup("BulletRandomRightGlitchedTutorial");
             coroutine = new CoroutineWithData(this, WaitForSecondsWithBulletSpeedUp(25f));
             yield return coroutine.coroutine;
@@ -256,6 +262,13 @@ public class TextController : MonoBehaviour, IDataPersistence
             yield return new WaitForSeconds(0.05f);
         }
         Instantiate(fakeOPrefab, location, Quaternion.identity);
+    }
+    private void Update()
+    {
+        if (GameManager.Instance.currentScene.name == "TutorialBoss" && PlayerController.Instance.health <= 0)
+        {
+            SquareFadeOutAtStart.Instance.FadeIn();
+        }
     }
 
     public void SaveData(ref GameData data)

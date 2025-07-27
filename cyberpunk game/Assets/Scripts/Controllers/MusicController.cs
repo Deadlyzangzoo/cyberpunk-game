@@ -12,6 +12,7 @@ public class MusicController : MonoBehaviour
         if (!stoppedPlaying && !GameManager.Instance.fightAllowed)
         {
             audioSource.Stop();
+            stoppedPlaying = true;
         }
     }
 }

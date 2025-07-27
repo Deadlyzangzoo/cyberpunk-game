@@ -1,7 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -43,10 +40,6 @@ public class GameManager : MonoBehaviour
     {
         fightAllowed = true;
         currentScene = scene;
-        if (instantiatedSquare != null)
-        {
-            FadeInScene();
-        }
     }
 
 
@@ -67,6 +60,13 @@ public class GameManager : MonoBehaviour
         else if (bulletSpeedMultiplier < 0.5f)
         {
             bulletSpeedMultiplier = 0.5f;
+        }
+        if (currentScene.name == "TutorialBoss" && fightAllowed)
+        {
+            if (PlayerController.Instance.health <= 0)
+            {
+                fightAllowed = false;
+            }
         }
         if (currentScene.name == "FirewallBoss" && fightAllowed)
         {
@@ -114,52 +114,5 @@ public class GameManager : MonoBehaviour
             coroutineAllowed = true;
         }
         
-    }
-    private IEnumerator SquareFadeIn(SpriteRenderer squareSpriteRenderer)
-    {
-        if (squareSpriteRenderer != null)
-        {
-            while (squareSpriteRenderer.color.a < 1f)
-            {
-                Color tempColor = squareSpriteRenderer.color;
-                tempColor.a += 0.05f;
-                squareSpriteRenderer.color = tempColor;
-                yield return new WaitForSeconds(0.01f);
-            }
-        }
-        
-    }
-    public void FadeOutScene()
-    {
-        instantiatedSquare = Instantiate(squarePrefab, Vector3.zero, Quaternion.identity);
-        DontDestroyOnLoad(instantiatedSquare);
-        instantiatedSquare.transform.localScale = new Vector3(10f, 5f, 1f);
-        squareSpriteRenderer = instantiatedSquare.GetComponent<SpriteRenderer>();
-        Color tempColor = squareSpriteRenderer.color;
-        tempColor = Color.black;
-        tempColor.a = 0;
-        squareSpriteRenderer.color = tempColor;
-        StartCoroutine(SquareFadeIn(squareSpriteRenderer));
-    }
-    public void FadeInScene()
-    {
-        instantiatedSquare.transform.localScale = new Vector3(10f, 5f, 1f);
-        squareSpriteRenderer = instantiatedSquare.GetComponent<SpriteRenderer>();
-        Color tempColor = squareSpriteRenderer.color;
-        tempColor = Color.black;
-        tempColor.a = 0;
-        squareSpriteRenderer.color = tempColor;
-        StartCoroutine(SquareFadeOut(squareSpriteRenderer));
-    }
-    private IEnumerator SquareFadeOut(SpriteRenderer squareSpriteRenderer)
-    {
-        while (squareSpriteRenderer.color.a > 0f && squareSpriteRenderer != null)
-        {
-            Color tempColor = squareSpriteRenderer.color;
-            tempColor.a -= 0.01f;
-            squareSpriteRenderer.color = tempColor;
-            yield return new WaitForSeconds(0.01f);
-        }
-        GameObject.Destroy(squareSpriteRenderer.gameObject);
     }
 }

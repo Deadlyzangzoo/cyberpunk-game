@@ -84,11 +84,13 @@ public class TeamBossController : MonoBehaviour, IDataPersistence
     }
     private IEnumerator EndFightCoroutine()
     {
-
         SquareFadeOutAtStart.Instance.FadeIn();
         yield return new WaitForSeconds(1);
         DataPersistenceManager.Instance.SaveGame();
-        SceneManager.LoadScene("Assets/Scenes/Dialogue Two.unity");
+        if (PlayerController.Instance.health > 0)
+        {
+            SceneManager.LoadScene("Assets/Scenes/Dialogue Two.unity");
+        }
     }
 
     private IEnumerator WaitForSecondsWithBulletSpeedUp(float timeWait)
@@ -465,7 +467,7 @@ public class TeamBossController : MonoBehaviour, IDataPersistence
 
     public void SaveData(ref GameData data)
     {
-        if (GameManager.Instance.currentScene.name == "TeamBoss")
+        if (GameManager.Instance.currentScene.name == "TeamBoss" && PlayerController.Instance.health > 0)
         {
             data.sceneThatThePlayerIsOn = "Assets/Scenes/Dialogue Two.unity";
         }

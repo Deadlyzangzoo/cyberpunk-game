@@ -37,6 +37,7 @@ public class PlayerController : MonoBehaviour
     public float timeSinceLastAttack;
     public Animator playerAnimator;
     public AudioSource audioSource;
+    public AudioSource swingAudio;
     private void Start()
     {
         swingCooldownTime = 0.5f;
@@ -78,13 +79,14 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if (timeSinceLastAttack > 3)
+        if (timeSinceLastAttack > 3 && GameManager.Instance.fightAllowed)
         {
             timeSinceLastAttack = 0;
             health-=2;
         }
         if (swingAction.WasPressedThisFrame() && transform.childCount==0)
         {
+            swingAudio.Play();
             Vector3 locationToSpawnSwing = transform.position;
             int rotationAngle = 0;
             //right

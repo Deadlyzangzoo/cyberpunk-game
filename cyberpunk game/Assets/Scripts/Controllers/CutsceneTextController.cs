@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -31,6 +32,8 @@ public class CutsceneTextController : MonoBehaviour, IDataPersistence
     public GameObject squarePrefab;
     private GameObject instantiatedSquare;
     private SpriteRenderer squareSpriteRenderer;
+    public AudioSource saviAudio;
+    public AudioSource aiAudio;
 
     private void Start()
     {
@@ -61,6 +64,8 @@ public class CutsceneTextController : MonoBehaviour, IDataPersistence
         coroutine = new CoroutineWithData(this, SpawnText(aiText[2], aiTextBox));
         yield return coroutine.coroutine;
         coroutine = new CoroutineWithData(this, SpawnText(anotaText[4], anotaTextBox));
+        GameObject anotaCutscene = AnotaCutsceneController.Instance.GameObject();
+        anotaCutscene.SendMessage("RunRight");
         yield return coroutine.coroutine;
         coroutine = new CoroutineWithData(this, SpawnText(anotaText[5], anotaTextBox));
         yield return coroutine.coroutine;
@@ -70,7 +75,6 @@ public class CutsceneTextController : MonoBehaviour, IDataPersistence
         yield return coroutine.coroutine;
         coroutine = new CoroutineWithData(this, SpawnText(anotaText[6], anotaTextBox));
         yield return coroutine.coroutine;
-        AnotaCutsceneController.Instance.RunRight();
         coroutine = new CoroutineWithData(this, SpawnText(anotaText[7], anotaTextBox));
         yield return coroutine.coroutine;
         coroutine = new CoroutineWithData(this, SpawnText(aiText[5], aiTextBox));
@@ -163,7 +167,8 @@ public class CutsceneTextController : MonoBehaviour, IDataPersistence
         yield return coroutine.coroutine;
         coroutine = new CoroutineWithData(this, SpawnText(anotaText[2], anotaTextBox));
         yield return coroutine.coroutine;
-        AnotaCutsceneController.Instance.RunLeft();
+        GameObject anotaCutscene = AnotaCutsceneController.Instance.GameObject();
+        anotaCutscene.SendMessage("RunLeft");
         coroutine = new CoroutineWithData(this, SpawnText("", otherTextBox));
         yield return coroutine.coroutine;
         coroutine = new CoroutineWithData(this, SpawnText(aiText[0], aiTextBox));
@@ -190,7 +195,7 @@ public class CutsceneTextController : MonoBehaviour, IDataPersistence
         yield return coroutine.coroutine;
         coroutine = new CoroutineWithData(this, SpawnText(otherText[3], otherTextBox));
         yield return coroutine.coroutine;
-        AnotaCutsceneController.Instance.IdleLeft();
+        anotaCutscene.SendMessage("IdleLeft");
         coroutine = new CoroutineWithData(this, SpawnText(anotaText[7], anotaTextBox));
         yield return coroutine.coroutine;
         coroutine = new CoroutineWithData(this, SpawnText(otherText[4], otherTextBox));
@@ -213,9 +218,17 @@ public class CutsceneTextController : MonoBehaviour, IDataPersistence
     }
     private IEnumerator SpawnText(string text, TMP_Text textBox)
     {
-        textBox.text = "";
+            textBox.text = "";
         for (int index = 0; index < text.Length; index++)
         {
+            if (textBox.name == "anotaText (TMP)")
+            {
+                saviAudio.Play();
+            }
+            else if (textBox.name == "aiText (TMP)")
+            {
+                aiAudio.Play();
+            }
             textBox.text += text[index];
             yield return new WaitForSeconds(0.05f);
         }
