@@ -130,6 +130,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 520796350802836307, guid: 422180130abb1554e8405422a0299000, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 4.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2227715879806505905, guid: 422180130abb1554e8405422a0299000, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 8.6
+      objectReference: {fileID: 0}
     - target: {fileID: 2227715879806505905, guid: 422180130abb1554e8405422a0299000, type: 3}
       propertyPath: m_LocalPosition.y
       value: 2.15
@@ -178,6 +186,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boundary
       objectReference: {fileID: 0}
+    - target: {fileID: 5861422245625409935, guid: 422180130abb1554e8405422a0299000, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 4.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7662560191517881518, guid: 422180130abb1554e8405422a0299000, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 8.6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -194,6 +210,14 @@ PrefabInstance:
     - target: {fileID: 923021292108047349, guid: 7eb39fe904ad8ab48a5d30f63cb3cbe0, type: 3}
       propertyPath: m_Name
       value: Square
+      objectReference: {fileID: 0}
+    - target: {fileID: 956721467686531809, guid: 7eb39fe904ad8ab48a5d30f63cb3cbe0, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 8.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 956721467686531809, guid: 7eb39fe904ad8ab48a5d30f63cb3cbe0, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 4.3
       objectReference: {fileID: 0}
     - target: {fileID: 956721467686531809, guid: 7eb39fe904ad8ab48a5d30f63cb3cbe0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -615,9 +639,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3668289402350835475, guid: bc17d18b837d9244c81b848418b2e8df, type: 3}
+      propertyPath: m_RefResolutionX
+      value: 860
+      objectReference: {fileID: 0}
+    - target: {fileID: 3668289402350835475, guid: bc17d18b837d9244c81b848418b2e8df, type: 3}
+      propertyPath: m_RefResolutionY
+      value: 450
+      objectReference: {fileID: 0}
     - target: {fileID: 6235763936533662013, guid: bc17d18b837d9244c81b848418b2e8df, type: 3}
       propertyPath: m_Name
       value: Main Camera
+      objectReference: {fileID: 0}
+    - target: {fileID: 8214011956429470073, guid: bc17d18b837d9244c81b848418b2e8df, type: 3}
+      propertyPath: orthographic size
+      value: 1.6666666
       objectReference: {fileID: 0}
     - target: {fileID: 8448998647852197116, guid: bc17d18b837d9244c81b848418b2e8df, type: 3}
       propertyPath: m_LocalPosition.x

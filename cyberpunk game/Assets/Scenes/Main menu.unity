@@ -984,9 +984,41 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3668289402350835475, guid: bc17d18b837d9244c81b848418b2e8df, type: 3}
+      propertyPath: m_AssetsPPU
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3668289402350835475, guid: bc17d18b837d9244c81b848418b2e8df, type: 3}
+      propertyPath: m_UpscaleRT
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3668289402350835475, guid: bc17d18b837d9244c81b848418b2e8df, type: 3}
+      propertyPath: m_RefResolutionX
+      value: 860
+      objectReference: {fileID: 0}
+    - target: {fileID: 3668289402350835475, guid: bc17d18b837d9244c81b848418b2e8df, type: 3}
+      propertyPath: m_RefResolutionY
+      value: 430
+      objectReference: {fileID: 0}
     - target: {fileID: 6235763936533662013, guid: bc17d18b837d9244c81b848418b2e8df, type: 3}
       propertyPath: m_Name
       value: Main Camera
+      objectReference: {fileID: 0}
+    - target: {fileID: 8214011956429470073, guid: bc17d18b837d9244c81b848418b2e8df, type: 3}
+      propertyPath: orthographic size
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8214011956429470073, guid: bc17d18b837d9244c81b848418b2e8df, type: 3}
+      propertyPath: m_AllowDynamicResolution
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8214011956429470073, guid: bc17d18b837d9244c81b848418b2e8df, type: 3}
+      propertyPath: m_NormalizedViewPortRect.width
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8214011956429470073, guid: bc17d18b837d9244c81b848418b2e8df, type: 3}
+      propertyPath: m_NormalizedViewPortRect.height
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8448998647852197116, guid: bc17d18b837d9244c81b848418b2e8df, type: 3}
       propertyPath: m_LocalPosition.x
